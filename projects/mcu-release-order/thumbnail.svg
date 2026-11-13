@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <filter id="glow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="#EEF1F5"/>
+
+  <!-- title -->
+  <g font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" fill="#18202E">
+    <text x="100" y="380" font-size="180" letter-spacing="-2">The MCU</text>
+    <text x="100" y="520" font-size="112" font-style="italic" fill="#576377">in release order</text>
+  </g>
+  <rect x="104" y="590" width="250" height="6" rx="3" fill="#18202E"/>
+
+  <g transform="translate(90 0)">
+  <!-- timeline spine -->
+  <rect x="1043" y="0" width="6" height="900" fill="#D3D9E3"/>
+
+  <!-- rows: dot + card with colored left border -->
+  <g>
+    <circle cx="1046" cy="110" r="20" fill="#4338CA" stroke="#EEF1F5" stroke-width="6"/>
+    <rect x="1090" y="70" width="400" height="110" rx="12" fill="#FFFFFF" stroke="#D3D9E3" stroke-width="3"/>
+    <rect x="1090" y="70" width="12" height="110" rx="4" fill="#4338CA"/>
+    <rect x="1130" y="100" width="260" height="20" rx="10" fill="#18202E" opacity=".85"/>
+    <rect x="1130" y="138" width="180" height="14" rx="7" fill="#576377" opacity=".5"/>
+  </g>
+  <g>
+    <circle cx="1046" cy="290" r="20" fill="#0F766E" stroke="#EEF1F5" stroke-width="6"/>
+    <rect x="1090" y="250" width="400" height="110" rx="12" fill="#FFFFFF" stroke="#D3D9E3" stroke-width="3"/>
+    <rect x="1090" y="250" width="12" height="110" rx="4" fill="#0F766E"/>
+    <rect x="1130" y="280" width="300" height="20" rx="10" fill="#18202E" opacity=".85"/>
+    <rect x="1130" y="318" width="210" height="14" rx="7" fill="#576377" opacity=".5"/>
+  </g>
+  <g>
+    <circle cx="1046" cy="470" r="20" fill="#4338CA" stroke="#EEF1F5" stroke-width="6"/>
+    <rect x="1090" y="430" width="400" height="110" rx="12" fill="#1F9D55" opacity=".55" filter="url(#glow)"/>
+    <rect x="1090" y="430" width="400" height="110" rx="12" fill="#FFFFFF" stroke="#1F9D55" stroke-width="4"/>
+    <rect x="1090" y="430" width="12" height="110" rx="4" fill="#4338CA"/>
+    <rect x="1130" y="460" width="230" height="20" rx="10" fill="#18202E" opacity=".85"/>
+    <rect x="1130" y="496" width="120" height="26" rx="13" fill="#1F9D55"/>
+  </g>
+  <g>
+    <circle cx="1046" cy="650" r="20" fill="#B45309" stroke="#EEF1F5" stroke-width="6"/>
+    <rect x="1090" y="610" width="400" height="110" rx="12" fill="#FFFFFF" stroke="#D3D9E3" stroke-width="3"/>
+    <rect x="1090" y="610" width="12" height="110" rx="4" fill="#B45309"/>
+    <rect x="1130" y="640" width="240" height="20" rx="10" fill="#18202E" opacity=".85"/>
+    <rect x="1130" y="678" width="170" height="14" rx="7" fill="#576377" opacity=".5"/>
+  </g>
+  <g>
+    <circle cx="1046" cy="830" r="20" fill="#BE185D" stroke="#EEF1F5" stroke-width="6"/>
+    <rect x="1090" y="790" width="400" height="110" rx="12" fill="#FFFFFF" stroke="#D3D9E3" stroke-width="3"/>
+    <rect x="1090" y="790" width="12" height="110" rx="4" fill="#BE185D"/>
+    <rect x="1130" y="820" width="280" height="20" rx="10" fill="#18202E" opacity=".85"/>
+  </g>
+  </g>
+</svg>
