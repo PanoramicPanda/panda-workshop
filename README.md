@@ -332,8 +332,8 @@ A WoW Forever hunter pet guide for every family: which pets to tame and where, f
 - **Live:** <https://panoramicpanda.me/projects/hunter-pet-guide/>
 - **Source:** [`projects/hunter-pet-guide/`](projects/hunter-pet-guide/)
 - **Category:** Gaming
-- **Type:** Static HTML
-- **Tags:** `WoW`, `Hunter`, `Pets`, `Guide`, `WoW Forever`
+- **Type:** Built app (Vite + React)
+- **Tags:** `WoW`, `Hunter`, `Pets`, `Guide`, `WoW Forever`, `React`
 
 ### MCU Release Order Chart
 
