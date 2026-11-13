@@ -18,10 +18,24 @@ test('degree, neighbors and hubs are consistent', () => {
   const s = state();
   const g = buildGraph(visible(s), currentList(catalog, s));
   for (const n of g.nodes) {
-    assert.equal(n.degree, g.edges.filter((e) => e.source === n.id || e.target === n.id).length, n.id);
+    const story = g.edges.filter((e) => e.rel !== 'sequel' && (e.source === n.id || e.target === n.id));
+    assert.equal(n.degree, story.length, n.id);
     assert.equal(n.hub, n.degree >= HUB_DEGREE);
   }
   assert.ok(g.neighbors.get('nwh').has('ds'));
+});
+
+test('sequel edges appear by default and drop out when switched off', () => {
+  const titles = visible(state());
+  const on = buildGraph(titles, null);
+  const off = buildGraph(titles, null, { sequels: false });
+  assert.ok(on.edges.some((e) => e.id === 'im1>im2' && e.rel === 'sequel'));
+  assert.ok(!off.edges.some((e) => e.rel === 'sequel'));
+  assert.deepEqual(
+    on.nodes.map((n) => n.degree),
+    off.nodes.map((n) => n.degree),
+    'sequels do not change node size',
+  );
 });
 
 test('watchlist flags members and the target', () => {

@@ -21,6 +21,7 @@ const FIELDS = {
   showAdjacent: { key: 'adj', enc: (v) => (v ? '1' : '0'), dec: (v) => v === '1' },
   hideSpoilers: { key: 'spoilers', enc: (v) => (v ? '0' : '1'), dec: (v) => v !== '1' },
   showLinks: { key: 'links', enc: (v) => (v ? '1' : '0'), dec: (v) => v === '1' },
+  showSequels: { key: 'seq', enc: (v) => (v ? '1' : '0'), dec: (v) => v === '1' },
 };
 
 const same = (a, b) => (Array.isArray(a) ? a.join() === b.join() : a === b);

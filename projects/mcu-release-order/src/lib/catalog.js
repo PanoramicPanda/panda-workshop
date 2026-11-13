@@ -12,6 +12,7 @@ export function buildCatalog({ titles: rawTitles, phases, watchlists }) {
     .map((t) => ({ ...t, links: t.links ?? [], incoming: [] }))
     .sort((a, b) => a.phase - b.phase || startKey(a) - startKey(b));
   const byId = Object.fromEntries(titles.map((t) => [t.id, t]));
+  addSequelLinks(titles);
   for (const t of titles) {
     for (const link of t.links) {
       if (byId[link.to]) byId[link.to].incoming.push({ to: t.id, rel: link.rel, text: link.text });
@@ -25,6 +26,29 @@ export function buildCatalog({ titles: rawTitles, phases, watchlists }) {
     phases,
     watchlists: watchlists.map((w) => ({ ...w, memberSet: new Set(w.members) })),
   };
+}
+
+export const seriesOf = (title) => (title.series == null ? [] : [].concat(title.series));
+
+/**
+ * Titles sharing a `series` are chained in release order with generated `sequel` links
+ * (each entry → the next). A pair that already has a hand-written link keeps that one instead.
+ * Expects `titles` already sorted by release.
+ */
+export function addSequelLinks(titles) {
+  const linked = new Set();
+  for (const t of titles) for (const l of t.links) linked.add([t.id, l.to].sort().join('|'));
+  const chains = new Map();
+  for (const t of titles) for (const s of seriesOf(t)) chains.set(s, [...(chains.get(s) ?? []), t]);
+  for (const chain of chains.values()) {
+    for (let i = 0; i + 1 < chain.length; i++) {
+      const [a, b] = [chain[i], chain[i + 1]];
+      const key = [a.id, b.id].sort().join('|');
+      if (linked.has(key)) continue;
+      linked.add(key);
+      a.links.push({ to: b.id, rel: 'sequel', text: '' });
+    }
+  }
 }
 
 export const displayName = (title) => title.shortTitle || title.title;
@@ -44,10 +68,15 @@ export function stats(titles) {
   };
 }
 
-/** All connections of a title, incoming first ("Set up by"/"Ties to"), then outgoing. */
+const IN_LABELS = { sets: 'Set up by', ties: 'Ties to', sequel: 'Follows' };
+const OUT_LABELS = { sets: 'Sets up', ties: 'Ties to', sequel: 'Continues in' };
+
+/** All connections of a title: "Follows", then incoming, outgoing, and "Continues in" last. */
 export function connections(title) {
-  return [
-    ...title.incoming.map((l) => ({ ...l, label: l.rel === 'ties' ? 'Ties to' : 'Set up by' })),
-    ...title.links.map((l) => ({ ...l, label: l.rel === 'ties' ? 'Ties to' : 'Sets up' })),
+  const all = [
+    ...title.incoming.map((l) => ({ ...l, label: IN_LABELS[l.rel] })),
+    ...title.links.map((l) => ({ ...l, label: OUT_LABELS[l.rel] })),
   ];
+  const rank = (c) => (c.label === 'Follows' ? 0 : c.label === 'Continues in' ? 2 : 1);
+  return all.sort((a, b) => rank(a) - rank(b));
 }

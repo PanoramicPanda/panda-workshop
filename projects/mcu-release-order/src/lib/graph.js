@@ -10,20 +10,25 @@ export const nodeRadius = (degree) => 5 + Math.sqrt(degree) * 2.6;
 /**
  * Nodes are the given (already filtered) titles; edges are the connections whose
  * both ends are visible. `rank` is release order, used by the timeline layout.
+ * Generated sequel edges are included unless `sequels` is false, but don't count toward
+ * `degree` (node size and hubs reflect story connections, not franchise order).
  */
-export function buildGraph(titles, list) {
+export function buildGraph(titles, list, { sequels = true } = {}) {
   const ids = new Set(titles.map((t) => t.id));
   const edges = [];
   for (const t of titles) {
     for (const l of t.links) {
-      if (ids.has(l.to)) edges.push({ id: `${t.id}>${l.to}`, source: t.id, target: l.to, rel: l.rel, text: l.text });
+      if (!ids.has(l.to) || (l.rel === 'sequel' && !sequels)) continue;
+      edges.push({ id: `${t.id}>${l.to}`, source: t.id, target: l.to, rel: l.rel, text: l.text });
     }
   }
   const degree = new Map(titles.map((t) => [t.id, 0]));
   const neighbors = new Map(titles.map((t) => [t.id, new Set()]));
   for (const e of edges) {
-    degree.set(e.source, degree.get(e.source) + 1);
-    degree.set(e.target, degree.get(e.target) + 1);
+    if (e.rel !== 'sequel') {
+      degree.set(e.source, degree.get(e.source) + 1);
+      degree.set(e.target, degree.get(e.target) + 1);
+    }
     neighbors.get(e.source).add(e.target);
     neighbors.get(e.target).add(e.source);
   }

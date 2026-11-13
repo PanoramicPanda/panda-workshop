@@ -10,6 +10,7 @@ export const DEFAULT_STATE = {
   q: '',
   hideSpoilers: true,
   showLinks: true,
+  showSequels: true, // generated links between entries of the same series
   showAdjacent: false,
   list: 'doomsday', // selected watchlist id
   listOnly: false,
@@ -21,9 +22,14 @@ export const currentList = (catalog, state) => catalog.watchlists.find((w) => w.
 /** Member of the list, or the title the list builds toward. */
 export const inList = (title, list) => !!list && (list.memberSet.has(title.id) || list.target === title.id);
 
-/** Connections a reader can see: links to MCU Adjacent titles hide while that switch is off. */
+/**
+ * Connections a reader can see: links to MCU Adjacent titles hide while that switch is off,
+ * and generated sequel links hide while "Sequel links" is off.
+ */
 export function visibleConnections(title, state, catalog) {
-  return connections(title).filter((c) => state.showAdjacent || !catalog.byId[c.to]?.adjacent);
+  return connections(title).filter(
+    (c) => (state.showAdjacent || !catalog.byId[c.to]?.adjacent) && (state.showSequels || c.rel !== 'sequel'),
+  );
 }
 
 /** Everything a reader can read on a title's card, lowercased, for search. Hidden spoilers don't match. */
@@ -41,7 +47,8 @@ export function searchText(title, state, catalog) {
     visibleNote(title.note, state.hideSpoilers),
   ];
   for (const c of visibleConnections(title, state, catalog)) {
-    parts.push(c.label, displayName(catalog.byId[c.to]), state.hideSpoilers ? 'redacted' : c.text);
+    parts.push(c.label, displayName(catalog.byId[c.to]));
+    if (c.text) parts.push(state.hideSpoilers ? 'redacted' : c.text);
   }
   return parts.filter(Boolean).join(' ').toLowerCase();
 }

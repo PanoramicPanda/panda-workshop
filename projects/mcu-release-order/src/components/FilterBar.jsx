@@ -60,6 +60,7 @@ function activeFilters(state, list, phases) {
   if (state.showAdjacent) chips.push({ key: 'adj', text: 'MCU Adjacent', reset: { showAdjacent: false } });
   if (!state.hideSpoilers) chips.push({ key: 'spoil', text: 'Spoilers revealed', reset: { hideSpoilers: true } });
   if (!state.showLinks) chips.push({ key: 'links', text: 'Connections hidden', reset: { showLinks: true } });
+  if (!state.showSequels) chips.push({ key: 'seq', text: 'Sequel links hidden', reset: { showSequels: true } });
   return chips;
 }
 
@@ -180,6 +181,12 @@ export default function FilterBar({ state, set, shown, list, watchlists, phases 
             label="Connections"
             hint={graph ? 'Always on in the graph' : 'What each title sets up or pays off'}
             disabled={graph}
+          />
+          <Switch
+            checked={state.showSequels}
+            onChange={(showSequels) => set({ showSequels })}
+            label="Sequel links"
+            hint="Each entry linked to the next in its series"
           />
           <Switch
             checked={!state.hideSpoilers}

@@ -27,12 +27,12 @@ export default function TitleCard({ title, state, catalog, list, onGo, headingLe
       {conns.length > 0 && (
         <ul className="links">
           {conns.map((c) => (
-            <li key={c.label + c.to}>
+            <li key={c.label + c.to} className={c.rel === 'sequel' ? 'seq' : undefined}>
               <span className="rel">{c.label}</span>
               <button type="button" className="ref" onClick={() => onGo(c.to)}>
                 {displayName(catalog.byId[c.to])}
               </button>
-              <Redacted text={c.text} hidden={state.hideSpoilers} />
+              {c.text && <Redacted text={c.text} hidden={state.hideSpoilers} />}
             </li>
           ))}
         </ul>

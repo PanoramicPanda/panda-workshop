@@ -14,9 +14,10 @@ export function validate({ titles, phases, watchlists }) {
   const KINDS = ['film', 'series', 'special', 'short'];
   const RELS = ['sets', 'ties'];
   const TITLE_KEYS = new Set(['id', 'phase', 'work', 'title', 'season', 'kind', 'date', 'sortKey', 'releaseNote', 'episodes',
-    'shortTitle', 'adjacent', 'split', 'live', 'soon', 'after', 'note', 'links', 'leadIns']);
+    'shortTitle', 'adjacent', 'split', 'live', 'soon', 'after', 'note', 'links', 'leadIns', 'series']);
   const phaseIds = new Set(phases.map((p) => p.id));
   const ids = new Set();
+  const seriesCount = {};
 
   for (const t of titles) {
     const where = `titles.json "${t.id ?? t.title ?? '?'}"`;
@@ -30,6 +31,16 @@ export function validate({ titles, phases, watchlists }) {
     if (!t.after && !phaseIds.has(t.phase)) problems.push(`${where}: phase ${t.phase} is not in phases.json.`);
     if (typeof t.date !== 'string' || Number.isNaN(startKey(t))) problems.push(`${where}: date "${t.date}" can't be parsed (use "Mon D, YYYY" or add a numeric "sortKey").`);
     if ((t.note.match(/\{\{/g) || []).length !== (t.note.match(/\}\}/g) || []).length) problems.push(`${where}: unbalanced {{spoiler}} markers in note.`);
+    if (t.series != null) {
+      const list = [].concat(t.series);
+      if (!list.length || !list.every((s) => typeof s === 'string' && /^[a-z0-9-]+$/.test(s))) {
+        problems.push(`${where}: "series" must be a lowercase-hyphenated name, or a list of them.`);
+      }
+      for (const s of list) (seriesCount[s] ??= []).push(t.id);
+    }
+  }
+  for (const [s, members] of Object.entries(seriesCount)) {
+    if (members.length < 2) problems.push(`titles.json series "${s}" has only one title (${members[0]}); a series needs at least two to link.`);
   }
 
   const pairs = new Set();
@@ -38,7 +49,7 @@ export function validate({ titles, phases, watchlists }) {
       const where = `titles.json "${t.id}" → "${l.to}"`;
       if (!ids.has(l.to)) problems.push(`${where}: link target doesn't exist.`);
       if (l.to === t.id) problems.push(`${where}: links to itself.`);
-      if (!RELS.includes(l.rel)) problems.push(`${where}: rel "${l.rel}" must be "sets" or "ties".`);
+      if (!RELS.includes(l.rel)) problems.push(`${where}: rel "${l.rel}" must be "sets" or "ties" (sequel links are generated from "series").`);
       if (!l.text) problems.push(`${where}: missing link text.`);
       const key = [t.id, l.to].sort().join('|');
       if (pairs.has(key)) problems.push(`${where}: this pair is already linked (write each connection once; the other side is generated).`);

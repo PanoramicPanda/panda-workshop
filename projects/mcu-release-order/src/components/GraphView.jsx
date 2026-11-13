@@ -8,7 +8,7 @@ const ZOOM_LABELS_AT = 1.5; // show every label once zoomed in this far
 
 /** Connections as a node graph. Shows the same filtered titles as the timeline. */
 export default function GraphView({ titles, state, set, catalog, list, onShowInTimeline, onSelect }) {
-  const graph = useMemo(() => buildGraph(titles, list), [titles, list]);
+  const graph = useMemo(() => buildGraph(titles, list, { sequels: state.showSequels }), [titles, list, state.showSequels]);
 
   // Lay out synchronously; keep positions of titles that stay on screen when filters change.
   const svgRef = useRef(null);
@@ -110,6 +110,12 @@ export default function GraphView({ titles, state, set, catalog, list, onShowInT
           sets up
           <svg width="34" height="10" aria-hidden="true"><line x1="2" y1="5" x2="32" y2="5" className="gk ties" /></svg>
           ties to
+          {state.showSequels && (
+            <>
+              <svg width="34" height="10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" className="gk sequel" /><path d="M26,1 L33,5 L26,9z" className="gk-arrow" /></svg>
+              continues in
+            </>
+          )}
         </span>
         <span className="ghint">Drag to pan, scroll or pinch to zoom, tap a title for details.</span>
       </div>
@@ -124,10 +130,10 @@ export default function GraphView({ titles, state, set, catalog, list, onShowInT
         }}
       >
         <defs>
-          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" className="arrowhead" />
           </marker>
-          <marker id="arrow-lit" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <marker id="arrow-lit" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" className="arrowhead lit" />
           </marker>
         </defs>
@@ -140,7 +146,8 @@ export default function GraphView({ titles, state, set, catalog, list, onShowInT
               const dx = b.x - a.x;
               const dy = b.y - a.y;
               const len = Math.hypot(dx, dy) || 1;
-              const cut = e.rel === 'sets' ? tr + 3 : tr;
+              const arrowed = e.rel !== 'ties';
+              const cut = arrowed ? tr + 3 : tr;
               const isLit = lit && (e.source === focusId || e.target === focusId);
               return (
                 <line
@@ -150,7 +157,7 @@ export default function GraphView({ titles, state, set, catalog, list, onShowInT
                   y1={a.y}
                   x2={b.x - (dx / len) * cut}
                   y2={b.y - (dy / len) * cut}
-                  markerEnd={e.rel === 'sets' ? `url(#${isLit ? 'arrow-lit' : 'arrow'})` : undefined}
+                  markerEnd={arrowed ? `url(#${isLit ? 'arrow-lit' : 'arrow'})` : undefined}
                 />
               );
             })}

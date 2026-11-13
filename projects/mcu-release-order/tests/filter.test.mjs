@@ -51,6 +51,27 @@ test('search ignores hidden spoilers but finds them once revealed', () => {
   assert.ok(searchText(im1, state({ hideSpoilers: false }), catalog).includes('avengers initiative'));
 });
 
+test('series entries are chained with sequel links in release order', () => {
+  const labels = (id, s = state()) => visibleConnections(catalog.byId[id], s, catalog).map((c) => `${c.label} ${c.to}`);
+  assert.ok(labels('im1').includes('Continues in im2'));
+  assert.ok(labels('im2').includes('Follows im1'));
+  assert.ok(labels('im2').includes('Continues in im3'));
+  assert.equal(labels('im2')[0], 'Follows im1', '"Follows" is listed first');
+  assert.ok(labels('eg').includes('Continues in doom'), 'chains into the film after the chart');
+  // A pair with a hand-written link keeps it instead of getting a duplicate sequel link.
+  const capLinks = catalog.byId.cap1.links.filter((l) => l.to === 'cap2');
+  assert.deepEqual(capLinks.map((l) => l.rel), ['sets']);
+  // Deadpool & Wolverine sits in two series and follows both.
+  assert.ok(catalog.byId.dpool2.links.some((l) => l.to === 'dp'));
+  assert.ok(catalog.byId.fx9.links.some((l) => l.to === 'dp'));
+});
+
+test('Sequel links switch hides only generated links', () => {
+  const conns = visibleConnections(catalog.byId.im2, state({ showSequels: false }), catalog);
+  assert.ok(!conns.some((c) => c.rel === 'sequel'));
+  assert.ok(conns.some((c) => c.to === 'thor'), 'hand-written link stays');
+});
+
 test('connections to adjacent titles hide while the switch is off', () => {
   const nwh = catalog.byId.nwh;
   assert.ok(!visibleConnections(nwh, state(), catalog).some((c) => c.to === 'sp1'));

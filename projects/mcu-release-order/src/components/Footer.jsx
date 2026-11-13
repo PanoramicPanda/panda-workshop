@@ -22,7 +22,9 @@ export default function Footer() {
       </p>
       <p>
         Connections list what each title sets up or pays off. They are limited to links that are confirmed in the stories
-        themselves or stated by Marvel, and the pairs are written once and shown from both sides.
+        themselves or stated by Marvel, and the pairs are written once and shown from both sides. Sequel links (“Follows”
+        and “Continues in”) simply chain each entry of a series to the next one, like Iron Man to Iron Man 2, and can be
+        switched off under Filters.
       </p>
     </footer>
   );

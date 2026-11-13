@@ -21,7 +21,7 @@ test('validation catches a broken link, a bad date and an unknown watchlist memb
 
 test('URL hash round-trips and writes only non-defaults', () => {
   assert.equal(encodeState(state()), '');
-  const s = state({ view: 'graph', layout: 'free', sel: 'nwh', kind: 'film', phases: [4, 5], list: 'endgame', listOnly: true, glow: false, showAdjacent: true, hideSpoilers: false, showLinks: false, q: 'loki' });
+  const s = state({ view: 'graph', layout: 'free', sel: 'nwh', kind: 'film', phases: [4, 5], list: 'endgame', listOnly: true, glow: false, showAdjacent: true, hideSpoilers: false, showLinks: false, showSequels: false, q: 'loki' });
   assert.deepEqual(decodeState('#' + encodeState(s), catalog), s);
 });
 

@@ -78,6 +78,8 @@ button.ref:hover{background:var(--flash)}
 .row.hidden,.phase.hidden{display:none}
 
 ul.links.empty{display:none}
+ul.links li.seq .rel{font-weight:500}
+ul.links li.seq button.ref{border-bottom-style:dotted}
 .row.adj .card{border-style:dashed;border-left-style:solid}
 .row.adj .spine::after{background:var(--bg);border:3px solid var(--c)}
 .chip.adjchip{border-style:dashed}
@@ -181,6 +183,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .gkey svg{vertical-align:middle}
 .gk{stroke:var(--muted);stroke-width:1.5}
 .gk.ties{stroke-dasharray:4 3}
+.gk.sequel{stroke-dasharray:0.1 4;stroke-linecap:round;stroke-width:2.4}
 .gk-arrow{fill:var(--muted)}
 .ghint{margin-left:auto}
 .gsvg{display:block;width:100%;height:min(78vh,860px);min-height:420px;background:var(--surface);border:1px solid var(--line);border-radius:8px;cursor:grab;touch-action:none;user-select:none}
@@ -189,10 +192,11 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 
 .gedge{stroke:var(--muted);stroke-opacity:.45;stroke-width:1.2;fill:none}
 .gedge.ties{stroke-dasharray:5 4}
+.gedge.sequel{stroke-dasharray:0.1 5;stroke-linecap:round;stroke-width:2.4;stroke-opacity:.6}
 .arrowhead{fill:var(--muted);fill-opacity:.7}
 .arrowhead.lit{fill:var(--ink);fill-opacity:1}
-.graph.focused .gedge{stroke-opacity:.08}
-.graph.focused .gedge.lit{stroke:var(--ink);stroke-opacity:.9;stroke-width:1.8}
+.graph.focused .gedge{opacity:.12}
+.graph.focused .gedge.lit{opacity:1;stroke:var(--ink);stroke-opacity:.9}
 
 .gnode{--c:var(--film);cursor:pointer;outline:none}
 .gnode[data-k="series"]{--c:var(--series)}
