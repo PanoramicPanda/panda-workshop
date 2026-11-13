@@ -98,6 +98,8 @@ ul.links.empty{display:none}
 .chip.adjchip{border-style:dashed}
 .row.dw .card{box-shadow:0 0 0 1px var(--dw),0 0 16px -2px var(--dw)}
 .chip.dwchip{background:var(--dw);border-color:var(--dw);color:var(--dwink);font-weight:600}
+body.nodwglow .row.dw .card{box-shadow:none}
+body.nodwglow .chip.dwchip,body.nodwglow .legend .dwleg{display:none}
 
 .after{margin-top:56px;padding:18px 20px;border:1px dashed var(--muted);border-radius:6px;color:var(--muted)}
 .after h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin:0 0 6px;color:var(--ink)}
@@ -129,7 +131,7 @@ footer p{margin:0 0 10px}
       <span><i style="background:var(--special)"></i>Special</span>
       <span><i style="background:var(--short)"></i>Shorts</span>
       <span><i class="hollow"></i>Hollow dot and dashed card: MCU Adjacent, hidden until you switch it on</span>
-      <span><i style="background:var(--dw)"></i>Green glow: on Disney+’s official Doomsday watchlist</span>
+      <span class="dwleg"><i style="background:var(--dw)"></i>Green glow: on Disney+’s official Doomsday watchlist</span>
     </div>
   </header>
 
@@ -142,7 +144,8 @@ footer p{margin:0 0 10px}
     <button class="f" id="toggleLinks" aria-pressed="true">Connections on</button>
     <button class="f" id="toggleSpoilers" aria-pressed="true" title="Hide what each connection actually sets up">Spoilers hidden</button>
     <button class="f" id="toggleAdj" aria-pressed="false" title="Show Fox X-Men, other Spider-Men, Netflix shows and more">MCU Adjacent off</button>
-    <button class="f" id="toggleDw" aria-pressed="false" title="Show only the titles on Disney+’s official Countdown to Avengers: Doomsday list">Doomsday list only</button>
+    <button class="f" id="toggleDwGlow" aria-pressed="true" title="Highlight the titles on Disney+’s official Countdown to Avengers: Doomsday list">Doomsday glow on</button>
+    <button class="f" id="toggleDw"aria-pressed="false" title="Show only the titles on Disney+’s official Countdown to Avengers: Doomsday list">Doomsday list only</button>
     <span class="count" id="count"></span>
   </div>
 
@@ -502,6 +505,13 @@ tdw.addEventListener("click",()=>{
   dwOnly = !dwOnly;
   tdw.setAttribute("aria-pressed", String(dwOnly));
   apply();
+});
+const tg = document.getElementById("toggleDwGlow");
+tg.addEventListener("click",()=>{
+  const on = tg.getAttribute("aria-pressed")==="true";
+  tg.setAttribute("aria-pressed", on?"false":"true");
+  tg.textContent = on ? "Doomsday glow off" : "Doomsday glow on";
+  document.body.classList.toggle("nodwglow", on);
 });
 apply();
 </script>
