@@ -142,6 +142,11 @@
     "note": "Introduces Thaddeus Ross, Emil Blonsky and Samuel Sterns. {{Tony Stark appears in the final scene.}}",
     "links": [
       {
+        "to": "av1",
+        "rel": "sets",
+        "text": "Tony’s final-scene talk of a team being put together leads here, and Bruce Banner joins it."
+      },
+      {
         "to": "cabnd",
         "rel": "sets",
         "text": "Sterns’s tease pays off 17 years later as the Leader, and Ross becomes Red Hulk."
@@ -178,6 +183,11 @@
     "date": "May 7, 2010",
     "note": "Introduces Black Widow and gives Rhodey the War Machine armor. Post-credits scene: {{Coulson finds a crater in New Mexico.}}",
     "links": [
+      {
+        "to": "av1",
+        "rel": "sets",
+        "text": "Natasha Romanoff joins the team, and Fury brings Tony on as a consultant for the Avengers Initiative."
+      },
       {
         "to": "thor",
         "rel": "sets",
@@ -257,6 +267,11 @@
     "date": "Jul 22, 2011",
     "note": "Steve Rogers, Bucky, Peggy Carter, the Red Skull and Hydra in the 1940s.",
     "links": [
+      {
+        "to": "av1",
+        "rel": "sets",
+        "text": "Steve wakes up in the present, ready for Fury’s team, and the Tesseract Hydra used becomes Loki’s prize."
+      },
       {
         "to": "cap2",
         "rel": "sets",
