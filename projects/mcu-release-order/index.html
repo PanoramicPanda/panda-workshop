@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The MCU in release order: Iron Man to VisionQuest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --bar:#EEF1F5; --ink:#18202E; --muted:#576377; --line:#D3D9E3;
+  --film:#4338CA; --series:#0F766E; --special:#B45309; --short:#BE185D;
+  --flash:#FDE68A; --dw:#1F9D55; --dwink:#FFFFFF;
+  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans:"Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1420; --surface:#171D2B; --bar:#0F1420; --ink:#E7EBF3; --muted:#9AA6BA; --line:#2A3246;
+    --film:#9CA3FF; --series:#4FD1C0; --special:#F2B552; --short:#F472B6; --flash:#4A3F12; --dw:#4ADE80; --dwink:#0F1420;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1420; --surface:#171D2B; --bar:#0F1420; --ink:#E7EBF3; --muted:#9AA6BA; --line:#2A3246;
+  --film:#9CA3FF; --series:#4FD1C0; --special:#F2B552; --short:#F472B6; --flash:#4A3F12; --dw:#4ADE80; --dwink:#0F1420;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bar);z-index:10}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px 64px}
+
+header.top{padding:48px 0 24px}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;margin:0 0 14px;letter-spacing:-0.01em}
+header.top p{margin:0;max-width:62ch;color:var(--muted);font-size:1.02rem}
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:.92rem}
+.stats span b{font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:.88rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.legend .hollow{background:transparent!important;border:2px solid var(--muted)}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bar);border-bottom:1px solid var(--line);padding:10px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar button.f{font:inherit;font-size:.88rem;padding:6px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;cursor:pointer}
+.bar button.f[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bar input[type=search]{font:inherit;font-size:.9rem;flex:1 1 180px;min-width:150px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink)}
+.bar .count{font-size:.85rem;color:var(--muted);margin-left:auto}
+button:focus-visible,input:focus-visible{outline:2px solid var(--film);outline-offset:2px}
+
+.phase{margin-top:44px}
+.phase h2{font-family:var(--serif);font-weight:400;font-size:2rem;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.phase h2 small{font-family:var(--sans);font-size:.85rem;color:var(--muted);font-weight:400}
+
+.row{--c:var(--film);display:grid;grid-template-columns:118px 22px 1fr;gap:0 14px;padding:18px 0 4px;position:relative}
+.row[data-k="series"]{--c:var(--series)}
+.row[data-k="special"]{--c:var(--special)}
+.row[data-k="short"]{--c:var(--short)}
+.date{font-size:.86rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:6px;text-align:right}
+.spine{position:relative}
+.spine::before{content:"";position:absolute;left:50%;top:0;bottom:-4px;width:2px;margin-left:-1px;background:var(--line)}
+.spine::after{content:"";position:absolute;left:50%;top:10px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--c);border:2px solid var(--bg)}
+.row.split .spine::after{background:var(--bg);border:3px solid var(--c)}
+.row.split .spine::before{background:repeating-linear-gradient(to bottom,var(--c) 0 6px,transparent 6px 11px)}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:6px;padding:14px 18px 14px;margin-bottom:10px}
+.card h3{font-family:var(--serif);font-weight:400;font-size:1.65rem;line-height:1.1;margin:0 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.chip{font-size:.78rem;padding:2px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.chip.kind{border-color:var(--c);color:var(--c);font-weight:600}
+.chip.live{background:var(--series);border-color:var(--series);color:var(--surface);font-weight:600}
+.chip.soon{border-style:dashed}
+.pause{font-size:.86rem;color:var(--muted);font-style:italic;margin:0 0 8px}
+.note{margin:0 0 4px;max-width:70ch}
+ul.links{list-style:none;margin:10px 0 0;padding:10px 0 0;border-top:1px dashed var(--line);display:grid;gap:6px}
+ul.links li{font-size:.9rem;display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline}
+.rel{font-weight:600;color:var(--muted);min-width:5.6rem}
+button.ref{font:inherit;font-weight:600;color:var(--ink);background:none;border:0;border-bottom:1.5px solid var(--c);padding:0;cursor:pointer}
+button.ref:hover{background:var(--flash)}
+.why{color:var(--muted);flex:1 1 220px}
+.why.red{flex:0 1 auto;max-width:100%;height:1em;margin-top:.25em;background:var(--ink);color:transparent;border-radius:3px;cursor:pointer;user-select:none;overflow:hidden;line-height:1;white-space:nowrap}
+.sp{flex:none;color:inherit}
+.why.red.sp{display:inline-block;vertical-align:-.15em;margin:0 .1em}
+.why.red:hover{opacity:.75}
+.why.red:focus-visible{outline:2px solid var(--film);outline-offset:2px}
+body.nolinks ul.links{display:none}
+.row.flash .card{animation:flash 1.6s ease-out}
+@keyframes flash{0%,40%{background:var(--flash)}100%{background:var(--surface)}}
+.row.hidden,.phase.hidden{display:none}
+body:not(.showadj) li.adjlink{display:none}
+ul.links.empty{display:none}
+.row.adj .card{border-style:dashed;border-left-style:solid}
+.row.adj .spine::after{background:var(--bg);border:3px solid var(--c)}
+.chip.adjchip{border-style:dashed}
+.row.dw .card{box-shadow:0 0 0 1px var(--dw),0 0 16px -2px var(--dw)}
+.chip.dwchip{background:var(--dw);border-color:var(--dw);color:var(--dwink);font-weight:600}
+
+.after{margin-top:56px;padding:18px 20px;border:1px dashed var(--muted);border-radius:6px;color:var(--muted)}
+.after h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin:0 0 6px;color:var(--ink)}
+.after p{margin:0 0 8px;max-width:70ch}
+footer{margin-top:40px;font-size:.88rem;color:var(--muted);max-width:74ch}
+footer h2{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:var(--ink);margin:0 0 8px}
+footer p{margin:0 0 10px}
+
+@media (max-width:660px){
+  .wrap{padding:0 14px 56px}
+  .row{grid-template-columns:20px 1fr;gap:0 10px}
+  .date{grid-column:2;text-align:left;padding:0 0 4px;order:-1}
+  .spine{grid-column:1;grid-row:1 / span 2}
+  .card{grid-column:2}
+  .card h3{font-size:1.45rem}
+}
+@media (prefers-reduced-motion:reduce){.row.flash .card{animation:none;outline:2px solid var(--c)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>The MCU in release order</h1>
+    <p>Every movie, series and special from Iron Man (2008) through VisionQuest (2026), in the order audiences actually got them. When a show was still running as a film opened, the film is listed after the show. Tap any linked title to jump to it. The MCU Adjacent switch adds the Fox X-Men and Deadpool films, the other Spider-Men, the Netflix shows and Agents of S.H.I.E.L.D.</p>
+    <div class="stats" id="stats"></div>
+    <div class="legend">
+      <span><i style="background:var(--film)"></i>Film</span>
+      <span><i style="background:var(--series)"></i>Series</span>
+      <span><i style="background:var(--special)"></i>Special</span>
+      <span><i style="background:var(--short)"></i>Shorts</span>
+      <span><i class="hollow"></i>Hollow dot and dashed card: MCU Adjacent, hidden until you switch it on</span>
+      <span><i style="background:var(--dw)"></i>Green glow: on Disney+’s official Doomsday watchlist</span>
+    </div>
+  </header>
+
+  <div class="bar" role="group" aria-label="Filters">
+    <button class="f" data-f="all" aria-pressed="true">All</button>
+    <button class="f" data-f="film" aria-pressed="false">Films</button>
+    <button class="f" data-f="series" aria-pressed="false">Series</button>
+    <button class="f" data-f="special" aria-pressed="false">Specials and shorts</button>
+    <input type="search" id="q" placeholder="Search titles, characters, connections" aria-label="Search">
+    <button class="f" id="toggleLinks" aria-pressed="true">Connections on</button>
+    <button class="f" id="toggleSpoilers" aria-pressed="true" title="Hide what each connection actually sets up">Spoilers hidden</button>
+    <button class="f" id="toggleAdj" aria-pressed="false" title="Show Fox X-Men, other Spider-Men, Netflix shows and more">MCU Adjacent off</button>
+    <button class="f" id="toggleDw" aria-pressed="false" title="Show only the titles on Disney+’s official Countdown to Avengers: Doomsday list">Doomsday list only</button>
+    <span class="count" id="count"></span>
+  </div>
+
+  <main id="main"></main>
+
+  <section class="after" id="r-doom"><div id="after"></div></section>
+
+  <footer>
+    <h2>What’s in, what’s out</h2>
+    <p>Dates are US premiere dates. Included: Marvel Studios films (including the Sony co-productions with Spider-Man), Marvel Studios and Marvel Television series on Disney+, the Special Presentations, the I Am Groot shorts, the Marvel One-Shots and the Team Thor shorts (listed where they sit in the story, with their later home-video release noted). MCU Adjacent, off by default: the Fox X-Men films leading up to Logan, Deadpool 1 and 2, the Raimi and Webb Spider-Man films, the Venom films, the Netflix Marvel series (split into season buckets only around The Defenders, where the seasons actually interleave), Inhumans, Cloak &amp; Dagger, Agents of S.H.I.E.L.D., Agent Carter and Your Friendly Neighborhood Spider-Man. Not included: X-Men ’97, Dark Phoenix, The New Mutants, the Fox Fantastic Four films, Sony’s other Spider-Man Universe films, the other Marvel TV series (Runaways, Helstrom), Spider-Noir, and theatrical re-releases.</p>
+    <p>The green-glow titles are Disney+’s official “Countdown to Avengers: Doomsday” list, published in August 2026: 15 picks, with both seasons of Loki counted as one. X-Men and X2 are on it but are MCU Adjacent, so they appear when that switch is on, or when you use the Doomsday filter.</p>
+    <p>Connections list what each title sets up or pays off. They are limited to links that are confirmed in the stories themselves or stated by Marvel, and the pairs are written once and shown from both sides. VisionQuest’s remaining episode dates come from a reported Disney+ schedule, so check Disney+ if one slips.</p>
+  </footer>
+</div>
+
+<script>
+const PHASES = {
+  0:["Before the MCU","2000–2007"],
+  1:["Phase One","2008–2012"],
+  2:["Phase Two","2013–2015"],
+  3:["Phase Three","2016–2019"],
+  4:["Phase Four","2021–2022"],
+  5:["Phase Five","2023–mid 2025"],
+  6:["Phase Six","mid 2025–now"]
+};
+const KIND = {film:"Film",series:"Series",special:"Special",short:"Shorts"};
+let hideSpoilers = true;
+let showAdj = false;
+let dwOnly = false;
+function noteEl(text){
+  const p = document.createElement("p"); p.className = "note";
+  text.split(/(\{\{.*?\}\})/).forEach(part=>{
+    if(part.startsWith("{{")){
+      const sp = document.createElement("span"); sp.className = "why sp"; sp.dataset.txt = part.slice(2,-2); setWhy(sp); p.appendChild(sp);
+    } else if(part){ p.appendChild(document.createTextNode(part)); }
+  });
+  return p;
+}
+function setWhy(w, reveal){
+  const txt = w.dataset.txt;
+  if(hideSpoilers && !reveal){
+    w.classList.add("red");
+    w.textContent = "redacted";
+    w.style.width = Math.min(Math.max(txt.length*0.5,5),40)+"em";
+    w.setAttribute("role","button"); w.tabIndex = 0;
+    w.title = "Redacted. Click to reveal this one.";
+  } else {
+    w.classList.remove("red");
+    w.textContent = txt;
+    w.style.width = "";
+    w.removeAttribute("role"); w.removeAttribute("tabindex"); w.removeAttribute("title");
+  }
+}
+
+// l: [targetId, "sets" | "ties", text] written once; the other side is generated.
+const D = [
+// ---------- PHASE ONE ----------
+{p:1,id:"im1",t:"Iron Man",k:"film",d:"May 2, 2008",n:"Tony Stark builds the first suit. Post-credits scene: {{Nick Fury pitches the Avengers Initiative.}}",l:[["av1","sets","Fury’s pitch becomes the team-up film."]]},
+{p:1,id:"hulk",t:"The Incredible Hulk",k:"film",d:"Jun 13, 2008",n:"Introduces Thaddeus Ross, Emil Blonsky and Samuel Sterns. {{Tony Stark appears in the final scene.}}",l:[["cabnd","sets","Sterns’s tease pays off 17 years later as the Leader, and Ross becomes Red Hulk."],["sh","sets","Blonsky returns as Abomination, out of prison."],["shangchi","sets","Abomination turns up in the Macau fight club."]]},
+{p:1,id:"im2",t:"Iron Man 2",k:"film",d:"May 7, 2010",n:"Introduces Black Widow and gives Rhodey the War Machine armor. Post-credits scene: {{Coulson finds a crater in New Mexico.}}",l:[["thor","sets","The New Mexico crater is where Thor lands."]]},
+{p:1,id:"thor",t:"Thor",k:"film",d:"May 6, 2011",n:"Thor is banished to Earth. Loki’s scheming and the Tesseract carry straight into the Avengers.",l:[["av1","sets","Loki returns as the main villain."]]},
+{p:1,id:"cap1",dw:1,t:"Captain America: The First Avenger",k:"film",d:"Jul 22, 2011",n:"Steve Rogers, Bucky, Peggy Carter, the Red Skull and Hydra in the 1940s.",l:[["cap2","sets","Hydra’s survival and Bucky’s fate come back."]]},
+{p:1,id:"av1",dw:1,t:"The Avengers",k:"film",d:"May 4, 2012",n:"Six heroes unite against Loki and the Chitauri. Mid-credits scene: {{Thanos appears.}}",l:[["iw","sets","Thanos’s first on-screen glimpse, six years early."]]},
+// ---------- PHASE TWO ----------
+{p:2,id:"im3",t:"Iron Man 3",k:"film",d:"May 3, 2013",n:"Tony deals with PTSD after New York. The Mandarin twist introduces Trevor Slattery.",l:[["shangchi","sets","Trevor returns, now held by the real Ten Rings."],["wm","sets","Trevor is a lead character in Wonder Man."]]},
+{p:2,id:"tdw",t:"Thor: The Dark World",k:"film",d:"Nov 8, 2013",n:"Thor and Jane face the dark elves over the Aether. Mid-credits scene: {{the Aether is revealed as an Infinity Stone and handed to the Collector.}}",l:[["gotg","sets","The Collector scene links the stone storyline to the cosmic side."]]},
+{p:2,id:"cap2",t:"Captain America: The Winter Soldier",k:"film",d:"Apr 4, 2014",n:"Cap goes on the run. {{S.H.I.E.L.D. falls to Hydra and Bucky is revealed as the Winter Soldier.}} Mid-credits scene: {{Wanda and Pietro appear.}}",l:[["aou","sets","Wanda and Pietro return."],["fatws","sets","Bucky’s trauma and Sam’s friendship drive the series."]]},
+{p:2,id:"gotg",t:"Guardians of the Galaxy",k:"film",d:"Aug 1, 2014",n:"A thief, an assassin, a raccoon, a tree and a brute fight over an Infinity Stone. {{Thanos is introduced as the force behind Ronan.}}",l:[["gotg2","sets","The same team gets a sequel."]]},
+{p:2,id:"aou",t:"Avengers: Age of Ultron",k:"film",d:"May 1, 2015",n:"Ultron is born. {{Vision is built around the Mind Stone, and Wanda joins the Avengers.}}",l:[["wv","sets","Wanda and Vision’s relationship starts here."],["vq","sets","Ultron and Vision’s origins loom over VisionQuest."]]},
+{p:2,id:"ant",t:"Ant-Man",k:"film",d:"Jul 17, 2015",n:"Scott Lang inherits the suit from Hank Pym. {{Falcon cameos.}}",l:[["cw","sets","Scott joins Cap’s side."],["amatw","sets","Hope and Hank’s story continues."]]},
+// ---------- PHASE THREE ----------
+{p:3,id:"cw",t:"Captain America: Civil War",k:"film",d:"May 6, 2016",n:"The Avengers split over the Sokovia Accords. Black Panther and Tom Holland’s Spider-Man debut. {{Zemo plays the long game.}}",l:[["bp","sets","T’Challa gets his own film."],["sm1","sets","Peter’s debut leads into Homecoming."],["fatws","sets","The Accords, Zemo and Bucky’s fallout return."]]},
+{p:3,id:"ds",t:"Doctor Strange",k:"film",d:"Nov 4, 2016",n:"Stephen Strange learns magic. {{He takes the Time Stone, and Mordo walks away from sorcerers.}}",l:[["momm","sets","Strange’s multiverse story continues."],["nwh","sets","Strange’s spellcasting returns in No Way Home."]]},
+{p:3,id:"gotg2",t:"Guardians of the Galaxy Vol. 2",k:"film",d:"May 5, 2017",n:"Peter meets his father, Ego. Credits scenes: {{Ravagers and Adam Warlock show up.}}",l:[["gotg3","sets","Adam Warlock and the Ravagers pay off."]]},
+{p:3,id:"sm1",t:"Spider-Man: Homecoming",k:"film",d:"Jul 7, 2017",n:"Peter Parker vs. Adrian Toomes. Establishes the Department of Damage Control.",l:[["wm","sets","Damage Control returns in Wonder Man."]]},
+{p:3,id:"thorrag",t:"Thor: Ragnarok",k:"film",d:"Nov 3, 2017",n:"Thor loses Mjolnir and teams up with Hulk and Valkyrie. Mid-credits scene: {{Thanos’s ship arrives.}}",l:[["lt","sets","Valkyrie and New Asgard continue."],["iw","sets","Thanos’s ship leads straight into Infinity War."]]},
+{p:3,id:"bp",t:"Black Panther",k:"film",d:"Feb 16, 2018",n:"T’Challa becomes king and faces Killmonger. {{Wakanda opens up to the world.}}",l:[["bpwf","sets","Shuri and Wakanda carry on after T’Challa."],["eow","sets","Wakanda’s hidden history is expanded."]]},
+{p:3,id:"iw",dw:1,t:"Avengers: Infinity War",k:"film",d:"Apr 27, 2018",n:"Thanos goes after the Infinity Stones. {{He snaps half of all life away.}}",l:[["eg","sets","The Avengers try to undo it."]]},
+{p:3,id:"amatw",t:"Ant-Man and the Wasp",k:"film",d:"Jul 6, 2018",n:"Introduces Ghost (Ava Starr). Post-credits scene: {{Hank, Hope and Janet are caught by the Snap.}}",l:[["tb","sets","Ghost returns as a Thunderbolts* teammate."],["qm","sets","The Quantum Realm becomes Kang’s stage."]]},
+{p:3,id:"cm",t:"Captain Marvel",k:"film",d:"Mar 8, 2019",n:"Carol Danvers’s origin, the Skrulls and Talos, and a young Monica Rambeau.",l:[["wv","sets","Monica returns as an adult."],["si","sets","Talos and the Skrull refugees return."],["marvels","sets","Carol and Monica are reunited."]]},
+{p:3,id:"eg",dw:1,t:"Avengers: Endgame",k:"film",d:"Apr 26, 2019",n:"The Avengers try to undo the Snap. {{They use time travel, and Cap hands his shield to Sam.}}",l:[["fatws","sets","Sam’s decision to take up the shield."],["loki1","sets","Loki’s escape with the Tesseract creates the TVA story."]]},
+{p:3,id:"ffh",t:"Spider-Man: Far From Home",k:"film",d:"Jul 2, 2019",n:"Peter takes a school trip to Europe, where Mysterio appears. {{Mysterio exposes Peter’s identity, and Fury and Hill are revealed to be Skrulls.}}",l:[["si","sets","The Skrull Fury story continues."],["nwh","sets","Peter’s outing sets up No Way Home."]]},
+// ---------- PHASE FOUR ----------
+{p:4,id:"wv",t:"WandaVision",k:"series",d:"Jan 15 – Mar 5, 2021",n:"Wanda and Vision appear to live inside a sitcom. {{Wanda’s grief builds the reality.}} Introduces Agatha Harkness, adult Monica Rambeau and {{White Vision}}.",l:[["momm","sets","Wanda’s turn as the Scarlet Witch and the Darkhold."],["aaa","sets","Agatha gets her own series."],["marvels","sets","Monica’s powers feed into The Marvels."],["vq","sets","White Vision’s fate is picked up in VisionQuest."]]},
+{p:4,id:"fatws",t:"The Falcon and the Winter Soldier",k:"series",d:"Mar 19 – Apr 23, 2021",n:"{{Sam takes the shield.}} Introduces John Walker (US Agent), Isaiah Bradley and Joaquin Torres, and {{reveals Sharon Carter as the Power Broker.}} End credits: {{Val appears.}}",l:[["cabnd","sets","Sam as Captain America, plus Isaiah Bradley and Torres."],["tb","sets","Bucky, John Walker and Val return in Thunderbolts*."]]},
+{p:4,id:"loki1",dw:1,t:"Loki",s:"Season 1",k:"series",d:"Jun 9 – Jul 14, 2021",n:"The TVA captures a Loki variant, who teams up with Sylvie. {{The finale reveals He Who Remains, a Kang variant, and opens up the multiverse.}}",short:"Loki S1",l:[["qm","sets","Kang the Conqueror gets his debut film."],["loki2","sets","Season 2 deals with the fallout."]]},
+{p:4,id:"bw",t:"Black Widow",k:"film",d:"Jul 9, 2021",n:"Natasha’s family story, with Yelena, Red Guardian and Taskmaster. Post-credits scene: {{Val appears.}}",l:[["hawk","sets","Yelena’s grudge against Clint is set up."],["tb","sets","Yelena, Red Guardian and Val reunite."]]},
+{p:4,id:"wif1",t:"What If…?",s:"Season 1",k:"series",d:"Aug 11 – Oct 6, 2021",n:"Animated multiverse anthology narrated by the Watcher. Includes “What If… Zombies?!” in episode 5.",short:"What If S1",l:[["zombies","sets","The zombie episode spins off into Marvel Zombies."]]},
+{p:4,id:"shangchi",dw:1,t:"Shang-Chi and the Legend of the Ten Rings",k:"film",d:"Sep 3, 2021",n:"Shang-Chi vs. his father Wenwu. Trevor Slattery returns. Mid-credits scene: {{Wong, Carol and Bruce appear.}}",l:[["wm","sets","Trevor’s Ten Rings history is referenced."]]},
+{p:4,id:"eternals",t:"Eternals",k:"film",d:"Nov 5, 2021",n:"Celestials, Deviants and a team of immortals. Introduces Dane Whitman{{, the future Black Knight}}.",l:[["cabnd","sets","The Celestial Island rises in Brave New World."]]},
+{p:4,id:"hawk",t:"Hawkeye",k:"series",d:"Nov 24 – Dec 22, 2021",n:"Clint trains Kate Bishop. Yelena enters the story, Maya Lopez (Echo) is introduced, and {{the finale brings in Wilson Fisk (Vincent D’Onofrio).}}",short:"Hawkeye",l:[["echo","sets","Maya Lopez gets her own series, and Kingpin’s story continues."],["dd1","sets","Fisk is the mayor in Born Again."]]},
+{p:4,id:"nwh",dw:1,t:"Spider-Man: No Way Home",k:"film",d:"Dec 17, 2021",n:"A broken spell brings in other Spider-Man villains. {{Matt Murdock appears as Peter’s lawyer, and the world ends up forgetting Peter Parker.}}",l:[["dd1","sets","Matt Murdock’s return leads to Born Again."],["bnd","sets","Peter’s erased identity sets up Brand New Day."]]},
+{p:4,id:"mk",t:"Moon Knight",k:"series",d:"Mar 30 – May 4, 2022",n:"Marc Spector, Steven Grant and Khonshu. Largely self-contained{{, with a Jake Lockley tease}}.",short:"Moon Knight"},
+{p:4,id:"momm",dw:1,t:"Doctor Strange in the Multiverse of Madness",k:"film",d:"May 6, 2022",n:"Strange and America Chavez {{face a Darkhold-corrupted Wanda}}. {{Brings in the Illuminati.}} Mid-credits scene: {{Clea appears.}}",short:"Multiverse of Madness"},
+{p:4,id:"ms",t:"Ms. Marvel",k:"series",d:"Jun 8 – Jul 13, 2022",n:"Kamala Khan discovers her powers. Damage Control appears. {{She learns she’s a mutant, and the final scene has her swapping places with Carol Danvers.}}",short:"Ms. Marvel",l:[["marvels","sets","The swap with Carol leads into The Marvels."]]},
+{p:4,id:"lt",t:"Thor: Love and Thunder",k:"film",d:"Jul 8, 2022",n:"Thor vs. Gorr, and Jane Foster becomes the Mighty Thor."},
+{p:4,id:"groot",t:"I Am Groot",k:"short",d:"Aug 10, 2022",n:"Five animated shorts following Baby Groot."},
+{p:4,id:"sh",t:"She-Hulk: Attorney at Law",k:"series",d:"Aug 18 – Oct 13, 2022",n:"Jen Walters becomes She-Hulk. {{Abomination returns, Matt Murdock appears as Daredevil, and the finale breaks the fourth wall.}}",short:"She-Hulk",l:[["dd1","sets","Daredevil’s MCU return leads to Born Again."]]},
+{p:4,id:"wbn",t:"Werewolf by Night",k:"special",d:"Oct 7, 2022",n:"A Special Presentation: monster hunters gather for the Bloodstone. Introduces Elsa Bloodstone and Ted."},
+{p:4,id:"bpwf",dw:1,t:"Black Panther: Wakanda Forever",k:"film",d:"Nov 11, 2022",n:"Wakanda mourns T’Challa, and Namor and Talokan debut. Introduces Riri Williams. {{Shuri becomes Black Panther, and Val appears.}}",l:[["ironheart","sets","Riri Williams’s debut leads into Ironheart."],["tb","sets","Val appears again."]]},
+{p:4,id:"hs",t:"The Guardians of the Galaxy Holiday Special",k:"special",d:"Nov 25, 2022",n:"Mantis and Drax try to give Peter Quill a Christmas. Kevin Bacon plays himself.",l:[["gotg3","sets","Sets up the team before Vol. 3."]]},
+// ---------- PHASE FIVE ----------
+{p:5,id:"qm",t:"Ant-Man and the Wasp: Quantumania",k:"film",d:"Feb 17, 2023",n:"Scott, Hope and their family are trapped in the Quantum Realm. Kang the Conqueror debuts.",short:"Quantumania"},
+{p:5,id:"gotg3",t:"Guardians of the Galaxy Vol. 3",k:"film",d:"May 5, 2023",n:"The High Evolutionary and Rocket’s origin. {{The Guardians go their separate ways.}}"},
+{p:5,id:"si",t:"Secret Invasion",k:"series",d:"Jun 21 – Jul 26, 2023",n:"Skrull infiltration and Nick Fury’s return to Earth.",l:[["marvels","sets","Fury’s space station links to The Marvels."]]},
+{p:5,id:"loki2",dw:1,t:"Loki",s:"Season 2",k:"series",d:"Oct 5 – Nov 9, 2023",n:"Loki, Mobius and the TVA try to stabilize the timeline. {{Introduces Victor Timely, another Kang variant.}}",short:"Loki S2",l:[["dp","sets","The TVA returns in Deadpool & Wolverine."]]},
+{p:5,id:"marvels",t:"The Marvels",k:"film",d:"Nov 10, 2023",n:"Carol, Monica and Kamala swap places whenever they use their powers. Mid-credits scene: {{Beast (Kelsey Grammer) appears.}}"},
+{p:5,id:"wif2",t:"What If…?",s:"Season 2",k:"series",d:"Dec 22, 2023",eps:"9 eps, daily",n:"Season 2 released one episode a day over the holidays.",short:"What If S2"},
+{p:5,id:"echo",t:"Echo",k:"series",d:"Jan 9, 2024",n:"Maya Lopez returns home. The first Marvel Spotlight series, released all at once.",l:[["dd1","sets","Maya and Kingpin continue in Born Again."]]},
+{p:5,id:"dp",dw:1,t:"Deadpool & Wolverine",k:"film",d:"Jul 26, 2024",n:"Deadpool and Wolverine team up at the TVA. {{Chris Evans cameos as Johnny Storm, and mutants enter the Sacred Timeline.}}"},
+{p:5,id:"aaa",t:"Agatha All Along",k:"series",d:"Sep 18 – Oct 30, 2024",n:"Agatha Harkness regains her powers on the Witches’ Road. Introduces Billy Maximoff.",l:[["vq","sets","The trilogy concludes with VisionQuest."]]},
+{p:5,id:"wif3",t:"What If…?",s:"Season 3",k:"series",d:"Dec 22, 2024",eps:"Daily drops",n:"The final season, released over the holidays.",short:"What If S3"},
+{p:5,id:"cabnd",dw:1,t:"Captain America: Brave New World",k:"film",d:"Feb 14, 2025",n:"Sam Wilson as Captain America. {{Ross becomes Red Hulk, Samuel Sterns becomes the Leader, and the Celestial Island appears.}}",short:"Brave New World"},
+{p:5,id:"dd1",t:"Daredevil: Born Again",s:"Season 1",k:"series",d:"Mar 4 – Apr 15, 2025",n:"Matt Murdock faces Mayor Fisk. The Punisher returns.",short:"Born Again S1",l:[["dd2","sets","Season 2 continues the fight."],["punisher","sets","Frank’s escape in the finale leads to One Last Kill."]]},
+{p:5,id:"tb",dw:1,t:"Thunderbolts*",k:"film",d:"May 2, 2025",n:"Yelena, Bucky, John Walker, Red Guardian, Ghost and Taskmaster {{are manipulated into a team by Val}}. Introduces Bob (Sentry). Post-credits scene: {{the team is shown as the New Avengers.}}",l:[["ff","sets","The Fantastic Four’s ship appears in the post-credits scene."]]},
+{p:5,id:"ironheart",t:"Ironheart",k:"series",d:"Jun 24 – Jul 1, 2025",eps:"Two 3-episode drops",n:"Riri Williams returns to Chicago and clashes with Parker Robbins (the Hood) over technology and magic."},
+// ---------- PHASE SIX ----------
+{p:6,id:"ff",dw:1,t:"The Fantastic Four: First Steps",k:"film",d:"Jul 25, 2025",n:"Marvel’s First Family on Earth-828 face Galactus. Post-credits scene: {{Doom appears.}}",short:"Fantastic Four",l:[["doom","sets","Doom’s post-credits appearance leads to Doomsday."]]},
+{p:6,id:"eow",t:"Eyes of Wakanda",k:"series",d:"Aug 1, 2025",eps:"4 eps, all at once",n:"Animated miniseries on Wakanda’s hidden history. Marvel moved it earlier from Aug 27."},
+{p:6,id:"zombies",t:"Marvel Zombies",k:"series",d:"Sep 24, 2025",eps:"4 eps, all at once",n:"Adult animated spinoff of the What If… zombie episode."},
+{p:6,id:"wm",t:"Wonder Man",k:"series",d:"Jan 27, 2026",eps:"8 eps, all at once",n:"Simon Williams (Yahya Abdul-Mateen II) and Trevor Slattery in Hollywood, where the Doorman Clause bars superpowered actors. A Marvel Spotlight series. {{Damage Control and Agent Cleary appear in the background.}}"},
+{p:6,id:"dd2",t:"Daredevil: Born Again",s:"Season 2",k:"series",d:"Mar 24 – May 5, 2026",n:"Matt builds an army against Fisk, with Krysten Ritter’s Jessica Jones joining. The Punisher sits this season out.",short:"Born Again S2",l:[["bnd","sets","Marvel says the season ties directly into Brand New Day."],["punisher","ties","The special covers where Frank is."]]},
+{p:6,id:"punisher",t:"The Punisher: One Last Kill",k:"special",d:"May 12, 2026",n:"Jon Bernthal’s one-hour Special Presentation, released one week after the Born Again season 2 finale.",short:"One Last Kill",l:[["bnd","sets","Frank also appears in Brand New Day."]]},
+{p:6,id:"bnd",t:"Spider-Man: Brand New Day",k:"film",d:"Jul 31, 2026",n:"Peter Parker in a world that doesn’t remember him. {{The Punisher and Hulk appear}}, and the film is set in the New York of Born Again.",short:"Brand New Day"},
+{p:6,id:"vq",t:"VisionQuest",k:"series",d:"Oct 14 – Nov 11, 2026",eps:"8 eps, released in pairs",live:1,n:"Paul Bettany returns as White Vision, closing out the WandaVision and Agatha All Along storyline. Terry Matalas is the showrunner. Episodes 1–6 are out, with episode 7 on Nov 4 and the finale on Nov 11, per the reported schedule.",short:"VisionQuest"},
+// ---------- ADDED: MARVEL ONE-SHOTS (main chart) ----------
+{p:1,id:"cons",t:"Marvel One-Shot: The Consultant",k:"short",d:"Set after Iron Man 2",sk:20100507.1,pause:"Released later, on Sep 13, 2011, on the Thor home video.",n:"A two-hander with Agent Coulson and Jasper Sitwell, set around the events of The Incredible Hulk.",short:"The Consultant",l:[["hulk","ties","It runs alongside the Tony Stark scene that closes The Incredible Hulk."]]},
+{p:1,id:"funny",t:"Marvel One-Shot: A Funny Thing Happened on the Way to Thor’s Hammer",k:"short",d:"Set before Thor",sk:20100507.2,pause:"Released later, on Oct 25, 2011, on the Captain America: The First Avenger home video.",n:"Agent Coulson stops at a convenience store on his way to New Mexico and ends up in a robbery.",short:"A Funny Thing…",l:[["thor","ties","Coulson’s drive is toward the New Mexico site from Thor."]]},
+{p:1,id:"i47",t:"Marvel One-Shot: Item 47",k:"short",d:"Set after The Avengers",sk:20120504.1,pause:"Released later, on Sep 25, 2012, on The Avengers home video.",n:"A couple finds a discarded Chitauri weapon after the Battle of New York.",short:"Item 47",l:[["aos","sets","It helped inspire Agents of S.H.I.E.L.D."]]},
+{p:1,id:"acos",t:"Marvel One-Shot: Agent Carter",k:"short",d:"Set after The First Avenger",sk:20110722.1,pause:"Released later, on Sep 3, 2013, on the Iron Man 3 home video.",n:"Peggy Carter works for the Strategic Scientific Reserve about a year after the war.",short:"Agent Carter (one-shot)",l:[["agentcarter","sets","It led to the Agent Carter TV series."]]},
+{p:2,id:"ahk",t:"Marvel One-Shot: All Hail the King",k:"short",d:"Set after Iron Man 3",sk:20130503.1,pause:"Released later, on Feb 4, 2014, on the Thor: The Dark World home video.",n:"Trevor Slattery in prison, after the events of Iron Man 3.",short:"All Hail the King",l:[["shangchi","sets","Its Ten Rings thread pays off seven years later."]]},
+{p:3,id:"tt1",t:"Team Thor",k:"short",d:"Set around Civil War",sk:20160506.1,pause:"Released later, on Sep 13, 2016, on the Civil War home video.",n:"Taika Waititi’s mockumentary short about Thor’s life in Australia with his roommate Darryl. Played for laughs, and left out of Disney+’s main timeline when it was added.",short:"Team Thor",l:[["cw","ties","It covers where Thor was during Civil War."]]},
+{p:3,id:"tt2",t:"Team Thor: Part 2",k:"short",d:"Set after Team Thor",sk:20160506.2,pause:"Released later, on Feb 14, 2017, on the Doctor Strange home video.",n:"The Darryl mockumentary continues, before Ragnarok.",short:"Team Thor: Part 2"},
+{p:3,id:"td",t:"Team Darryl",k:"short",d:"Set after Ragnarok",sk:20171103.1,pause:"Released later, on Feb 20, 2018, on the Thor: Ragnarok home video.",n:"Thor has moved out. {{Darryl’s new roommate is Jeff Goldblum’s Grandmaster.}}",short:"Team Darryl"},
+// ---------- ADDED: MCU ADJACENT (hidden until toggled on) ----------
+{p:0,id:"fx1",dw:1,t:"X-Men",k:"film",d:"Jul 14, 2000",adj:1,n:"The first Fox X-Men film, with Patrick Stewart as Professor X and Ian McKellen as Magneto.",short:"X-Men (2000)",l:[["momm","ties","Patrick Stewart’s Professor X appears in Multiverse of Madness."],["doom","ties","Stewart, McKellen, James Marsden and Rebecca Romijn are in the Doomsday cast."]]},
+{p:0,id:"sp1",t:"Spider-Man",k:"film",d:"May 3, 2002",adj:1,n:"Tobey Maguire’s Peter Parker vs. the Green Goblin, in Sam Raimi’s first Spider-Man film.",short:"Spider-Man (2002)",l:[["nwh","ties","Maguire’s Peter and Willem Dafoe’s Green Goblin return in No Way Home."]]},
+{p:0,id:"fx2",dw:1,t:"X2: X-Men United",k:"film",d:"May 2, 2003",adj:1,n:"Introduces Nightcrawler (Alan Cumming) and pits the X-Men against William Stryker.",short:"X2",l:[["doom","ties","Cumming’s Nightcrawler is in the Doomsday cast."]]},
+{p:0,id:"sp2",t:"Spider-Man 2",k:"film",d:"Jun 30, 2004",adj:1,n:"Peter takes on Doctor Octopus.",short:"Spider-Man 2",l:[["nwh","ties","Alfred Molina’s Doc Ock returns in No Way Home."]]},
+{p:0,id:"fx3",t:"X-Men: The Last Stand",k:"film",d:"May 26, 2006",adj:1,n:"Introduces Beast (Kelsey Grammer) and plays out the Dark Phoenix storyline.",short:"X-Men: The Last Stand",l:[["marvels","ties","Grammer’s Beast appears in The Marvels’ mid-credits scene."],["doom","ties","Grammer is in the Doomsday cast."]]},
+{p:0,id:"sp3",t:"Spider-Man 3",k:"film",d:"May 4, 2007",adj:1,n:"Peter faces Sandman, the symbiote and Harry Osborn.",short:"Spider-Man 3",l:[["nwh","ties","Thomas Haden Church’s Sandman returns in No Way Home."]]},
+{p:1,id:"asm1",t:"The Amazing Spider-Man",k:"film",d:"Jul 3, 2012",adj:1,n:"Andrew Garfield’s Peter faces the Lizard (Rhys Ifans).",short:"Amazing Spider-Man",l:[["nwh","ties","Garfield’s Peter and Rhys Ifans’s Lizard return in No Way Home."]]},
+{p:2,id:"aos",t:"Marvel’s Agents of S.H.I.E.L.D.",k:"series",d:"Sep 24, 2013 – Aug 12, 2020",eps:"7 seasons",adj:1,n:"Phil Coulson’s team keeps working after The Avengers, with loose ties to the films.",short:"Agents of S.H.I.E.L.D.",l:[["cap2","ties","The first season turns on the fall of S.H.I.E.L.D. in The Winter Soldier."],["cm","ties","Clark Gregg’s Coulson appears in Captain Marvel."]]},
+{p:2,id:"asm2",t:"The Amazing Spider-Man 2",k:"film",d:"May 2, 2014",adj:1,n:"Peter faces Electro and the Green Goblin.",short:"Amazing Spider-Man 2",l:[["nwh","ties","Jamie Foxx’s Electro returns in No Way Home."]]},
+{p:2,id:"agentcarter",t:"Marvel’s Agent Carter",k:"series",d:"Jan 6, 2015 – Mar 1, 2016",eps:"2 seasons",adj:1,n:"Peggy Carter works for the Strategic Scientific Reserve in the late 1940s.",short:"Agent Carter (series)",l:[["cap1","ties","Peggy’s story continues after the war."]]},
+{p:3,id:"dpool1",t:"Deadpool",k:"film",d:"Feb 12, 2016",adj:1,n:"Wade Wilson’s origin and revenge, in Fox’s R-rated X-Men spinoff.",short:"Deadpool",l:[["dp","ties","Ryan Reynolds’s Deadpool crosses into the MCU in Deadpool & Wolverine."]]},
+{p:3,id:"dpool2",t:"Deadpool 2",k:"film",d:"May 18, 2018",adj:1,n:"Deadpool puts together X-Force to protect a young mutant.",short:"Deadpool 2",l:[["dp","ties","Colossus and Negasonic Teenage Warhead return in Deadpool & Wolverine."]]},
+{p:3,id:"vn1",t:"Venom",k:"film",d:"Oct 5, 2018",adj:1,n:"Eddie Brock bonds with the Venom symbiote. Part of Sony’s Spider-Man Universe, outside the MCU proper.",short:"Venom"},
+{p:4,id:"vn2",t:"Venom: Let There Be Carnage",k:"film",d:"Oct 1, 2021",adj:1,n:"Eddie and Venom face Carnage. {{A mid-credits scene pulls Eddie toward the MCU.}}",short:"Let There Be Carnage",l:[["nwh","ties","Eddie’s trip to the MCU ends in No Way Home’s mid-credits scene."]]},
+{p:5,id:"vn3",t:"Venom: The Last Dance",k:"film",d:"Oct 25, 2024",adj:1,n:"Eddie and Venom on the run.",short:"The Last Dance"},
+{p:5,id:"yf",t:"Your Friendly Neighborhood Spider-Man",s:"Season 1",k:"series",d:"Jan 29 – Feb 19, 2025",eps:"10 eps",adj:1,n:"Animated take on Peter Parker’s early days. Season 2 arrives Jan 13, 2027, so it falls outside this chart.",short:"Friendly Neighborhood S1",l:[["ds","ties","Doctor Strange’s portal is how the radioactive spider arrives."],["dd1","ties","Charlie Cox voices Matt Murdock ahead of Born Again."]]},
+// ---------- ADDED: NETFLIX / OTHER MARVEL TV, SEASON BY SEASON (adjacent) ----------
+// ---------- ADDED: FOX X-MEN THROUGH LOGAN (adjacent) ----------
+{p:1,id:"fx4",t:"X-Men Origins: Wolverine",k:"film",d:"May 1, 2009",adj:1,n:"Wolverine’s origin story, with Ryan Reynolds as a version of Wade Wilson.",short:"X-Men Origins: Wolverine"},
+{p:1,id:"fx5",t:"X-Men: First Class",k:"film",d:"Jun 3, 2011",adj:1,n:"A young Charles Xavier and Erik Lehnsherr form the X-Men in 1962.",short:"X-Men: First Class"},
+{p:2,id:"fx6",t:"The Wolverine",k:"film",d:"Jul 26, 2013",adj:1,n:"Logan travels to Japan.",short:"The Wolverine"},
+{p:2,id:"fx7",t:"X-Men: Days of Future Past",k:"film",d:"May 23, 2014",adj:1,n:"Wolverine is sent back to the 1970s, bringing the original and First Class casts together.",short:"Days of Future Past",l:[["wv","ties","Evan Peters’s Fox-era Quicksilver appears in WandaVision."]]},
+{p:3,id:"fx8",t:"X-Men: Apocalypse",k:"film",d:"May 27, 2016",adj:1,n:"The first mutant, Apocalypse, wakes up in 1983.",short:"X-Men: Apocalypse"},
+{p:3,id:"fx9",t:"Logan",k:"film",d:"Mar 3, 2017",adj:1,n:"An older Logan and a young mutant on the run, in Hugh Jackman’s last Wolverine film of that era.",short:"Logan",l:[["dp","ties","Logan’s story is referenced in Deadpool & Wolverine."]]},
+// ---------- ADDED: NETFLIX / OTHER MARVEL TV, SPLIT ONLY AROUND THE DEFENDERS ----------
+{p:2,id:"ddn-a",w:"ddn",t:"Marvel’s Daredevil",s:"Seasons 1–2",k:"series",d:"Apr 10, 2015 – Mar 18, 2016",adj:1,n:"Matt Murdock vs. Wilson Fisk in Hell’s Kitchen. Season 2 introduces Frank Castle (the Punisher) and Elektra, and brings in the Hand.",short:"Daredevil S1–2 (Netflix)",l:[["hawk","ties","Vincent D’Onofrio’s Fisk appears in Hawkeye."],["pn","sets","Frank Castle’s debut leads to his own series."]]},
+{p:2,id:"jj-a",w:"jj",t:"Marvel’s Jessica Jones",s:"Season 1",k:"series",d:"Nov 20, 2015",adj:1,n:"Jessica Jones, a private investigator with super strength, is hunted by Kilgrave.",short:"Jessica Jones S1"},
+{p:3,id:"lc-a",w:"lc",t:"Marvel’s Luke Cage",s:"Season 1",k:"series",d:"Sep 30, 2016",adj:1,n:"A bulletproof man protects Harlem. No MCU appearance yet.",short:"Luke Cage S1"},
+{p:3,id:"if-a",w:"if",t:"Marvel’s Iron Fist",s:"Season 1",k:"series",d:"Mar 17, 2017",adj:1,n:"Danny Rand returns to New York with kung fu powers. No MCU appearance yet.",short:"Iron Fist S1"},
+{p:3,id:"defn",t:"Marvel’s The Defenders",k:"series",d:"Aug 18, 2017",eps:"8-episode miniseries",adj:1,n:"Daredevil, Jessica Jones, Luke Cage and Iron Fist team up against the Hand.",short:"The Defenders"},
+{p:3,id:"inh",t:"Marvel’s Inhumans",k:"series",d:"Sep 29 – Nov 10, 2017",eps:"8 eps",adj:1,n:"The royal family of Attilan, led by Black Bolt, lands in Hawaii. Loosely connected to the Inhumans in Agents of S.H.I.E.L.D.",short:"Inhumans",l:[["aos","ties","Both shows use the Inhumans, but they stay separate stories."]]},
+{p:3,id:"pn",t:"Marvel’s The Punisher",s:"Seasons 1–2",k:"series",d:"Nov 17, 2017 – Jan 18, 2019",adj:1,n:"Jon Bernthal’s Frank Castle gets his own series.",short:"The Punisher (Netflix)",l:[["dd1","ties","Bernthal’s Frank returns in Born Again."],["punisher","ties","Bernthal’s Frank gets One Last Kill."]]},
+{p:3,id:"jj-b",w:"jj",t:"Marvel’s Jessica Jones",s:"Seasons 2–3",k:"series",d:"Mar 8, 2018 – Jun 14, 2019",adj:1,n:"Jessica digs into where her powers came from, and the series wraps up in season 3.",short:"Jessica Jones S2–3",l:[["dd2","ties","Krysten Ritter’s Jessica Jones joins Born Again season 2."]]},
+{p:3,id:"cd",t:"Marvel’s Cloak & Dagger",s:"Seasons 1–2",k:"series",d:"Jun 7, 2018 – May 30, 2019",adj:1,n:"Two teenagers in New Orleans, Tandy Bowen and Tyrone Johnson, find their powers are linked. No MCU appearance yet.",short:"Cloak & Dagger"},
+{p:3,id:"lc-b",w:"lc",t:"Marvel’s Luke Cage",s:"Season 2",k:"series",d:"Jun 22, 2018",adj:1,n:"Luke Cage faces Bushmaster.",short:"Luke Cage S2"},
+{p:3,id:"if-b",w:"if",t:"Marvel’s Iron Fist",s:"Season 2",k:"series",d:"Sep 7, 2018",adj:1,n:"Danny Rand takes on new threats in New York.",short:"Iron Fist S2"},
+{p:3,id:"ddn-b",w:"ddn",t:"Marvel’s Daredevil",s:"Season 3",k:"series",d:"Oct 19, 2018",adj:1,n:"Matt Murdock recovers while Fisk schemes.",short:"Daredevil S3 (Netflix)",l:[["dd1","ties","Born Again continues Matt’s story from the Netflix series."],["nwh","ties","Charlie Cox’s Matt Murdock appears in No Way Home."]]},
+// ---------- AFTER (outside the chart) ----------
+{p:9,id:"doom",t:"Avengers: Doomsday",k:"film",d:"Dec 18, 2026",n:"Opens after VisionQuest’s run and sits outside the chart.",short:"Doomsday",after:1}
+];
+
+const MON={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+function startKey(e){
+  if(e.sk!=null) return e.sk;
+  const first = e.d.split(" – ")[0];
+  const ym = first.match(/(\d{4})/);
+  const y = ym ? +ym[1] : +e.d.match(/(\d{4})\s*$/)[1];
+  const m = e.d.match(/([A-Z][a-z]{2}) (\d{1,2})/);
+  return y*10000 + (MON[m[1]]+1)*100 + (+m[2]);
+}
+D.sort((a,b)=>(a.p-b.p)||(startKey(a)-startKey(b)));
+const byId = Object.fromEntries(D.map(e=>[e.id,e]));
+D.forEach(e=>e.rev=[]);
+D.forEach(e=>(e.l||[]).forEach(([to,rel,txt])=>{ if(byId[to]) byId[to].rev.push([e.id,rel,txt]); }));
+const name = id => byId[id].short || byId[id].t;
+
+// ---- stats
+(function(){
+  const works = {};
+  D.filter(e=>!e.after && !e.adj).forEach(e=>{ works[(e.w||e.id)] = e.k; });
+  const c = {film:0,series:0,special:0,short:0};
+  Object.values(works).forEach(k=>c[k]++);
+  const total = c.film+c.series+c.special+c.short;
+  document.getElementById("stats").innerHTML =
+    `<span><b>${total}</b> titles</span><span><b>${c.film}</b> films</span><span><b>${c.series}</b> series and seasons</span><span><b>${c.special+c.short}</b> specials and shorts</span><span><b>${D.filter(e=>e.adj).length}</b> more in MCU Adjacent</span>`;
+})();
+
+// ---- render
+const main = document.getElementById("main");
+function el(tag, cls, html){ const x=document.createElement(tag); if(cls) x.className=cls; if(html!=null) x.innerHTML=html; return x; }
+function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+
+function linkItem(prefix, id, why){
+  const li = el("li", byId[id].adj ? "adjlink" : "");
+  li.innerHTML = `<span class="rel">${prefix}</span>`;
+  const b = el("button","ref"); b.textContent = name(id); b.dataset.go = id; b.type="button";
+  li.appendChild(b);
+  const w = el("span","why"); w.dataset.txt = why; setWhy(w); li.appendChild(w);
+  return li;
+}
+
+function buildRow(e){
+  const row = el("article","row"+(e.split?" split":"")+(e.adj?" adj":"")+(e.dw?" dw":""));
+  row.id = "r-"+e.id; row.dataset.k = e.k; row.dataset.id = e.id;
+  row.appendChild(el("div","date",esc(e.d)));
+  row.appendChild(el("div","spine"));
+  const card = el("div","card");
+  const h = el("h3",null,esc(e.t)); card.appendChild(h);
+  const chips = el("div","chips");
+  chips.appendChild(el("span","chip kind",KIND[e.k]));
+  if(e.adj) chips.appendChild(el("span","chip adjchip","MCU Adjacent"));
+  if(e.dw) chips.appendChild(el("span","chip dwchip","Disney+ Doomsday pick"));
+  if(e.s) chips.appendChild(el("span","chip",esc(e.s)));
+  if(e.eps) chips.appendChild(el("span","chip",esc(e.eps)));
+  if(e.live) chips.appendChild(el("span","chip live","Airing now"));
+  if(e.soon) chips.appendChild(el("span","chip soon","Upcoming"));
+  card.appendChild(chips);
+  if(e.pause) card.appendChild(el("p","pause",esc(e.pause)));
+  card.appendChild(noteEl(e.n));
+  const out = (e.l||[]), inc = e.rev||[];
+  if(out.length || inc.length){
+    const ul = el("ul","links");
+    inc.forEach(([from,rel,txt])=> ul.appendChild(linkItem(rel==="ties"?"Ties to":"Set up by", from, txt)));
+    out.forEach(([to,rel,txt])=> ul.appendChild(linkItem(rel==="ties"?"Ties to":"Sets up", to, txt)));
+    card.appendChild(ul);
+  }
+  row.appendChild(card);
+  return row;
+}
+
+Object.keys(PHASES).forEach(p=>{
+  const rows = D.filter(e=>e.p==p);
+  const sec = el("section","phase"); sec.dataset.p = p;
+  const works = new Set(rows.map(e=>e.w||e.id)).size;
+  sec.appendChild(el("h2",null,`${PHASES[p][0]} <small>${PHASES[p][1]} · <span class="pc"></span></small>`));
+  rows.forEach(e=>sec.appendChild(buildRow(e)));
+  main.appendChild(sec);
+});
+
+// after section
+(function(){
+  const a = byId["doom"];
+  document.getElementById("after").innerHTML = `<h2>Next, outside this chart</h2><p><b>${esc(a.t)}</b> arrives ${esc(a.d)}, after VisionQuest begins.</p>`;
+  const ap = document.querySelector("#after p");
+  ap.appendChild(document.createTextNode(" The Fantastic Four: First Steps leads into it: "));
+  const sp = el("span","why sp"); sp.dataset.txt = "its post-credits scene sets up Doom’s role."; setWhy(sp); ap.appendChild(sp);
+})();
+
+// ---- filters
+let kindF = "all";
+const q = document.getElementById("q"), countEl = document.getElementById("count");
+function rowText(r){
+  const c = r.cloneNode(true);
+  if(!showAdj) c.querySelectorAll("li.adjlink").forEach(x=>x.remove());
+  return c.textContent.toLowerCase();
+}
+function apply(){
+  const term = q.value.trim().toLowerCase();
+  let shown = 0;
+  document.querySelectorAll(".row").forEach(r=>{
+    const e = byId[r.dataset.id];
+    const kOK = kindF==="all" || (kindF==="special" ? (e.k==="special"||e.k==="short") : e.k===kindF);
+    const tOK = !term || rowText(r).includes(term);
+    const ok = kOK && tOK && (!dwOnly || e.dw) && (!e.adj || showAdj || (dwOnly && e.dw));
+    r.classList.toggle("hidden", !ok);
+    if(ok) shown++;
+  });
+  document.querySelectorAll(".phase").forEach(s=>{
+    const n = s.querySelectorAll(".row:not(.hidden)").length;
+    s.classList.toggle("hidden", n===0);
+    const pc = s.querySelector(".pc"); if(pc) pc.textContent = n + (n===1?" title":" titles");
+  });
+  countEl.textContent = shown + " shown";
+}
+document.querySelectorAll(".bar button.f[data-f]").forEach(b=>b.addEventListener("click",()=>{
+  kindF = b.dataset.f;
+  document.querySelectorAll(".bar button.f[data-f]").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false"));
+  apply();
+}));
+q.addEventListener("input",apply);
+const tl = document.getElementById("toggleLinks");
+tl.addEventListener("click",()=>{
+  const on = tl.getAttribute("aria-pressed")==="true";
+  tl.setAttribute("aria-pressed", on?"false":"true");
+  tl.textContent = on ? "Connections off" : "Connections on";
+  document.body.classList.toggle("nolinks", on);
+});
+
+// ---- jump links
+document.addEventListener("click",ev=>{
+  const b = ev.target.closest("button.ref"); if(!b) return;
+  const id = b.dataset.go;
+  let t = document.getElementById("r-"+id);
+  if(!t){ return; }
+  if(t.classList.contains("hidden") || (t.closest(".phase") && t.closest(".phase").classList.contains("hidden"))){
+    kindF="all"; q.value="";
+    document.querySelectorAll(".bar button.f[data-f]").forEach(x=>x.setAttribute("aria-pressed", x.dataset.f==="all"?"true":"false"));
+    apply();
+  }
+  if(document.body.classList.contains("nolinks")){ /* links hidden, but a click can only come from visible ones */ }
+  t.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto":"smooth", block:"start"});
+  t.classList.remove("flash"); void t.offsetWidth; t.classList.add("flash");
+});
+
+// ---- spoiler controls
+const ts = document.getElementById("toggleSpoilers");
+ts.addEventListener("click",()=>{
+  hideSpoilers = !hideSpoilers;
+  ts.setAttribute("aria-pressed", String(hideSpoilers));
+  ts.textContent = hideSpoilers ? "Spoilers hidden" : "Spoilers shown";
+  document.querySelectorAll(".why").forEach(w=>setWhy(w));
+});
+document.addEventListener("click",ev=>{
+  const w = ev.target.closest(".why.red"); if(w) setWhy(w,true);
+});
+document.addEventListener("keydown",ev=>{
+  if(ev.key!=="Enter" && ev.key!==" ") return;
+  const w = ev.target.closest && ev.target.closest(".why.red");
+  if(w){ ev.preventDefault(); setWhy(w,true); }
+});
+// ---- MCU Adjacent toggle
+const ta = document.getElementById("toggleAdj");
+function refreshLinks(){
+  document.querySelectorAll("ul.links").forEach(ul=>{
+    const vis = [...ul.children].some(li=>!(li.classList.contains("adjlink") && !showAdj));
+    ul.classList.toggle("empty", !vis);
+  });
+}
+ta.addEventListener("click",()=>{
+  showAdj = !showAdj;
+  ta.setAttribute("aria-pressed", String(showAdj));
+  ta.textContent = showAdj ? "MCU Adjacent on" : "MCU Adjacent off";
+  document.body.classList.toggle("showadj", showAdj);
+  refreshLinks();
+  apply();
+});
+refreshLinks();
+const tdw = document.getElementById("toggleDw");
+tdw.addEventListener("click",()=>{
+  dwOnly = !dwOnly;
+  tdw.setAttribute("aria-pressed", String(dwOnly));
+  apply();
+});
+apply();
+</script>
+</body>
+</html>
