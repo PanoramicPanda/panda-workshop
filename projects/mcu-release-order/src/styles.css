@@ -122,3 +122,66 @@ footer p{margin:0 0 10px}
 /* Phase picker: its own row inside the sticky bar */
 .phasepick{flex:1 0 100%;display:flex;flex-wrap:wrap;gap:6px}
 .phasepick button.f{font-size:.8rem;padding:4px 10px}
+
+/* View switch */
+.viewswitch{display:inline-flex;gap:0}
+.viewswitch button.f:first-child{border-radius:999px 0 0 999px;border-right-width:0}
+.viewswitch button.f:last-child{border-radius:0 999px 999px 0}
+.bar button.f:disabled{opacity:.45;cursor:not-allowed}
+
+/* Graph view: breaks out of the 1020px column so big webs get room */
+.graph{position:relative;margin-top:16px;width:min(calc(100vw - 32px),1400px);margin-left:calc(50% - min(50vw - 16px,700px))}
+.gtools{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:8px;font-size:.85rem;color:var(--muted)}
+.gtools button.f{font:inherit;font-size:.85rem;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;cursor:pointer}
+.gtools button.f[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gkey{display:inline-flex;align-items:center;gap:6px}
+.gkey svg{vertical-align:middle}
+.gk{stroke:var(--muted);stroke-width:1.5}
+.gk.ties{stroke-dasharray:4 3}
+.gk-arrow{fill:var(--muted)}
+.ghint{margin-left:auto}
+.gsvg{display:block;width:100%;height:min(78vh,860px);min-height:420px;background:var(--surface);border:1px solid var(--line);border-radius:8px;cursor:grab;touch-action:none;user-select:none}
+.gsvg:active{cursor:grabbing}
+.gempty{position:absolute;top:50%;left:0;right:0;text-align:center;color:var(--muted)}
+
+.gedge{stroke:var(--muted);stroke-opacity:.45;stroke-width:1.2;fill:none}
+.gedge.ties{stroke-dasharray:5 4}
+.arrowhead{fill:var(--muted);fill-opacity:.7}
+.arrowhead.lit{fill:var(--ink);fill-opacity:1}
+.graph.focused .gedge{stroke-opacity:.08}
+.graph.focused .gedge.lit{stroke:var(--ink);stroke-opacity:.9;stroke-width:1.8}
+
+.gnode{--c:var(--film);cursor:pointer;outline:none}
+.gnode[data-k="series"]{--c:var(--series)}
+.gnode[data-k="special"]{--c:var(--special)}
+.gnode[data-k="short"]{--c:var(--short)}
+.gnode .dot{fill:var(--c);stroke:var(--surface);stroke-width:1.5}
+.gnode.adj .dot{fill:var(--surface);stroke:var(--c);stroke-width:2.5}
+.gnode.member .dot{stroke:var(--dw);stroke-width:2.5;filter:drop-shadow(0 0 4px var(--dw))}
+.gnode .ring{fill:none;stroke:var(--dw);stroke-width:2;stroke-dasharray:3 2}
+.graph.noglow .gnode.member .dot{stroke:var(--surface);stroke-width:1.5;filter:none}
+.graph.noglow .gnode.adj.member .dot{stroke:var(--c);stroke-width:2.5}
+.graph.noglow .gnode .ring{display:none}
+.gnode.sel .dot{stroke:var(--ink);stroke-width:3}
+.gnode:focus-visible .dot{stroke:var(--film);stroke-width:3}
+.glabel{font-family:var(--sans);font-size:calc(11px * var(--inv,1));fill:var(--ink);text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:calc(3px * var(--inv,1));stroke-linejoin:round;pointer-events:none}
+.graph.focused .gnode:not(.lit){opacity:.18}
+.graph.focused .gnode.lit .glabel{font-weight:600}
+@media (hover:hover){.gnode:hover .dot{stroke:var(--ink);stroke-width:2.5}}
+
+.gpanel{position:absolute;top:44px;right:12px;width:min(360px,calc(100% - 24px));max-height:calc(100% - 56px);overflow:auto;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px 12px;box-shadow:0 8px 30px -10px rgba(0,0,0,.35);--c:var(--film)}
+.gpanel[data-k="series"]{--c:var(--series)}
+.gpanel[data-k="special"]{--c:var(--special)}
+.gpanel[data-k="short"]{--c:var(--short)}
+.gpanel .card{margin-bottom:10px}
+.gpanel .card h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.1;margin:0 0 6px}
+.gpanel-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.gpanel-bar .date{padding:0;text-align:left}
+.gclose{font:inherit;font-size:1.3rem;line-height:1;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);cursor:pointer}
+.gshow{font:inherit;font-size:.88rem;padding:6px 14px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:999px;cursor:pointer}
+.gclose:focus-visible,.gshow:focus-visible{outline:2px solid var(--film);outline-offset:2px}
+
+@media (max-width:660px){
+  .ghint{display:none}
+  .gsvg{height:68vh;min-height:360px}
+  .gpanel{position:fixed;top:auto;left:0;right:0;bottom:0;width:auto;max-height:55vh;border-radius:12px 12px 0 0;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20}

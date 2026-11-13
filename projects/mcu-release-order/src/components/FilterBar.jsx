@@ -19,6 +19,14 @@ export default function FilterBar({ state, set, shown, list, watchlists, phases 
   const flip = (key) => () => set({ [key]: !state[key] });
   return (
     <div className="bar" role="group" aria-label="Filters">
+      <span className="viewswitch" role="group" aria-label="View">
+        <Toggle on={state.view === 'timeline'} onClick={() => set({ view: 'timeline' })}>
+          Timeline
+        </Toggle>
+        <Toggle on={state.view === 'graph'} onClick={() => set({ view: 'graph' })} title="Every connection as a web">
+          Graph
+        </Toggle>
+      </span>
       {KINDS.map(([k, label]) => (
         <Toggle key={k} on={state.kind === k} onClick={() => set({ kind: k })}>
           {label}
@@ -31,7 +39,12 @@ export default function FilterBar({ state, set, shown, list, watchlists, phases 
         value={state.q}
         onChange={(e) => set({ q: e.target.value })}
       />
-      <Toggle on={state.showLinks} onClick={flip('showLinks')}>
+      <Toggle
+        on={state.showLinks}
+        onClick={flip('showLinks')}
+        disabled={state.view === 'graph'}
+        title={state.view === 'graph' ? 'The graph always shows connections' : undefined}
+      >
         {state.showLinks ? 'Connections on' : 'Connections off'}
       </Toggle>
       <Toggle on={state.hideSpoilers} onClick={flip('hideSpoilers')} title="Hide what each connection actually sets up">

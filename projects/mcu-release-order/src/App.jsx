@@ -8,6 +8,7 @@ import { decodeState, encodeState } from './lib/urlState.js';
 import Header from './components/Header.jsx';
 import FilterBar from './components/FilterBar.jsx';
 import Timeline from './components/Timeline.jsx';
+import GraphView from './components/GraphView.jsx';
 import AfterSection from './components/AfterSection.jsx';
 import Footer from './components/Footer.jsx';
 
@@ -61,16 +62,47 @@ export default function App() {
     el.classList.add('flash');
   }, [jump]);
 
-  const appClass = ['app', !state.showLinks && 'nolinks', !state.glow && 'noglow'].filter(Boolean).join(' ');
+  // Select a title in the graph, loosening filters if they hide it.
+  const selectNode = useCallback((id) => setState((s) => ({ ...revealTitle(s, id), sel: id })), []);
+
+  // The graph also shows the next film outside the chart (e.g. Doomsday), so its incoming web is visible.
+  const graphTitles = useMemo(
+    () => (state.view === 'graph' ? [...visible, ...catalog.after.filter((t) => isVisible(t, state, catalog))] : []),
+    [visible, state],
+  );
+
+  const graphView = state.view === 'graph';
+  const appClass = ['app', !graphView && !state.showLinks && 'nolinks', !state.glow && 'noglow'].filter(Boolean).join(' ');
   const cardProps = { state, catalog, list, onGo: go };
 
   return (
     <div className={appClass}>
       <div className="wrap">
         <Header stats={headerStats} list={list} showDest={!!list && !catalog.byId[list.target]?.after} />
-        <FilterBar state={state} set={set} shown={visible.length} list={list} watchlists={catalog.watchlists} phases={catalog.phases} />
-        <Timeline phases={catalog.phases} visible={visible} {...cardProps} />
-        <AfterSection titles={catalog.after} catalog={catalog} hideSpoilers={state.hideSpoilers} />
+        <FilterBar
+          state={state}
+          set={set}
+          shown={graphView ? graphTitles.length : visible.length}
+          list={list}
+          watchlists={catalog.watchlists}
+          phases={catalog.phases}
+        />
+        {graphView ? (
+          <GraphView
+            titles={graphTitles}
+            state={state}
+            set={set}
+            catalog={catalog}
+            list={list}
+            onSelect={selectNode}
+            onShowInTimeline={go}
+          />
+        ) : (
+          <>
+            <Timeline phases={catalog.phases} visible={visible} {...cardProps} />
+            <AfterSection titles={catalog.after} catalog={catalog} hideSpoilers={state.hideSpoilers} />
+          </>
+        )}
         <Footer />
       </div>
     </div>

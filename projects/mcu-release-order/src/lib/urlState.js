@@ -37,7 +37,7 @@ export function encodeState(state) {
 /** "#view=graph&kind=film" → full state. Unknown or invalid values fall back to defaults. */
 export function decodeState(hash, catalog) {
   const ctx = {
-    titleIds: new Set(catalog.titles.map((t) => t.id)),
+    titleIds: new Set(Object.keys(catalog.byId)),
     phaseIds: new Set(catalog.phases.map((p) => p.id)),
     listIds: new Set(catalog.watchlists.map((w) => w.id)),
   };
