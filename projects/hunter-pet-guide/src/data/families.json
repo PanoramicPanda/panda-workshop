@@ -1,0 +1,156 @@
+[
+  {
+    "id": "bat",
+    "name": "Bats",
+    "singular": "Bat",
+    "diet": "Fruit - Fungus",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "bear",
+    "name": "Bears",
+    "singular": "Bear",
+    "diet": "Bread - Cheese - Fish - Fruit - Fungus - Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "birdofprey",
+    "name": "Birds of Prey",
+    "singular": "Bird of Prey",
+    "diet": "Meat",
+    "notes": "",
+    "extra": [
+      "Mine!"
+    ]
+  },
+  {
+    "id": "boar",
+    "name": "Boars",
+    "singular": "Boar",
+    "diet": "Bread - Cheese - Fish - Fruit - Fungus - Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "carrionbird",
+    "name": "Carrion Birds",
+    "singular": "Carrion Bird",
+    "diet": "Fish - Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "cat",
+    "name": "Cats",
+    "singular": "Cat",
+    "diet": "Fish - Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "corehound",
+    "name": "Core Hounds",
+    "singular": "Core Hound",
+    "diet": "Meat",
+    "notes": "While Core Hounds are listed as a family in Forever, we didn't find any tameable examples during the Beta test. Hopefully they'll be identified as players reach higher levels!",
+    "extra": []
+  },
+  {
+    "id": "crab",
+    "name": "Crabs",
+    "singular": "Crab",
+    "diet": "Bread - Fish - Fruit - Fungus",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "crocolisk",
+    "name": "Crocolisks",
+    "singular": "Crocolisk",
+    "diet": "Fish - Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "fox",
+    "name": "Foxes",
+    "singular": "Fox",
+    "diet": "Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "gorilla",
+    "name": "Gorillas",
+    "singular": "Gorilla",
+    "diet": "Fruit - Fungus",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "hyena",
+    "name": "Hyenas",
+    "singular": "Hyena",
+    "diet": "Fruit - Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "raptor",
+    "name": "Raptors",
+    "singular": "Raptor",
+    "diet": "Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "scorpid",
+    "name": "Scorpids",
+    "singular": "Scorpid",
+    "diet": "Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "spider",
+    "name": "Spiders",
+    "singular": "Spider",
+    "diet": "Meat",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "tallstrider",
+    "name": "Tallstriders",
+    "singular": "Tallstrider",
+    "diet": "Cheese - Fruit - Fungus",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "turtle",
+    "name": "Turtles",
+    "singular": "Turtle",
+    "diet": "Fish - Fruit - Fungus - Raw Fish",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "windserpent",
+    "name": "Wind Serpents",
+    "singular": "Wind Serpent",
+    "diet": "Bread - Cheese - Fish",
+    "notes": "",
+    "extra": []
+  },
+  {
+    "id": "wolf",
+    "name": "Wolves",
+    "singular": "Wolf",
+    "diet": "Meat",
+    "notes": "",
+    "extra": []
+  }
+]

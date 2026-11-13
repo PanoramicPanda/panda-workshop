@@ -1,0 +1,1462 @@
+[
+  {
+    "id": "arcaneresistance",
+    "name": "Arcane Resistance",
+    "description": "Increases Arcane Resistance.",
+    "passive": true,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "trainer",
+        "petLevel": 20,
+        "tp": 5,
+        "effect": "Increases Arcane Resistance by 30.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "trainer",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Increases Arcane Resistance by 60.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "trainer",
+        "petLevel": 40,
+        "tp": 45,
+        "effect": "Increases Arcane Resistance by 90.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "trainer",
+        "petLevel": 50,
+        "tp": 90,
+        "effect": "Increases Arcane Resistance by 120.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "bite",
+    "name": "Bite",
+    "description": "Bite the enemy, causing damage.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["bat", "bear", "boar", "carrionbird", "cat", "corehound", "crocolisk", "fox", "gorilla", "hyena", "raptor", "spider", "tallstrider", "turtle", "windserpent", "wolf"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 1,
+        "tp": 1,
+        "effect": "Bite the enemy, causing 7 to 9 damage.",
+        "pets": [250873, 1509, 1505, 2958, 30, 1688, 1994, 250868, 1138, 1922, 1999, 1131, 471, 2959, 266851, 3110]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 8,
+        "tp": 4,
+        "effect": "Bite the enemy, causing 16 to 18 damage.",
+        "pets": [254589, 1133, 118, 268530, 2960, 1555, 2001, 1132, 1195, 834, 250874, 1765, 833, 7319, 10359, 1693, 442, 270693, 3461]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 16,
+        "tp": 7,
+        "effect": "Bite the enemy, causing 24 to 28 damage.",
+        "pets": [4005, 1923, 1185, 14266, 505, 3823, 4006, 3653, 2172, 2350, 569, 11921, 2476, 521, 4824, 616, 14279]
+      },
+      {
+        "rank": 4,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 10,
+        "effect": "Bite the enemy, causing 31 to 37 damage.",
+        "pets": [628, 1112, 2349, 1258, 4887, 2089, 2348, 4825, 260809, 3825, 260803, 574, 3821, 2408, 14223]
+      },
+      {
+        "rank": 5,
+        "source": "pet",
+        "petLevel": 32,
+        "tp": 13,
+        "effect": "Bite the enemy, causing 40 to 48 damage.",
+        "pets": [2563, 4143, 2565, 4341, 4413, 2727, 4396, 4411, 4412, 4344]
+      },
+      {
+        "rank": 6,
+        "source": "pet",
+        "petLevel": 40,
+        "tp": 17,
+        "effect": "Bite the enemy, causing 49 to 59 damage.",
+        "pets": [2753, 14233, 769, 4345, 5286, 4400, 1087, 5356, 8211, 4841, 8762, 8959, 14339]
+      },
+      {
+        "rank": 7,
+        "source": "pet",
+        "petLevel": 48,
+        "tp": 21,
+        "effect": "Bite the enemy, causing 66 to 80 damage.",
+        "pets": [8277, 2505, 8933, 3581, 2681, 8213, 8961, 6585, 1817, 1824]
+      },
+      {
+        "rank": 8,
+        "source": "pet",
+        "petLevel": 56,
+        "tp": 25,
+        "effect": "Bite the enemy, causing 81 to 99 damage.",
+        "pets": [9696]
+      }
+    ]
+  },
+  {
+    "id": "charge",
+    "name": "Charge",
+    "description": "Charges an enemy, immobilizes it for 1 sec, and adds melee attack power to the boar's next attack.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["boar"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 1,
+        "tp": 5,
+        "effect": "Charges an enemy, immobilizes it for 1 sec, and adds 66 melee attack power to the boar's next attack.",
+        "pets": [3098, 1984, 1985, 2966, 708, 2954, 1125, 113, 3099, 1126, 390, 1127, 524, 1689, 3100, 330, 3225, 1190, 119]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 9,
+        "effect": "Charges an enemy, immobilizes it for 1 sec, and adds 130 melee attack power to the boar's next attack.",
+        "pets": [454, 1191, 157, 1192, 547]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 13,
+        "effect": "Charges an enemy, immobilizes it for 1 sec, and adds 204 melee attack power to the boar's next attack.",
+        "pets": [345, 4511, 4514, 4512]
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 36,
+        "tp": 17,
+        "effect": "Charges an enemy, immobilizes it for 1 sec, and adds 294 melee attack power to the boar's next attack.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "pet",
+        "petLevel": 48,
+        "tp": 21,
+        "effect": "Charges an enemy, immobilizes it for 1 sec, and adds 430 melee attack power to the boar's next attack.",
+        "pets": [5992, 8303]
+      },
+      {
+        "rank": 6,
+        "source": "pet",
+        "petLevel": 60,
+        "tp": 25,
+        "effect": "Charges an enemy, immobilizes it for 1 sec, and adds 520 melee attack power to the boar's next attack.",
+        "pets": [16117]
+      }
+    ]
+  },
+  {
+    "id": "claw",
+    "name": "Claw",
+    "description": "Claw the enemy, causing damage.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["bear", "birdofprey", "carrionbird", "cat", "crab", "raptor", "scorpid"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 1,
+        "tp": 1,
+        "effect": "Claw the enemy, causing 4 to 6 damage.",
+        "pets": [3124, 250926, 250937, 3281, 1995, 3106, 251115, 1129, 250928, 1196, 2970]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 8,
+        "tp": 4,
+        "effect": "Claw the enemy, causing 8 to 12 damage.",
+        "pets": [1997, 254588, 822, 3108, 3127, 276189, 250927, 5823, 2163, 1778, 1961, 248299, 2232, 1130]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 16,
+        "tp": 7,
+        "effect": "Claw the enemy, causing 12 to 16 damage.",
+        "pets": [1189, 1216, 6788, 3619, 3812, 1225, 3809, 2351, 4821, 4822]
+      },
+      {
+        "rank": 4,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 10,
+        "effect": "Claw the enemy, causing 16 to 22 damage.",
+        "pets": [4823, 3810, 4696, 4140]
+      },
+      {
+        "rank": 5,
+        "source": "pet",
+        "petLevel": 32,
+        "tp": 13,
+        "effect": "Claw the enemy, causing 21 to 29 damage.",
+        "pets": [4697, 5937, 4343, 7022]
+      },
+      {
+        "rank": 6,
+        "source": "pet",
+        "petLevel": 40,
+        "tp": 17,
+        "effect": "Claw the enemy, causing 26 to 36 damage.",
+        "pets": [922, 5422, 5268, 731, 1088, 5352]
+      },
+      {
+        "rank": 7,
+        "source": "pet",
+        "petLevel": 48,
+        "tp": 21,
+        "effect": "Claw the enemy, causing 35 to 49 damage.",
+        "pets": [5274, 8958, 7099, 14344, 14343, 7444, 8301, 7455, 9695, 1816]
+      },
+      {
+        "rank": 8,
+        "source": "pet",
+        "petLevel": 56,
+        "tp": 25,
+        "effect": "Claw the enemy, causing 43 to 59 damage.",
+        "pets": [7456, 7445]
+      }
+    ]
+  },
+  {
+    "id": "cower",
+    "name": "Cower",
+    "description": "Cower, causing no damage but lowering threat, making the enemy less likely to attack.",
+    "passive": false,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 5,
+        "tp": 8,
+        "effect": "Cower, causing no damage but lowering threat, making the enemy less likely to attack.",
+        "pets": [1199, 2042, 251245, 1553, 3035, 3121, 2957, 253282, 276198, 3068, 2070, 2321, 3246]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 15,
+        "tp": 10,
+        "effect": "Cower, causing no damage but lowering threat, making the enemy less likely to attack.",
+        "pets": [3245, 2237, 2323, 4067, 2384]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 25,
+        "tp": 12,
+        "effect": "Cower, causing no damage but lowering threat, making the enemy less likely to attack.",
+        "pets": [4126, 2385, 683, 4538, 681, 736, 4539]
+      },
+      {
+        "rank": 4,
+        "source": "pet",
+        "petLevel": 35,
+        "tp": 14,
+        "effect": "Cower, causing no damage but lowering threat, making the enemy less likely to attack.",
+        "pets": [3241, 2731, 4861, 2732]
+      },
+      {
+        "rank": 5,
+        "source": "pet",
+        "petLevel": 45,
+        "tp": 16,
+        "effect": "Cower, causing no damage but lowering threat, making the enemy less likely to attack.",
+        "pets": [2522, 8600, 8601]
+      },
+      {
+        "rank": 6,
+        "source": "pet",
+        "petLevel": 55,
+        "tp": 18,
+        "effect": "Cower, causing no damage but lowering threat, making the enemy less likely to attack.",
+        "pets": [7430, 8602]
+      }
+    ]
+  },
+  {
+    "id": "dash",
+    "name": "Dash",
+    "description": "Increases movement speed for 15 seconds.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["bear", "boar", "cat", "crab", "crocolisk", "fox", "gorilla", "hyena", "raptor", "scorpid", "spider", "tallstrider", "turtle", "wolf"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Increases movement speed by 40% for 15 seconds.",
+        "pets": [4724, 682, 976, 4304, 4688, 4950, 2727, 767, 2850, 729, 2728, 4662, 2729]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 40,
+        "tp": 20,
+        "effect": "Increases movement speed by 60% for 15 seconds.",
+        "pets": [2734, 728, 5286, 5425, 1713, 8211, 2730, 8208, 731, 5426, 2926, 5427]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 50,
+        "tp": 25,
+        "effect": "Increases movement speed by 80% for 15 seconds.",
+        "pets": [250619, 2681, 8303, 8300, 9416, 7055, 9696, 10200, 7433, 7432, 11365]
+      }
+    ]
+  },
+  {
+    "id": "demoralizingscreech",
+    "name": "Demoralizing Screech",
+    "description": "Blasts a single enemy for damage and lowers the melee attack power of all enemies in melee range. Effect lasts 4 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["carrionbird"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 8,
+        "tp": 10,
+        "effect": "Blasts a single enemy for 7 to 9 damage and lowers the melee attack power of all enemies in melee range by 63. Effect lasts 4 sec.",
+        "pets": [2971, 199, 154]
+      },
+      {
+        "rank": 2,
+        "source": "none",
+        "petLevel": 24,
+        "tp": 15,
+        "effect": "Blasts a single enemy for 9 to 13 damage and lowers the melee attack power of all enemies in melee range by 111. Effect lasts 4 sec.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 20,
+        "effect": "Blasts a single enemy for 21 to 27 damage and lowers the melee attack power of all enemies in melee range by 164. Effect lasts 4 sec.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 56,
+        "tp": 25,
+        "effect": "Blasts a single enemy for 24 to 42 damage and lowers the melee attack power of all enemies in melee range by 204. Effect lasts 4 sec.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "dismember",
+    "name": "Dismember",
+    "description": "Viciously bites enemy appendages for damage and reduces the effectiveness of any healing by 50% for 10 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["crocolisk"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 0,
+        "effect": "Viciously bites enemy appendages for 11 to 13 damage and reduces the effectiveness of any healing by 50% for 10 sec.",
+        "pets": [1693, 270693, 1417, 1400]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 0,
+        "effect": "Viciously bites enemy appendages for 18 to 20 damage and reduces the effectiveness of any healing by 50% for 10 sec.",
+        "pets": [260796, 260797, 1150]
+      },
+      {
+        "rank": 3,
+        "source": "none",
+        "petLevel": 36,
+        "tp": 0,
+        "effect": "Viciously bites enemy appendages for 26 to 30 damage and reduces the effectiveness of any healing by 50% for 10 sec.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Viciously bites enemy appendages for 39 to 45 damage and reduces the effectiveness of any healing by 50% for 10 sec.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "none",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Viciously bites enemy appendages for 50 to 58 damage and reduces the effectiveness of any healing by 50% for 10 sec.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "dive",
+    "name": "Dive",
+    "description": "Increases movement speed for 15 seconds.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["bat", "birdofprey", "carrionbird", "windserpent"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Increases movement speed by 40% for 15 seconds.",
+        "pets": [4538, 2578, 4539, 2579, 6013, 4693, 4861]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 40,
+        "tp": 20,
+        "effect": "Increases movement speed by 60% for 15 seconds.",
+        "pets": [5307, 5428, 5429, 5308, 8207, 5430, 7097, 5349]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 50,
+        "tp": 25,
+        "effect": "Increases movement speed by 80% for 15 seconds.",
+        "pets": [8927, 1809, 7099, 5708, 7098, 14343, 8299, 8600, 7455, 2931, 7456]
+      }
+    ]
+  },
+  {
+    "id": "dustcloud",
+    "name": "Dust Cloud",
+    "description": "Your tallstrider kicks up an abrasive cloud of dust, reducing the target's Armor for 30 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["tallstrider"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 0,
+        "effect": "Your tallstrider kicks up an abrasive cloud of dust, reducing the target's Armor by 65 for 30 sec.",
+        "pets": [3246, 2322, 2172]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 0,
+        "effect": "Your tallstrider kicks up an abrasive cloud of dust, reducing the target's Armor by 175 for 30 sec.",
+        "pets": [4724]
+      },
+      {
+        "rank": 3,
+        "source": "none",
+        "petLevel": 36,
+        "tp": 0,
+        "effect": "Your tallstrider kicks up an abrasive cloud of dust, reducing the target's Armor by 285 for 30 sec.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Your tallstrider kicks up an abrasive cloud of dust, reducing the target's Armor by 395 for 30 sec.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "none",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Your tallstrider kicks up an abrasive cloud of dust, reducing the target's Armor by 505 for 30 sec.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "fireresistance",
+    "name": "Fire Resistance",
+    "description": "Increases Fire Resistance.",
+    "passive": true,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "trainer",
+        "petLevel": 20,
+        "tp": 5,
+        "effect": "Increases Fire Resistance by 30.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "trainer",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Increases Fire Resistance by 60.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "trainer",
+        "petLevel": 40,
+        "tp": 45,
+        "effect": "Increases Fire Resistance by 90.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "trainer",
+        "petLevel": 50,
+        "tp": 90,
+        "effect": "Increases Fire Resistance by 120.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "frostresistance",
+    "name": "Frost Resistance",
+    "description": "Increases Frost Resistance.",
+    "passive": true,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "trainer",
+        "petLevel": 20,
+        "tp": 5,
+        "effect": "Increases Frost Resistance by 30.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "trainer",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Increases Frost Resistance by 60.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "trainer",
+        "petLevel": 40,
+        "tp": 45,
+        "effect": "Increases Frost Resistance by 90.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "trainer",
+        "petLevel": 50,
+        "tp": 90,
+        "effect": "Increases Frost Resistance by 120.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "furioushowl",
+    "name": "Furious Howl",
+    "description": "The wolf howls, increasing the melee attack power of all party members within 15 yards. Lasts 1 min.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["wolf"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 10,
+        "tp": 10,
+        "effect": "The wolf howls, increasing the melee attack power of all party members within 15 yards by 139. Lasts 1 min.",
+        "pets": [1765, 833, 274300, 10644]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 15,
+        "effect": "The wolf howls, increasing the melee attack power of all party members within 15 yards by 51 to 62. Lasts 1 min.",
+        "pets": [1258, 3825, 2729, 5287, 2925]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 40,
+        "tp": 20,
+        "effect": "The wolf howls, increasing the melee attack power of all party members within 15 yards by 115. Lasts 1 min.",
+        "pets": [5286, 5356, 2924, 8959, 14339]
+      },
+      {
+        "rank": 4,
+        "source": "pet",
+        "petLevel": 56,
+        "tp": 25,
+        "effect": "The wolf howls, increasing the melee attack power of all party members within 15 yards by 45 to 57. Lasts 1 min.",
+        "pets": [9696]
+      }
+    ]
+  },
+  {
+    "id": "greatstamina",
+    "name": "Great Stamina",
+    "description": "Stamina increased.",
+    "passive": true,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "trainer",
+        "petLevel": 1,
+        "tp": 5,
+        "effect": "Stamina increased by 3.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "trainer",
+        "petLevel": 12,
+        "tp": 10,
+        "effect": "Stamina increased by 5.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "trainer",
+        "petLevel": 18,
+        "tp": 15,
+        "effect": "Stamina increased by 7.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "trainer",
+        "petLevel": 24,
+        "tp": 25,
+        "effect": "Stamina increased by 10.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "trainer",
+        "petLevel": 30,
+        "tp": 50,
+        "effect": "Stamina increased by 13.",
+        "pets": []
+      },
+      {
+        "rank": 6,
+        "source": "trainer",
+        "petLevel": 36,
+        "tp": 75,
+        "effect": "Stamina increased by 17.",
+        "pets": []
+      },
+      {
+        "rank": 7,
+        "source": "trainer",
+        "petLevel": 42,
+        "tp": 100,
+        "effect": "Stamina increased by 21.",
+        "pets": []
+      },
+      {
+        "rank": 8,
+        "source": "trainer",
+        "petLevel": 48,
+        "tp": 125,
+        "effect": "Stamina increased by 26.",
+        "pets": []
+      },
+      {
+        "rank": 9,
+        "source": "trainer",
+        "petLevel": 54,
+        "tp": 150,
+        "effect": "Stamina increased by 32.",
+        "pets": []
+      },
+      {
+        "rank": 10,
+        "source": "trainer",
+        "petLevel": 60,
+        "tp": 185,
+        "effect": "Stamina increased by 40.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "growl",
+    "name": "Growl",
+    "description": "Taunt the target, increasing the likelihood the creature will focus attacks on your pet.",
+    "passive": false,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "trainer",
+        "petLevel": 1,
+        "tp": 0,
+        "effect": "Taunt the target, increasing the likelihood the creature will focus attacks on your pet.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "trainer",
+        "petLevel": 10,
+        "tp": 0,
+        "effect": "Taunt the target, increasing the likelihood the creature will focus attacks on your pet.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "trainer",
+        "petLevel": 20,
+        "tp": 0,
+        "effect": "Taunt the target, increasing the likelihood the creature will focus attacks on your pet.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "trainer",
+        "petLevel": 30,
+        "tp": 0,
+        "effect": "Taunt the target, increasing the likelihood the creature will focus attacks on your pet.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "trainer",
+        "petLevel": 40,
+        "tp": 0,
+        "effect": "Taunt the target, increasing the likelihood the creature will focus attacks on your pet.",
+        "pets": []
+      },
+      {
+        "rank": 6,
+        "source": "trainer",
+        "petLevel": 50,
+        "tp": 0,
+        "effect": "Taunt the target, increasing the likelihood the creature will focus attacks on your pet.",
+        "pets": []
+      },
+      {
+        "rank": 7,
+        "source": "trainer",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Taunt the target, increasing the likelihood the creature will focus attacks on your pet.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "lavabreath",
+    "name": "Lava Breath",
+    "description": "Breathes molten lava at 2 nearby enemies, instantly dealing Fire damage and reducing the target's casting speed by 25% for 10 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["corehound"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Breathes molten lava at 2 nearby enemies, instantly dealing 97 to 109 Fire damage and reducing the target's casting speed by 25% for 10 sec.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Breathes molten lava at 2 nearby enemies, instantly dealing 123 to 137 Fire damage and reducing the target's casting speed by 25% for 10 sec.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "lightningbreath",
+    "name": "Lightning Breath",
+    "description": "Breathes lightning, instantly dealing Nature damage to a single target.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["windserpent"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "none",
+        "petLevel": 1,
+        "tp": 1,
+        "effect": "Breathes lightning, instantly dealing 8 to 10 Nature damage to a single target.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 5,
+        "effect": "Breathes lightning, instantly dealing 20 to 22 Nature damage to a single target.",
+        "pets": [3630, 3631, 3247, 3424, 5756, 5056, 3249]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 10,
+        "effect": "Breathes lightning, instantly dealing 32 to 36 Nature damage to a single target.",
+        "pets": [3472, 4117, 4118, 4119]
+      },
+      {
+        "rank": 4,
+        "source": "pet",
+        "petLevel": 36,
+        "tp": 15,
+        "effect": "Breathes lightning, instantly dealing 46 to 54 Nature damage to a single target.",
+        "pets": [5307, 5308]
+      },
+      {
+        "rank": 5,
+        "source": "pet",
+        "petLevel": 48,
+        "tp": 20,
+        "effect": "Breathes lightning, instantly dealing 71 to 81 Nature damage to a single target.",
+        "pets": [5291, 5349, 8336, 5708]
+      },
+      {
+        "rank": 6,
+        "source": "pet",
+        "petLevel": 60,
+        "tp": 25,
+        "effect": "Breathes lightning, instantly dealing 86 to 98 Nature damage to a single target.",
+        "pets": [11357]
+      }
+    ]
+  },
+  {
+    "id": "naturalarmor",
+    "name": "Natural Armor",
+    "description": "Armor increased.",
+    "passive": true,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "trainer",
+        "petLevel": 1,
+        "tp": 1,
+        "effect": "Armor increased by 50.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "trainer",
+        "petLevel": 12,
+        "tp": 5,
+        "effect": "Armor increased by 100.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "trainer",
+        "petLevel": 18,
+        "tp": 10,
+        "effect": "Armor increased by 160.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "trainer",
+        "petLevel": 24,
+        "tp": 15,
+        "effect": "Armor increased by 240.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "trainer",
+        "petLevel": 30,
+        "tp": 25,
+        "effect": "Armor increased by 330.",
+        "pets": []
+      },
+      {
+        "rank": 6,
+        "source": "trainer",
+        "petLevel": 36,
+        "tp": 50,
+        "effect": "Armor increased by 430.",
+        "pets": []
+      },
+      {
+        "rank": 7,
+        "source": "trainer",
+        "petLevel": 42,
+        "tp": 75,
+        "effect": "Armor increased by 550.",
+        "pets": []
+      },
+      {
+        "rank": 8,
+        "source": "trainer",
+        "petLevel": 48,
+        "tp": 100,
+        "effect": "Armor increased by 675.",
+        "pets": []
+      },
+      {
+        "rank": 9,
+        "source": "trainer",
+        "petLevel": 54,
+        "tp": 125,
+        "effect": "Armor increased by 810.",
+        "pets": []
+      },
+      {
+        "rank": 10,
+        "source": "trainer",
+        "petLevel": 60,
+        "tp": 150,
+        "effect": "Armor increased by 1000.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "natureresistance",
+    "name": "Nature Resistance",
+    "description": "Increases Nature Resistance.",
+    "passive": true,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "trainer",
+        "petLevel": 20,
+        "tp": 5,
+        "effect": "Increases Nature Resistance by 30.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "trainer",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Increases Nature Resistance by 60.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "trainer",
+        "petLevel": 40,
+        "tp": 45,
+        "effect": "Increases Nature Resistance by 90.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "trainer",
+        "petLevel": 50,
+        "tp": 90,
+        "effect": "Increases Nature Resistance by 120.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "pinch",
+    "name": "Pinch",
+    "description": "Pinches an enemy's legs for damage and reduces movement speed by 50% for 9 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["crab"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 0,
+        "effect": "Pinches an enemy's legs for 19 to 21 damage and reduces movement speed by 50% for 9 sec.",
+        "pets": [2232, 830, 2235, 1216, 2236]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 0,
+        "effect": "Pinches an enemy's legs for 32 to 36 damage and reduces movement speed by 50% for 9 sec.",
+        "pets": [4823, 12347]
+      },
+      {
+        "rank": 3,
+        "source": "none",
+        "petLevel": 36,
+        "tp": 0,
+        "effect": "Pinches an enemy's legs for 41 to 47 damage and reduces movement speed by 50% for 9 sec.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Pinches an enemy's legs for 68 to 78 damage and reduces movement speed by 50% for 9 sec.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "none",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Pinches an enemy's legs for 88 to 102 damage and reduces movement speed by 50% for 9 sec.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "prowl",
+    "name": "Prowl",
+    "description": "Puts your pet in stealth mode, but slows its movement speed. The first attack from stealth receives a bonus to damage. Lasts until cancelled.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["cat"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Puts your pet in stealth mode, but slows its movement speed by 50%. The first attack from stealth receives a 20% bonus to damage. Lasts until cancelled.",
+        "pets": [2406, 2731, 684, 768]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 40,
+        "tp": 20,
+        "effect": "Puts your pet in stealth mode, but slows its movement speed by 45%. The first attack from stealth receives a 35% bonus to damage. Lasts until cancelled.",
+        "pets": [2734, 1713]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 50,
+        "tp": 25,
+        "effect": "Puts your pet in stealth mode, but slows its movement speed by 40%. The first attack from stealth receives a 50% bonus to damage. Lasts until cancelled.",
+        "pets": [2522, 7432]
+      }
+    ]
+  },
+  {
+    "id": "savagerend",
+    "name": "Savage Rend",
+    "description": "Slash an enemy with razor talons, causing the target to Bleed for damage over 18 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["raptor"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 0,
+        "effect": "Slash an enemy with razor talons, causing the target to Bleed for 30 damage over 18 sec.",
+        "pets": [3255]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 0,
+        "effect": "Slash an enemy with razor talons, causing the target to Bleed for 54 damage over 18 sec.",
+        "pets": [1015, 1021, 1016, 1022, 1017, 1023, 1018, 260800, 1019, 855]
+      },
+      {
+        "rank": 3,
+        "source": "none",
+        "petLevel": 36,
+        "tp": 0,
+        "effect": "Slash an enemy with razor talons, causing the target to Bleed for 72 damage over 18 sec.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Slash an enemy with razor talons, causing the target to Bleed for 120 damage over 18 sec.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "none",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Slash an enemy with razor talons, causing the target to Bleed for 156 damage over 18 sec.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "scorpidpoison",
+    "name": "Scorpid Poison",
+    "description": "Inflicts Nature damage over 10 sec. Effect can stack up to 5 times on a single target.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["scorpid"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 8,
+        "tp": 10,
+        "effect": "Inflicts 5 Nature damage over 10 sec. Effect can stack up to 5 times on a single target.",
+        "pets": [3127, 5823, 3250, 3252]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 15,
+        "effect": "Inflicts 10 Nature damage over 10 sec. Effect can stack up to 5 times on a single target.",
+        "pets": [4696, 4140, 4139, 7078, 5937, 4699]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 40,
+        "tp": 20,
+        "effect": "Inflicts 20 Nature damage over 10 sec. Effect can stack up to 5 times on a single target.",
+        "pets": [5422, 7405, 5423, 5424, 7803, 8926, 5988, 9691, 9695, 11735]
+      },
+      {
+        "rank": 4,
+        "source": "pet",
+        "petLevel": 56,
+        "tp": 25,
+        "effect": "Inflicts 25 Nature damage over 10 sec. Effect can stack up to 5 times on a single target.",
+        "pets": [14476, 9698, 11736, 11737]
+      }
+    ]
+  },
+  {
+    "id": "shadowresistance",
+    "name": "Shadow Resistance",
+    "description": "Increases Shadow Resistance.",
+    "passive": true,
+    "allFamilies": true,
+    "families": [],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "trainer",
+        "petLevel": 20,
+        "tp": 5,
+        "effect": "Increases Shadow Resistance by 30.",
+        "pets": []
+      },
+      {
+        "rank": 2,
+        "source": "trainer",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Increases Shadow Resistance by 60.",
+        "pets": []
+      },
+      {
+        "rank": 3,
+        "source": "trainer",
+        "petLevel": 40,
+        "tp": 45,
+        "effect": "Increases Shadow Resistance by 90.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "trainer",
+        "petLevel": 40,
+        "tp": 90,
+        "effect": "Increases Shadow Resistance by 120.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "shellshield",
+    "name": "Shell Shield",
+    "description": "Reduces all damage your pet takes by 50% and increases the time between your pet's attacks by 60%, but deals more damage with each attack. Lasts 12 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["turtle"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 20,
+        "tp": 15,
+        "effect": "Reduces all damage your pet takes by 50% and increases the time between your pet's attacks by 60%, but deals more damage with each attack. Lasts 12 sec.",
+        "pets": [3653, 4824, 4887, 4825, 2408, 14223]
+      }
+    ]
+  },
+  {
+    "id": "swipe",
+    "name": "Swipe",
+    "description": "Swipe 3 nearby enemies, inflicting damage.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["bear"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 0,
+        "effect": "Swipe 3 nearby enemies, inflicting 4 damage.",
+        "pets": [1797, 1188, 259388]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 0,
+        "effect": "Swipe 3 nearby enemies, inflicting 8 to 10 damage.",
+        "pets": [271334, 2356]
+      },
+      {
+        "rank": 3,
+        "source": "none",
+        "petLevel": 36,
+        "tp": 0,
+        "effect": "Swipe 3 nearby enemies, inflicting 11 to 13 damage.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Swipe 3 nearby enemies, inflicting 16 to 18 damage.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "none",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Swipe 3 nearby enemies, inflicting 20 to 22 damage.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "tendonrip",
+    "name": "Tendon Rip",
+    "description": "Tears at an enemy's legs for damage over 9 sec and reduces movement speed by 50% for 9 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["hyena"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 0,
+        "effect": "Tears at an enemy's legs for 12 damage over 9 sec and reduces movement speed by 50% for 9 sec.",
+        "pets": [4316, 4127, 4129, 4128]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 0,
+        "effect": "Tears at an enemy's legs for 21 damage over 9 sec and reduces movement speed by 50% for 9 sec.",
+        "pets": [4248, 4249, 4548]
+      },
+      {
+        "rank": 3,
+        "source": "none",
+        "petLevel": 36,
+        "tp": 0,
+        "effect": "Tears at an enemy's legs for 27 damage over 9 sec and reduces movement speed by 50% for 9 sec.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Tears at an enemy's legs for 45 damage over 9 sec and reduces movement speed by 50% for 9 sec.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "none",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Tears at an enemy's legs for 60 damage over 9 sec and reduces movement speed by 50% for 9 sec.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "thunderstomp",
+    "name": "Thunderstomp",
+    "description": "Shakes the ground with thundering force, doing Nature damage to all enemies within 8 yards.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["gorilla"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 30,
+        "tp": 15,
+        "effect": "Shakes the ground with thundering force, doing 53 to 61 Nature damage to all enemies within 8 yards.",
+        "pets": [1108, 1114]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 40,
+        "tp": 20,
+        "effect": "Shakes the ground with thundering force, doing 69 to 79 Nature damage to all enemies within 8 yards.",
+        "pets": [1557, 5262]
+      },
+      {
+        "rank": 3,
+        "source": "pet",
+        "petLevel": 50,
+        "tp": 25,
+        "effect": "Shakes the ground with thundering force, doing 92 to 106 Nature damage to all enemies within 8 yards.",
+        "pets": [6516, 9622]
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Shakes the ground with thundering force, doing 122 to 142 Nature damage to all enemies within 8 yards.",
+        "pets": []
+      }
+    ]
+  },
+  {
+    "id": "trickstersdance",
+    "name": "Trickster's Dance",
+    "description": "Increases your pet's chance to Dodge by 50% and decreases the time between your pet's attacks by 30%. Lasts 12 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["fox"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 20,
+        "tp": 0,
+        "effect": "Increases your pet's chance to Dodge by 50% and decreases the time between your pet's attacks by 30%. Lasts 12 sec.",
+        "pets": [277645]
+      }
+    ]
+  },
+  {
+    "id": "web",
+    "name": "Web",
+    "description": "Entangles an enemy in a corrosive web, immobilizing them and dealing Nature damage over 4 sec.",
+    "passive": false,
+    "allFamilies": false,
+    "families": ["spider"],
+    "ranks": [
+      {
+        "rank": 1,
+        "source": "pet",
+        "petLevel": 12,
+        "tp": 0,
+        "effect": "Entangles an enemy in a corrosive web, immobilizing them and dealing 12 Nature damage over 4 sec.",
+        "pets": [1780, 1184, 1781, 10359, 4263, 256040, 250484, 4007, 539, 217, 3819, 4040, 1111, 4264]
+      },
+      {
+        "rank": 2,
+        "source": "pet",
+        "petLevel": 24,
+        "tp": 0,
+        "effect": "Entangles an enemy in a corrosive web, immobilizing them and dealing 20 Nature damage over 4 sec.",
+        "pets": [949, 2349, 930, 3820]
+      },
+      {
+        "rank": 3,
+        "source": "none",
+        "petLevel": 36,
+        "tp": 0,
+        "effect": "Entangles an enemy in a corrosive web, immobilizing them and dealing 28 Nature damage over 4 sec.",
+        "pets": []
+      },
+      {
+        "rank": 4,
+        "source": "none",
+        "petLevel": 48,
+        "tp": 0,
+        "effect": "Entangles an enemy in a corrosive web, immobilizing them and dealing 40 Nature damage over 4 sec.",
+        "pets": []
+      },
+      {
+        "rank": 5,
+        "source": "none",
+        "petLevel": 60,
+        "tp": 0,
+        "effect": "Entangles an enemy in a corrosive web, immobilizing them and dealing 52 Nature damage over 4 sec.",
+        "pets": []
+      }
+    ]
+  }
+]
