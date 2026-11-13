@@ -337,12 +337,12 @@ A WoW Forever hunter pet guide for every family: which pets to tame and where, f
 
 ### MCU Release Order Chart
 
-An interactive MCU timeline from Iron Man to VisionQuest in release order, with season buckets for shows interrupted by films, spoiler-redacted connections between titles, an MCU Adjacent toggle (Fox X-Men, Spider-Men, Netflix shows, Agents of S.H.I.E.L.D.), and Disney+'s official Doomsday watchlist highlighted (switchable) and filterable.
+An interactive MCU timeline from Iron Man to VisionQuest in release order, with spoiler-redacted connections between titles, a node-graph view of the whole web, phase and type filters, an MCU Adjacent switch (Fox X-Men, Spider-Men, Netflix shows), and watchlists for the big crossover films, including Disney+'s official Doomsday list. Filtered views are shareable by link.
 
 - **Live:** <https://panoramicpanda.me/projects/mcu-release-order/>
 - **Source:** [`projects/mcu-release-order/`](projects/mcu-release-order/)
 - **Category:** Entertainment
-- **Type:** Static HTML
-- **Tags:** `MCU`, `Marvel`, `Timeline`, `Release Order`, `Doomsday`
+- **Type:** Built app (Vite + React)
+- **Tags:** `MCU`, `Marvel`, `Timeline`, `Release Order`, `Doomsday`, `Graph`, `React`
 
 <!-- PROJECTS:END -->
