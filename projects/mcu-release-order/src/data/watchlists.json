@@ -1,0 +1,11 @@
+[
+  {
+    "id": "doomsday",
+    "target": "doom",
+    "label": "Avengers: Doomsday",
+    "chip": "Disney+ Doomsday pick",
+    "source": "official",
+    "sourceNote": "Disney+’s official “Countdown to Avengers: Doomsday” list, published in August 2026: 15 picks, with both seasons of Loki counted as one.",
+    "members": ["fx1", "fx2", "cap1", "av1", "iw", "eg", "loki1", "shangchi", "nwh", "momm", "bpwf", "loki2", "dp", "cabnd", "tb", "ff"]
+  }
+]

@@ -1,0 +1,1696 @@
+[
+  {
+    "id": "fx1",
+    "phase": 0,
+    "title": "X-Men",
+    "kind": "film",
+    "date": "Jul 14, 2000",
+    "shortTitle": "X-Men (2000)",
+    "adjacent": true,
+    "note": "The first Fox X-Men film, with Patrick Stewart as Professor X and Ian McKellen as Magneto.",
+    "links": [
+      {
+        "to": "momm",
+        "rel": "ties",
+        "text": "Patrick Stewart’s Professor X appears in Multiverse of Madness."
+      },
+      {
+        "to": "doom",
+        "rel": "ties",
+        "text": "Stewart, McKellen, James Marsden and Rebecca Romijn are in the Doomsday cast."
+      }
+    ]
+  },
+  {
+    "id": "sp1",
+    "phase": 0,
+    "title": "Spider-Man",
+    "kind": "film",
+    "date": "May 3, 2002",
+    "shortTitle": "Spider-Man (2002)",
+    "adjacent": true,
+    "note": "Tobey Maguire’s Peter Parker vs. the Green Goblin, in Sam Raimi’s first Spider-Man film.",
+    "links": [
+      {
+        "to": "nwh",
+        "rel": "ties",
+        "text": "Maguire’s Peter and Willem Dafoe’s Green Goblin return in No Way Home."
+      }
+    ]
+  },
+  {
+    "id": "fx2",
+    "phase": 0,
+    "title": "X2: X-Men United",
+    "kind": "film",
+    "date": "May 2, 2003",
+    "shortTitle": "X2",
+    "adjacent": true,
+    "note": "Introduces Nightcrawler (Alan Cumming) and pits the X-Men against William Stryker.",
+    "links": [
+      {
+        "to": "doom",
+        "rel": "ties",
+        "text": "Cumming’s Nightcrawler is in the Doomsday cast."
+      }
+    ]
+  },
+  {
+    "id": "sp2",
+    "phase": 0,
+    "title": "Spider-Man 2",
+    "kind": "film",
+    "date": "Jun 30, 2004",
+    "shortTitle": "Spider-Man 2",
+    "adjacent": true,
+    "note": "Peter takes on Doctor Octopus.",
+    "links": [
+      {
+        "to": "nwh",
+        "rel": "ties",
+        "text": "Alfred Molina’s Doc Ock returns in No Way Home."
+      }
+    ]
+  },
+  {
+    "id": "fx3",
+    "phase": 0,
+    "title": "X-Men: The Last Stand",
+    "kind": "film",
+    "date": "May 26, 2006",
+    "shortTitle": "X-Men: The Last Stand",
+    "adjacent": true,
+    "note": "Introduces Beast (Kelsey Grammer) and plays out the Dark Phoenix storyline.",
+    "links": [
+      {
+        "to": "marvels",
+        "rel": "ties",
+        "text": "Grammer’s Beast appears in The Marvels’ mid-credits scene."
+      },
+      {
+        "to": "doom",
+        "rel": "ties",
+        "text": "Grammer is in the Doomsday cast."
+      }
+    ]
+  },
+  {
+    "id": "sp3",
+    "phase": 0,
+    "title": "Spider-Man 3",
+    "kind": "film",
+    "date": "May 4, 2007",
+    "shortTitle": "Spider-Man 3",
+    "adjacent": true,
+    "note": "Peter faces Sandman, the symbiote and Harry Osborn.",
+    "links": [
+      {
+        "to": "nwh",
+        "rel": "ties",
+        "text": "Thomas Haden Church’s Sandman returns in No Way Home."
+      }
+    ]
+  },
+  {
+    "id": "im1",
+    "phase": 1,
+    "title": "Iron Man",
+    "kind": "film",
+    "date": "May 2, 2008",
+    "note": "Tony Stark builds the first suit. Post-credits scene: {{Nick Fury pitches the Avengers Initiative.}}",
+    "links": [
+      {
+        "to": "av1",
+        "rel": "sets",
+        "text": "Fury’s pitch becomes the team-up film."
+      }
+    ]
+  },
+  {
+    "id": "hulk",
+    "phase": 1,
+    "title": "The Incredible Hulk",
+    "kind": "film",
+    "date": "Jun 13, 2008",
+    "note": "Introduces Thaddeus Ross, Emil Blonsky and Samuel Sterns. {{Tony Stark appears in the final scene.}}",
+    "links": [
+      {
+        "to": "cabnd",
+        "rel": "sets",
+        "text": "Sterns’s tease pays off 17 years later as the Leader, and Ross becomes Red Hulk."
+      },
+      {
+        "to": "sh",
+        "rel": "sets",
+        "text": "Blonsky returns as Abomination, out of prison."
+      },
+      {
+        "to": "shangchi",
+        "rel": "sets",
+        "text": "Abomination turns up in the Macau fight club."
+      }
+    ]
+  },
+  {
+    "id": "fx4",
+    "phase": 1,
+    "title": "X-Men Origins: Wolverine",
+    "kind": "film",
+    "date": "May 1, 2009",
+    "shortTitle": "X-Men Origins: Wolverine",
+    "adjacent": true,
+    "note": "Wolverine’s origin story, with Ryan Reynolds as a version of Wade Wilson."
+  },
+  {
+    "id": "im2",
+    "phase": 1,
+    "title": "Iron Man 2",
+    "kind": "film",
+    "date": "May 7, 2010",
+    "note": "Introduces Black Widow and gives Rhodey the War Machine armor. Post-credits scene: {{Coulson finds a crater in New Mexico.}}",
+    "links": [
+      {
+        "to": "thor",
+        "rel": "sets",
+        "text": "The New Mexico crater is where Thor lands."
+      }
+    ]
+  },
+  {
+    "id": "cons",
+    "phase": 1,
+    "title": "Marvel One-Shot: The Consultant",
+    "kind": "short",
+    "date": "Set after Iron Man 2",
+    "sortKey": 20100507.1,
+    "releaseNote": "Released later, on Sep 13, 2011, on the Thor home video.",
+    "shortTitle": "The Consultant",
+    "note": "A two-hander with Agent Coulson and Jasper Sitwell, set around the events of The Incredible Hulk.",
+    "links": [
+      {
+        "to": "hulk",
+        "rel": "ties",
+        "text": "It runs alongside the Tony Stark scene that closes The Incredible Hulk."
+      }
+    ]
+  },
+  {
+    "id": "funny",
+    "phase": 1,
+    "title": "Marvel One-Shot: A Funny Thing Happened on the Way to Thor’s Hammer",
+    "kind": "short",
+    "date": "Set before Thor",
+    "sortKey": 20100507.2,
+    "releaseNote": "Released later, on Oct 25, 2011, on the Captain America: The First Avenger home video.",
+    "shortTitle": "A Funny Thing…",
+    "note": "Agent Coulson stops at a convenience store on his way to New Mexico and ends up in a robbery.",
+    "links": [
+      {
+        "to": "thor",
+        "rel": "ties",
+        "text": "Coulson’s drive is toward the New Mexico site from Thor."
+      }
+    ]
+  },
+  {
+    "id": "thor",
+    "phase": 1,
+    "title": "Thor",
+    "kind": "film",
+    "date": "May 6, 2011",
+    "note": "Thor is banished to Earth. Loki’s scheming and the Tesseract carry straight into the Avengers.",
+    "links": [
+      {
+        "to": "av1",
+        "rel": "sets",
+        "text": "Loki returns as the main villain."
+      }
+    ]
+  },
+  {
+    "id": "fx5",
+    "phase": 1,
+    "title": "X-Men: First Class",
+    "kind": "film",
+    "date": "Jun 3, 2011",
+    "shortTitle": "X-Men: First Class",
+    "adjacent": true,
+    "note": "A young Charles Xavier and Erik Lehnsherr form the X-Men in 1962."
+  },
+  {
+    "id": "cap1",
+    "phase": 1,
+    "title": "Captain America: The First Avenger",
+    "kind": "film",
+    "date": "Jul 22, 2011",
+    "note": "Steve Rogers, Bucky, Peggy Carter, the Red Skull and Hydra in the 1940s.",
+    "links": [
+      {
+        "to": "cap2",
+        "rel": "sets",
+        "text": "Hydra’s survival and Bucky’s fate come back."
+      }
+    ]
+  },
+  {
+    "id": "acos",
+    "phase": 1,
+    "title": "Marvel One-Shot: Agent Carter",
+    "kind": "short",
+    "date": "Set after The First Avenger",
+    "sortKey": 20110722.1,
+    "releaseNote": "Released later, on Sep 3, 2013, on the Iron Man 3 home video.",
+    "shortTitle": "Agent Carter (one-shot)",
+    "note": "Peggy Carter works for the Strategic Scientific Reserve about a year after the war.",
+    "links": [
+      {
+        "to": "agentcarter",
+        "rel": "sets",
+        "text": "It led to the Agent Carter TV series."
+      }
+    ]
+  },
+  {
+    "id": "av1",
+    "phase": 1,
+    "title": "The Avengers",
+    "kind": "film",
+    "date": "May 4, 2012",
+    "note": "Six heroes unite against Loki and the Chitauri. Mid-credits scene: {{Thanos appears.}}",
+    "links": [
+      {
+        "to": "iw",
+        "rel": "sets",
+        "text": "Thanos’s first on-screen glimpse, six years early."
+      }
+    ]
+  },
+  {
+    "id": "i47",
+    "phase": 1,
+    "title": "Marvel One-Shot: Item 47",
+    "kind": "short",
+    "date": "Set after The Avengers",
+    "sortKey": 20120504.1,
+    "releaseNote": "Released later, on Sep 25, 2012, on The Avengers home video.",
+    "shortTitle": "Item 47",
+    "note": "A couple finds a discarded Chitauri weapon after the Battle of New York.",
+    "links": [
+      {
+        "to": "aos",
+        "rel": "sets",
+        "text": "It helped inspire Agents of S.H.I.E.L.D."
+      }
+    ]
+  },
+  {
+    "id": "asm1",
+    "phase": 1,
+    "title": "The Amazing Spider-Man",
+    "kind": "film",
+    "date": "Jul 3, 2012",
+    "shortTitle": "Amazing Spider-Man",
+    "adjacent": true,
+    "note": "Andrew Garfield’s Peter faces the Lizard (Rhys Ifans).",
+    "links": [
+      {
+        "to": "nwh",
+        "rel": "ties",
+        "text": "Garfield’s Peter and Rhys Ifans’s Lizard return in No Way Home."
+      }
+    ]
+  },
+  {
+    "id": "im3",
+    "phase": 2,
+    "title": "Iron Man 3",
+    "kind": "film",
+    "date": "May 3, 2013",
+    "note": "Tony deals with PTSD after New York. The Mandarin twist introduces Trevor Slattery.",
+    "links": [
+      {
+        "to": "shangchi",
+        "rel": "sets",
+        "text": "Trevor returns, now held by the real Ten Rings."
+      },
+      {
+        "to": "wm",
+        "rel": "sets",
+        "text": "Trevor is a lead character in Wonder Man."
+      }
+    ]
+  },
+  {
+    "id": "ahk",
+    "phase": 2,
+    "title": "Marvel One-Shot: All Hail the King",
+    "kind": "short",
+    "date": "Set after Iron Man 3",
+    "sortKey": 20130503.1,
+    "releaseNote": "Released later, on Feb 4, 2014, on the Thor: The Dark World home video.",
+    "shortTitle": "All Hail the King",
+    "note": "Trevor Slattery in prison, after the events of Iron Man 3.",
+    "links": [
+      {
+        "to": "shangchi",
+        "rel": "sets",
+        "text": "Its Ten Rings thread pays off seven years later."
+      }
+    ]
+  },
+  {
+    "id": "fx6",
+    "phase": 2,
+    "title": "The Wolverine",
+    "kind": "film",
+    "date": "Jul 26, 2013",
+    "shortTitle": "The Wolverine",
+    "adjacent": true,
+    "note": "Logan travels to Japan."
+  },
+  {
+    "id": "aos",
+    "phase": 2,
+    "title": "Marvel’s Agents of S.H.I.E.L.D.",
+    "kind": "series",
+    "date": "Sep 24, 2013 – Aug 12, 2020",
+    "episodes": "7 seasons",
+    "shortTitle": "Agents of S.H.I.E.L.D.",
+    "adjacent": true,
+    "note": "Phil Coulson’s team keeps working after The Avengers, with loose ties to the films.",
+    "links": [
+      {
+        "to": "cap2",
+        "rel": "ties",
+        "text": "The first season turns on the fall of S.H.I.E.L.D. in The Winter Soldier."
+      },
+      {
+        "to": "cm",
+        "rel": "ties",
+        "text": "Clark Gregg’s Coulson appears in Captain Marvel."
+      }
+    ]
+  },
+  {
+    "id": "tdw",
+    "phase": 2,
+    "title": "Thor: The Dark World",
+    "kind": "film",
+    "date": "Nov 8, 2013",
+    "note": "Thor and Jane face the dark elves over the Aether. Mid-credits scene: {{the Aether is revealed as an Infinity Stone and handed to the Collector.}}",
+    "links": [
+      {
+        "to": "gotg",
+        "rel": "sets",
+        "text": "The Collector scene links the stone storyline to the cosmic side."
+      }
+    ]
+  },
+  {
+    "id": "cap2",
+    "phase": 2,
+    "title": "Captain America: The Winter Soldier",
+    "kind": "film",
+    "date": "Apr 4, 2014",
+    "note": "Cap goes on the run. {{S.H.I.E.L.D. falls to Hydra and Bucky is revealed as the Winter Soldier.}} Mid-credits scene: {{Wanda and Pietro appear.}}",
+    "links": [
+      {
+        "to": "aou",
+        "rel": "sets",
+        "text": "Wanda and Pietro return."
+      },
+      {
+        "to": "fatws",
+        "rel": "sets",
+        "text": "Bucky’s trauma and Sam’s friendship drive the series."
+      }
+    ]
+  },
+  {
+    "id": "asm2",
+    "phase": 2,
+    "title": "The Amazing Spider-Man 2",
+    "kind": "film",
+    "date": "May 2, 2014",
+    "shortTitle": "Amazing Spider-Man 2",
+    "adjacent": true,
+    "note": "Peter faces Electro and the Green Goblin.",
+    "links": [
+      {
+        "to": "nwh",
+        "rel": "ties",
+        "text": "Jamie Foxx’s Electro returns in No Way Home."
+      }
+    ]
+  },
+  {
+    "id": "fx7",
+    "phase": 2,
+    "title": "X-Men: Days of Future Past",
+    "kind": "film",
+    "date": "May 23, 2014",
+    "shortTitle": "Days of Future Past",
+    "adjacent": true,
+    "note": "Wolverine is sent back to the 1970s, bringing the original and First Class casts together.",
+    "links": [
+      {
+        "to": "wv",
+        "rel": "ties",
+        "text": "Evan Peters’s Fox-era Quicksilver appears in WandaVision."
+      }
+    ]
+  },
+  {
+    "id": "gotg",
+    "phase": 2,
+    "title": "Guardians of the Galaxy",
+    "kind": "film",
+    "date": "Aug 1, 2014",
+    "note": "A thief, an assassin, a raccoon, a tree and a brute fight over an Infinity Stone. {{Thanos is introduced as the force behind Ronan.}}",
+    "links": [
+      {
+        "to": "gotg2",
+        "rel": "sets",
+        "text": "The same team gets a sequel."
+      }
+    ]
+  },
+  {
+    "id": "agentcarter",
+    "phase": 2,
+    "title": "Marvel’s Agent Carter",
+    "kind": "series",
+    "date": "Jan 6, 2015 – Mar 1, 2016",
+    "episodes": "2 seasons",
+    "shortTitle": "Agent Carter (series)",
+    "adjacent": true,
+    "note": "Peggy Carter works for the Strategic Scientific Reserve in the late 1940s.",
+    "links": [
+      {
+        "to": "cap1",
+        "rel": "ties",
+        "text": "Peggy’s story continues after the war."
+      }
+    ]
+  },
+  {
+    "id": "ddn-a",
+    "phase": 2,
+    "work": "ddn",
+    "title": "Marvel’s Daredevil",
+    "season": "Seasons 1–2",
+    "kind": "series",
+    "date": "Apr 10, 2015 – Mar 18, 2016",
+    "shortTitle": "Daredevil S1–2 (Netflix)",
+    "adjacent": true,
+    "note": "Matt Murdock vs. Wilson Fisk in Hell’s Kitchen. Season 2 introduces Frank Castle (the Punisher) and Elektra, and brings in the Hand.",
+    "links": [
+      {
+        "to": "hawk",
+        "rel": "ties",
+        "text": "Vincent D’Onofrio’s Fisk appears in Hawkeye."
+      },
+      {
+        "to": "pn",
+        "rel": "sets",
+        "text": "Frank Castle’s debut leads to his own series."
+      }
+    ]
+  },
+  {
+    "id": "aou",
+    "phase": 2,
+    "title": "Avengers: Age of Ultron",
+    "kind": "film",
+    "date": "May 1, 2015",
+    "note": "Ultron is born. {{Vision is built around the Mind Stone, and Wanda joins the Avengers.}}",
+    "links": [
+      {
+        "to": "wv",
+        "rel": "sets",
+        "text": "Wanda and Vision’s relationship starts here."
+      },
+      {
+        "to": "vq",
+        "rel": "sets",
+        "text": "Ultron and Vision’s origins loom over VisionQuest."
+      }
+    ]
+  },
+  {
+    "id": "ant",
+    "phase": 2,
+    "title": "Ant-Man",
+    "kind": "film",
+    "date": "Jul 17, 2015",
+    "note": "Scott Lang inherits the suit from Hank Pym. {{Falcon cameos.}}",
+    "links": [
+      {
+        "to": "cw",
+        "rel": "sets",
+        "text": "Scott joins Cap’s side."
+      },
+      {
+        "to": "amatw",
+        "rel": "sets",
+        "text": "Hope and Hank’s story continues."
+      }
+    ]
+  },
+  {
+    "id": "jj-a",
+    "phase": 2,
+    "work": "jj",
+    "title": "Marvel’s Jessica Jones",
+    "season": "Season 1",
+    "kind": "series",
+    "date": "Nov 20, 2015",
+    "shortTitle": "Jessica Jones S1",
+    "adjacent": true,
+    "note": "Jessica Jones, a private investigator with super strength, is hunted by Kilgrave."
+  },
+  {
+    "id": "dpool1",
+    "phase": 3,
+    "title": "Deadpool",
+    "kind": "film",
+    "date": "Feb 12, 2016",
+    "shortTitle": "Deadpool",
+    "adjacent": true,
+    "note": "Wade Wilson’s origin and revenge, in Fox’s R-rated X-Men spinoff.",
+    "links": [
+      {
+        "to": "dp",
+        "rel": "ties",
+        "text": "Ryan Reynolds’s Deadpool crosses into the MCU in Deadpool & Wolverine."
+      }
+    ]
+  },
+  {
+    "id": "cw",
+    "phase": 3,
+    "title": "Captain America: Civil War",
+    "kind": "film",
+    "date": "May 6, 2016",
+    "note": "The Avengers split over the Sokovia Accords. Black Panther and Tom Holland’s Spider-Man debut. {{Zemo plays the long game.}}",
+    "links": [
+      {
+        "to": "bp",
+        "rel": "sets",
+        "text": "T’Challa gets his own film."
+      },
+      {
+        "to": "sm1",
+        "rel": "sets",
+        "text": "Peter’s debut leads into Homecoming."
+      },
+      {
+        "to": "fatws",
+        "rel": "sets",
+        "text": "The Accords, Zemo and Bucky’s fallout return."
+      }
+    ]
+  },
+  {
+    "id": "tt1",
+    "phase": 3,
+    "title": "Team Thor",
+    "kind": "short",
+    "date": "Set around Civil War",
+    "sortKey": 20160506.1,
+    "releaseNote": "Released later, on Sep 13, 2016, on the Civil War home video.",
+    "shortTitle": "Team Thor",
+    "note": "Taika Waititi’s mockumentary short about Thor’s life in Australia with his roommate Darryl. Played for laughs, and left out of Disney+’s main timeline when it was added.",
+    "links": [
+      {
+        "to": "cw",
+        "rel": "ties",
+        "text": "It covers where Thor was during Civil War."
+      }
+    ]
+  },
+  {
+    "id": "tt2",
+    "phase": 3,
+    "title": "Team Thor: Part 2",
+    "kind": "short",
+    "date": "Set after Team Thor",
+    "sortKey": 20160506.2,
+    "releaseNote": "Released later, on Feb 14, 2017, on the Doctor Strange home video.",
+    "shortTitle": "Team Thor: Part 2",
+    "note": "The Darryl mockumentary continues, before Ragnarok."
+  },
+  {
+    "id": "fx8",
+    "phase": 3,
+    "title": "X-Men: Apocalypse",
+    "kind": "film",
+    "date": "May 27, 2016",
+    "shortTitle": "X-Men: Apocalypse",
+    "adjacent": true,
+    "note": "The first mutant, Apocalypse, wakes up in 1983."
+  },
+  {
+    "id": "lc-a",
+    "phase": 3,
+    "work": "lc",
+    "title": "Marvel’s Luke Cage",
+    "season": "Season 1",
+    "kind": "series",
+    "date": "Sep 30, 2016",
+    "shortTitle": "Luke Cage S1",
+    "adjacent": true,
+    "note": "A bulletproof man protects Harlem. No MCU appearance yet."
+  },
+  {
+    "id": "ds",
+    "phase": 3,
+    "title": "Doctor Strange",
+    "kind": "film",
+    "date": "Nov 4, 2016",
+    "note": "Stephen Strange learns magic. {{He takes the Time Stone, and Mordo walks away from sorcerers.}}",
+    "links": [
+      {
+        "to": "momm",
+        "rel": "sets",
+        "text": "Strange’s multiverse story continues."
+      },
+      {
+        "to": "nwh",
+        "rel": "sets",
+        "text": "Strange’s spellcasting returns in No Way Home."
+      }
+    ]
+  },
+  {
+    "id": "fx9",
+    "phase": 3,
+    "title": "Logan",
+    "kind": "film",
+    "date": "Mar 3, 2017",
+    "shortTitle": "Logan",
+    "adjacent": true,
+    "note": "An older Logan and a young mutant on the run, in Hugh Jackman’s last Wolverine film of that era.",
+    "links": [
+      {
+        "to": "dp",
+        "rel": "ties",
+        "text": "Logan’s story is referenced in Deadpool & Wolverine."
+      }
+    ]
+  },
+  {
+    "id": "if-a",
+    "phase": 3,
+    "work": "if",
+    "title": "Marvel’s Iron Fist",
+    "season": "Season 1",
+    "kind": "series",
+    "date": "Mar 17, 2017",
+    "shortTitle": "Iron Fist S1",
+    "adjacent": true,
+    "note": "Danny Rand returns to New York with kung fu powers. No MCU appearance yet."
+  },
+  {
+    "id": "gotg2",
+    "phase": 3,
+    "title": "Guardians of the Galaxy Vol. 2",
+    "kind": "film",
+    "date": "May 5, 2017",
+    "note": "Peter meets his father, Ego. Credits scenes: {{Ravagers and Adam Warlock show up.}}",
+    "links": [
+      {
+        "to": "gotg3",
+        "rel": "sets",
+        "text": "Adam Warlock and the Ravagers pay off."
+      }
+    ]
+  },
+  {
+    "id": "sm1",
+    "phase": 3,
+    "title": "Spider-Man: Homecoming",
+    "kind": "film",
+    "date": "Jul 7, 2017",
+    "note": "Peter Parker vs. Adrian Toomes. Establishes the Department of Damage Control.",
+    "links": [
+      {
+        "to": "wm",
+        "rel": "sets",
+        "text": "Damage Control returns in Wonder Man."
+      }
+    ]
+  },
+  {
+    "id": "defn",
+    "phase": 3,
+    "title": "Marvel’s The Defenders",
+    "kind": "series",
+    "date": "Aug 18, 2017",
+    "episodes": "8-episode miniseries",
+    "shortTitle": "The Defenders",
+    "adjacent": true,
+    "note": "Daredevil, Jessica Jones, Luke Cage and Iron Fist team up against the Hand."
+  },
+  {
+    "id": "inh",
+    "phase": 3,
+    "title": "Marvel’s Inhumans",
+    "kind": "series",
+    "date": "Sep 29 – Nov 10, 2017",
+    "episodes": "8 eps",
+    "shortTitle": "Inhumans",
+    "adjacent": true,
+    "note": "The royal family of Attilan, led by Black Bolt, lands in Hawaii. Loosely connected to the Inhumans in Agents of S.H.I.E.L.D.",
+    "links": [
+      {
+        "to": "aos",
+        "rel": "ties",
+        "text": "Both shows use the Inhumans, but they stay separate stories."
+      }
+    ]
+  },
+  {
+    "id": "thorrag",
+    "phase": 3,
+    "title": "Thor: Ragnarok",
+    "kind": "film",
+    "date": "Nov 3, 2017",
+    "note": "Thor loses Mjolnir and teams up with Hulk and Valkyrie. Mid-credits scene: {{Thanos’s ship arrives.}}",
+    "links": [
+      {
+        "to": "lt",
+        "rel": "sets",
+        "text": "Valkyrie and New Asgard continue."
+      },
+      {
+        "to": "iw",
+        "rel": "sets",
+        "text": "Thanos’s ship leads straight into Infinity War."
+      }
+    ]
+  },
+  {
+    "id": "td",
+    "phase": 3,
+    "title": "Team Darryl",
+    "kind": "short",
+    "date": "Set after Ragnarok",
+    "sortKey": 20171103.1,
+    "releaseNote": "Released later, on Feb 20, 2018, on the Thor: Ragnarok home video.",
+    "shortTitle": "Team Darryl",
+    "note": "Thor has moved out. {{Darryl’s new roommate is Jeff Goldblum’s Grandmaster.}}"
+  },
+  {
+    "id": "pn",
+    "phase": 3,
+    "title": "Marvel’s The Punisher",
+    "season": "Seasons 1–2",
+    "kind": "series",
+    "date": "Nov 17, 2017 – Jan 18, 2019",
+    "shortTitle": "The Punisher (Netflix)",
+    "adjacent": true,
+    "note": "Jon Bernthal’s Frank Castle gets his own series.",
+    "links": [
+      {
+        "to": "dd1",
+        "rel": "ties",
+        "text": "Bernthal’s Frank returns in Born Again."
+      },
+      {
+        "to": "punisher",
+        "rel": "ties",
+        "text": "Bernthal’s Frank gets One Last Kill."
+      }
+    ]
+  },
+  {
+    "id": "bp",
+    "phase": 3,
+    "title": "Black Panther",
+    "kind": "film",
+    "date": "Feb 16, 2018",
+    "note": "T’Challa becomes king and faces Killmonger. {{Wakanda opens up to the world.}}",
+    "links": [
+      {
+        "to": "bpwf",
+        "rel": "sets",
+        "text": "Shuri and Wakanda carry on after T’Challa."
+      },
+      {
+        "to": "eow",
+        "rel": "sets",
+        "text": "Wakanda’s hidden history is expanded."
+      }
+    ]
+  },
+  {
+    "id": "jj-b",
+    "phase": 3,
+    "work": "jj",
+    "title": "Marvel’s Jessica Jones",
+    "season": "Seasons 2–3",
+    "kind": "series",
+    "date": "Mar 8, 2018 – Jun 14, 2019",
+    "shortTitle": "Jessica Jones S2–3",
+    "adjacent": true,
+    "note": "Jessica digs into where her powers came from, and the series wraps up in season 3.",
+    "links": [
+      {
+        "to": "dd2",
+        "rel": "ties",
+        "text": "Krysten Ritter’s Jessica Jones joins Born Again season 2."
+      }
+    ]
+  },
+  {
+    "id": "iw",
+    "phase": 3,
+    "title": "Avengers: Infinity War",
+    "kind": "film",
+    "date": "Apr 27, 2018",
+    "note": "Thanos goes after the Infinity Stones. {{He snaps half of all life away.}}",
+    "links": [
+      {
+        "to": "eg",
+        "rel": "sets",
+        "text": "The Avengers try to undo it."
+      }
+    ]
+  },
+  {
+    "id": "dpool2",
+    "phase": 3,
+    "title": "Deadpool 2",
+    "kind": "film",
+    "date": "May 18, 2018",
+    "shortTitle": "Deadpool 2",
+    "adjacent": true,
+    "note": "Deadpool puts together X-Force to protect a young mutant.",
+    "links": [
+      {
+        "to": "dp",
+        "rel": "ties",
+        "text": "Colossus and Negasonic Teenage Warhead return in Deadpool & Wolverine."
+      }
+    ]
+  },
+  {
+    "id": "cd",
+    "phase": 3,
+    "title": "Marvel’s Cloak & Dagger",
+    "season": "Seasons 1–2",
+    "kind": "series",
+    "date": "Jun 7, 2018 – May 30, 2019",
+    "shortTitle": "Cloak & Dagger",
+    "adjacent": true,
+    "note": "Two teenagers in New Orleans, Tandy Bowen and Tyrone Johnson, find their powers are linked. No MCU appearance yet."
+  },
+  {
+    "id": "lc-b",
+    "phase": 3,
+    "work": "lc",
+    "title": "Marvel’s Luke Cage",
+    "season": "Season 2",
+    "kind": "series",
+    "date": "Jun 22, 2018",
+    "shortTitle": "Luke Cage S2",
+    "adjacent": true,
+    "note": "Luke Cage faces Bushmaster."
+  },
+  {
+    "id": "amatw",
+    "phase": 3,
+    "title": "Ant-Man and the Wasp",
+    "kind": "film",
+    "date": "Jul 6, 2018",
+    "note": "Introduces Ghost (Ava Starr). Post-credits scene: {{Hank, Hope and Janet are caught by the Snap.}}",
+    "links": [
+      {
+        "to": "tb",
+        "rel": "sets",
+        "text": "Ghost returns as a Thunderbolts* teammate."
+      },
+      {
+        "to": "qm",
+        "rel": "sets",
+        "text": "The Quantum Realm becomes Kang’s stage."
+      }
+    ]
+  },
+  {
+    "id": "if-b",
+    "phase": 3,
+    "work": "if",
+    "title": "Marvel’s Iron Fist",
+    "season": "Season 2",
+    "kind": "series",
+    "date": "Sep 7, 2018",
+    "shortTitle": "Iron Fist S2",
+    "adjacent": true,
+    "note": "Danny Rand takes on new threats in New York."
+  },
+  {
+    "id": "vn1",
+    "phase": 3,
+    "title": "Venom",
+    "kind": "film",
+    "date": "Oct 5, 2018",
+    "shortTitle": "Venom",
+    "adjacent": true,
+    "note": "Eddie Brock bonds with the Venom symbiote. Part of Sony’s Spider-Man Universe, outside the MCU proper."
+  },
+  {
+    "id": "ddn-b",
+    "phase": 3,
+    "work": "ddn",
+    "title": "Marvel’s Daredevil",
+    "season": "Season 3",
+    "kind": "series",
+    "date": "Oct 19, 2018",
+    "shortTitle": "Daredevil S3 (Netflix)",
+    "adjacent": true,
+    "note": "Matt Murdock recovers while Fisk schemes.",
+    "links": [
+      {
+        "to": "dd1",
+        "rel": "ties",
+        "text": "Born Again continues Matt’s story from the Netflix series."
+      },
+      {
+        "to": "nwh",
+        "rel": "ties",
+        "text": "Charlie Cox’s Matt Murdock appears in No Way Home."
+      }
+    ]
+  },
+  {
+    "id": "cm",
+    "phase": 3,
+    "title": "Captain Marvel",
+    "kind": "film",
+    "date": "Mar 8, 2019",
+    "note": "Carol Danvers’s origin, the Skrulls and Talos, and a young Monica Rambeau.",
+    "links": [
+      {
+        "to": "wv",
+        "rel": "sets",
+        "text": "Monica returns as an adult."
+      },
+      {
+        "to": "si",
+        "rel": "sets",
+        "text": "Talos and the Skrull refugees return."
+      },
+      {
+        "to": "marvels",
+        "rel": "sets",
+        "text": "Carol and Monica are reunited."
+      }
+    ]
+  },
+  {
+    "id": "eg",
+    "phase": 3,
+    "title": "Avengers: Endgame",
+    "kind": "film",
+    "date": "Apr 26, 2019",
+    "note": "The Avengers try to undo the Snap. {{They use time travel, and Cap hands his shield to Sam.}}",
+    "links": [
+      {
+        "to": "fatws",
+        "rel": "sets",
+        "text": "Sam’s decision to take up the shield."
+      },
+      {
+        "to": "loki1",
+        "rel": "sets",
+        "text": "Loki’s escape with the Tesseract creates the TVA story."
+      }
+    ]
+  },
+  {
+    "id": "ffh",
+    "phase": 3,
+    "title": "Spider-Man: Far From Home",
+    "kind": "film",
+    "date": "Jul 2, 2019",
+    "note": "Peter takes a school trip to Europe, where Mysterio appears. {{Mysterio exposes Peter’s identity, and Fury and Hill are revealed to be Skrulls.}}",
+    "links": [
+      {
+        "to": "si",
+        "rel": "sets",
+        "text": "The Skrull Fury story continues."
+      },
+      {
+        "to": "nwh",
+        "rel": "sets",
+        "text": "Peter’s outing sets up No Way Home."
+      }
+    ]
+  },
+  {
+    "id": "wv",
+    "phase": 4,
+    "title": "WandaVision",
+    "kind": "series",
+    "date": "Jan 15 – Mar 5, 2021",
+    "note": "Wanda and Vision appear to live inside a sitcom. {{Wanda’s grief builds the reality.}} Introduces Agatha Harkness, adult Monica Rambeau and {{White Vision}}.",
+    "links": [
+      {
+        "to": "momm",
+        "rel": "sets",
+        "text": "Wanda’s turn as the Scarlet Witch and the Darkhold."
+      },
+      {
+        "to": "aaa",
+        "rel": "sets",
+        "text": "Agatha gets her own series."
+      },
+      {
+        "to": "marvels",
+        "rel": "sets",
+        "text": "Monica’s powers feed into The Marvels."
+      },
+      {
+        "to": "vq",
+        "rel": "sets",
+        "text": "White Vision’s fate is picked up in VisionQuest."
+      }
+    ]
+  },
+  {
+    "id": "fatws",
+    "phase": 4,
+    "title": "The Falcon and the Winter Soldier",
+    "kind": "series",
+    "date": "Mar 19 – Apr 23, 2021",
+    "note": "{{Sam takes the shield.}} Introduces John Walker (US Agent), Isaiah Bradley and Joaquin Torres, and {{reveals Sharon Carter as the Power Broker.}} End credits: {{Val appears.}}",
+    "links": [
+      {
+        "to": "cabnd",
+        "rel": "sets",
+        "text": "Sam as Captain America, plus Isaiah Bradley and Torres."
+      },
+      {
+        "to": "tb",
+        "rel": "sets",
+        "text": "Bucky, John Walker and Val return in Thunderbolts*."
+      }
+    ]
+  },
+  {
+    "id": "loki1",
+    "phase": 4,
+    "title": "Loki",
+    "season": "Season 1",
+    "kind": "series",
+    "date": "Jun 9 – Jul 14, 2021",
+    "shortTitle": "Loki S1",
+    "note": "The TVA captures a Loki variant, who teams up with Sylvie. {{The finale reveals He Who Remains, a Kang variant, and opens up the multiverse.}}",
+    "links": [
+      {
+        "to": "qm",
+        "rel": "sets",
+        "text": "Kang the Conqueror gets his debut film."
+      },
+      {
+        "to": "loki2",
+        "rel": "sets",
+        "text": "Season 2 deals with the fallout."
+      }
+    ]
+  },
+  {
+    "id": "bw",
+    "phase": 4,
+    "title": "Black Widow",
+    "kind": "film",
+    "date": "Jul 9, 2021",
+    "note": "Natasha’s family story, with Yelena, Red Guardian and Taskmaster. Post-credits scene: {{Val appears.}}",
+    "links": [
+      {
+        "to": "hawk",
+        "rel": "sets",
+        "text": "Yelena’s grudge against Clint is set up."
+      },
+      {
+        "to": "tb",
+        "rel": "sets",
+        "text": "Yelena, Red Guardian and Val reunite."
+      }
+    ]
+  },
+  {
+    "id": "wif1",
+    "phase": 4,
+    "title": "What If…?",
+    "season": "Season 1",
+    "kind": "series",
+    "date": "Aug 11 – Oct 6, 2021",
+    "shortTitle": "What If S1",
+    "note": "Animated multiverse anthology narrated by the Watcher. Includes “What If… Zombies?!” in episode 5.",
+    "links": [
+      {
+        "to": "zombies",
+        "rel": "sets",
+        "text": "The zombie episode spins off into Marvel Zombies."
+      }
+    ]
+  },
+  {
+    "id": "shangchi",
+    "phase": 4,
+    "title": "Shang-Chi and the Legend of the Ten Rings",
+    "kind": "film",
+    "date": "Sep 3, 2021",
+    "note": "Shang-Chi vs. his father Wenwu. Trevor Slattery returns. Mid-credits scene: {{Wong, Carol and Bruce appear.}}",
+    "links": [
+      {
+        "to": "wm",
+        "rel": "sets",
+        "text": "Trevor’s Ten Rings history is referenced."
+      }
+    ]
+  },
+  {
+    "id": "vn2",
+    "phase": 4,
+    "title": "Venom: Let There Be Carnage",
+    "kind": "film",
+    "date": "Oct 1, 2021",
+    "shortTitle": "Let There Be Carnage",
+    "adjacent": true,
+    "note": "Eddie and Venom face Carnage. {{A mid-credits scene pulls Eddie toward the MCU.}}",
+    "links": [
+      {
+        "to": "nwh",
+        "rel": "ties",
+        "text": "Eddie’s trip to the MCU ends in No Way Home’s mid-credits scene."
+      }
+    ]
+  },
+  {
+    "id": "eternals",
+    "phase": 4,
+    "title": "Eternals",
+    "kind": "film",
+    "date": "Nov 5, 2021",
+    "note": "Celestials, Deviants and a team of immortals. Introduces Dane Whitman{{, the future Black Knight}}.",
+    "links": [
+      {
+        "to": "cabnd",
+        "rel": "sets",
+        "text": "The Celestial Island rises in Brave New World."
+      }
+    ]
+  },
+  {
+    "id": "hawk",
+    "phase": 4,
+    "title": "Hawkeye",
+    "kind": "series",
+    "date": "Nov 24 – Dec 22, 2021",
+    "shortTitle": "Hawkeye",
+    "note": "Clint trains Kate Bishop. Yelena enters the story, Maya Lopez (Echo) is introduced, and {{the finale brings in Wilson Fisk (Vincent D’Onofrio).}}",
+    "links": [
+      {
+        "to": "echo",
+        "rel": "sets",
+        "text": "Maya Lopez gets her own series, and Kingpin’s story continues."
+      },
+      {
+        "to": "dd1",
+        "rel": "sets",
+        "text": "Fisk is the mayor in Born Again."
+      }
+    ]
+  },
+  {
+    "id": "nwh",
+    "phase": 4,
+    "title": "Spider-Man: No Way Home",
+    "kind": "film",
+    "date": "Dec 17, 2021",
+    "note": "A broken spell brings in other Spider-Man villains. {{Matt Murdock appears as Peter’s lawyer, and the world ends up forgetting Peter Parker.}}",
+    "links": [
+      {
+        "to": "dd1",
+        "rel": "sets",
+        "text": "Matt Murdock’s return leads to Born Again."
+      },
+      {
+        "to": "bnd",
+        "rel": "sets",
+        "text": "Peter’s erased identity sets up Brand New Day."
+      }
+    ]
+  },
+  {
+    "id": "mk",
+    "phase": 4,
+    "title": "Moon Knight",
+    "kind": "series",
+    "date": "Mar 30 – May 4, 2022",
+    "shortTitle": "Moon Knight",
+    "note": "Marc Spector, Steven Grant and Khonshu. Largely self-contained{{, with a Jake Lockley tease}}."
+  },
+  {
+    "id": "momm",
+    "phase": 4,
+    "title": "Doctor Strange in the Multiverse of Madness",
+    "kind": "film",
+    "date": "May 6, 2022",
+    "shortTitle": "Multiverse of Madness",
+    "note": "Strange and America Chavez {{face a Darkhold-corrupted Wanda}}. {{Brings in the Illuminati.}} Mid-credits scene: {{Clea appears.}}"
+  },
+  {
+    "id": "ms",
+    "phase": 4,
+    "title": "Ms. Marvel",
+    "kind": "series",
+    "date": "Jun 8 – Jul 13, 2022",
+    "shortTitle": "Ms. Marvel",
+    "note": "Kamala Khan discovers her powers. Damage Control appears. {{She learns she’s a mutant, and the final scene has her swapping places with Carol Danvers.}}",
+    "links": [
+      {
+        "to": "marvels",
+        "rel": "sets",
+        "text": "The swap with Carol leads into The Marvels."
+      }
+    ]
+  },
+  {
+    "id": "lt",
+    "phase": 4,
+    "title": "Thor: Love and Thunder",
+    "kind": "film",
+    "date": "Jul 8, 2022",
+    "note": "Thor vs. Gorr, and Jane Foster becomes the Mighty Thor."
+  },
+  {
+    "id": "groot",
+    "phase": 4,
+    "title": "I Am Groot",
+    "kind": "short",
+    "date": "Aug 10, 2022",
+    "note": "Five animated shorts following Baby Groot."
+  },
+  {
+    "id": "sh",
+    "phase": 4,
+    "title": "She-Hulk: Attorney at Law",
+    "kind": "series",
+    "date": "Aug 18 – Oct 13, 2022",
+    "shortTitle": "She-Hulk",
+    "note": "Jen Walters becomes She-Hulk. {{Abomination returns, Matt Murdock appears as Daredevil, and the finale breaks the fourth wall.}}",
+    "links": [
+      {
+        "to": "dd1",
+        "rel": "sets",
+        "text": "Daredevil’s MCU return leads to Born Again."
+      }
+    ]
+  },
+  {
+    "id": "wbn",
+    "phase": 4,
+    "title": "Werewolf by Night",
+    "kind": "special",
+    "date": "Oct 7, 2022",
+    "note": "A Special Presentation: monster hunters gather for the Bloodstone. Introduces Elsa Bloodstone and Ted."
+  },
+  {
+    "id": "bpwf",
+    "phase": 4,
+    "title": "Black Panther: Wakanda Forever",
+    "kind": "film",
+    "date": "Nov 11, 2022",
+    "note": "Wakanda mourns T’Challa, and Namor and Talokan debut. Introduces Riri Williams. {{Shuri becomes Black Panther, and Val appears.}}",
+    "links": [
+      {
+        "to": "ironheart",
+        "rel": "sets",
+        "text": "Riri Williams’s debut leads into Ironheart."
+      },
+      {
+        "to": "tb",
+        "rel": "sets",
+        "text": "Val appears again."
+      }
+    ]
+  },
+  {
+    "id": "hs",
+    "phase": 4,
+    "title": "The Guardians of the Galaxy Holiday Special",
+    "kind": "special",
+    "date": "Nov 25, 2022",
+    "note": "Mantis and Drax try to give Peter Quill a Christmas. Kevin Bacon plays himself.",
+    "links": [
+      {
+        "to": "gotg3",
+        "rel": "sets",
+        "text": "Sets up the team before Vol. 3."
+      }
+    ]
+  },
+  {
+    "id": "qm",
+    "phase": 5,
+    "title": "Ant-Man and the Wasp: Quantumania",
+    "kind": "film",
+    "date": "Feb 17, 2023",
+    "shortTitle": "Quantumania",
+    "note": "Scott, Hope and their family are trapped in the Quantum Realm. Kang the Conqueror debuts."
+  },
+  {
+    "id": "gotg3",
+    "phase": 5,
+    "title": "Guardians of the Galaxy Vol. 3",
+    "kind": "film",
+    "date": "May 5, 2023",
+    "note": "The High Evolutionary and Rocket’s origin. {{The Guardians go their separate ways.}}"
+  },
+  {
+    "id": "si",
+    "phase": 5,
+    "title": "Secret Invasion",
+    "kind": "series",
+    "date": "Jun 21 – Jul 26, 2023",
+    "note": "Skrull infiltration and Nick Fury’s return to Earth.",
+    "links": [
+      {
+        "to": "marvels",
+        "rel": "sets",
+        "text": "Fury’s space station links to The Marvels."
+      }
+    ]
+  },
+  {
+    "id": "loki2",
+    "phase": 5,
+    "title": "Loki",
+    "season": "Season 2",
+    "kind": "series",
+    "date": "Oct 5 – Nov 9, 2023",
+    "shortTitle": "Loki S2",
+    "note": "Loki, Mobius and the TVA try to stabilize the timeline. {{Introduces Victor Timely, another Kang variant.}}",
+    "links": [
+      {
+        "to": "dp",
+        "rel": "sets",
+        "text": "The TVA returns in Deadpool & Wolverine."
+      }
+    ]
+  },
+  {
+    "id": "marvels",
+    "phase": 5,
+    "title": "The Marvels",
+    "kind": "film",
+    "date": "Nov 10, 2023",
+    "note": "Carol, Monica and Kamala swap places whenever they use their powers. Mid-credits scene: {{Beast (Kelsey Grammer) appears.}}"
+  },
+  {
+    "id": "wif2",
+    "phase": 5,
+    "title": "What If…?",
+    "season": "Season 2",
+    "kind": "series",
+    "date": "Dec 22, 2023",
+    "episodes": "9 eps, daily",
+    "shortTitle": "What If S2",
+    "note": "Season 2 released one episode a day over the holidays."
+  },
+  {
+    "id": "echo",
+    "phase": 5,
+    "title": "Echo",
+    "kind": "series",
+    "date": "Jan 9, 2024",
+    "note": "Maya Lopez returns home. The first Marvel Spotlight series, released all at once.",
+    "links": [
+      {
+        "to": "dd1",
+        "rel": "sets",
+        "text": "Maya and Kingpin continue in Born Again."
+      }
+    ]
+  },
+  {
+    "id": "dp",
+    "phase": 5,
+    "title": "Deadpool & Wolverine",
+    "kind": "film",
+    "date": "Jul 26, 2024",
+    "note": "Deadpool and Wolverine team up at the TVA. {{Chris Evans cameos as Johnny Storm, and mutants enter the Sacred Timeline.}}"
+  },
+  {
+    "id": "aaa",
+    "phase": 5,
+    "title": "Agatha All Along",
+    "kind": "series",
+    "date": "Sep 18 – Oct 30, 2024",
+    "note": "Agatha Harkness regains her powers on the Witches’ Road. Introduces Billy Maximoff.",
+    "links": [
+      {
+        "to": "vq",
+        "rel": "sets",
+        "text": "The trilogy concludes with VisionQuest."
+      }
+    ]
+  },
+  {
+    "id": "vn3",
+    "phase": 5,
+    "title": "Venom: The Last Dance",
+    "kind": "film",
+    "date": "Oct 25, 2024",
+    "shortTitle": "The Last Dance",
+    "adjacent": true,
+    "note": "Eddie and Venom on the run."
+  },
+  {
+    "id": "wif3",
+    "phase": 5,
+    "title": "What If…?",
+    "season": "Season 3",
+    "kind": "series",
+    "date": "Dec 22, 2024",
+    "episodes": "Daily drops",
+    "shortTitle": "What If S3",
+    "note": "The final season, released over the holidays."
+  },
+  {
+    "id": "yf",
+    "phase": 5,
+    "title": "Your Friendly Neighborhood Spider-Man",
+    "season": "Season 1",
+    "kind": "series",
+    "date": "Jan 29 – Feb 19, 2025",
+    "episodes": "10 eps",
+    "shortTitle": "Friendly Neighborhood S1",
+    "adjacent": true,
+    "note": "Animated take on Peter Parker’s early days. Season 2 arrives Jan 13, 2027, so it falls outside this chart.",
+    "links": [
+      {
+        "to": "ds",
+        "rel": "ties",
+        "text": "Doctor Strange’s portal is how the radioactive spider arrives."
+      },
+      {
+        "to": "dd1",
+        "rel": "ties",
+        "text": "Charlie Cox voices Matt Murdock ahead of Born Again."
+      }
+    ]
+  },
+  {
+    "id": "cabnd",
+    "phase": 5,
+    "title": "Captain America: Brave New World",
+    "kind": "film",
+    "date": "Feb 14, 2025",
+    "shortTitle": "Brave New World",
+    "note": "Sam Wilson as Captain America. {{Ross becomes Red Hulk, Samuel Sterns becomes the Leader, and the Celestial Island appears.}}"
+  },
+  {
+    "id": "dd1",
+    "phase": 5,
+    "title": "Daredevil: Born Again",
+    "season": "Season 1",
+    "kind": "series",
+    "date": "Mar 4 – Apr 15, 2025",
+    "shortTitle": "Born Again S1",
+    "note": "Matt Murdock faces Mayor Fisk. The Punisher returns.",
+    "links": [
+      {
+        "to": "dd2",
+        "rel": "sets",
+        "text": "Season 2 continues the fight."
+      },
+      {
+        "to": "punisher",
+        "rel": "sets",
+        "text": "Frank’s escape in the finale leads to One Last Kill."
+      }
+    ]
+  },
+  {
+    "id": "tb",
+    "phase": 5,
+    "title": "Thunderbolts*",
+    "kind": "film",
+    "date": "May 2, 2025",
+    "note": "Yelena, Bucky, John Walker, Red Guardian, Ghost and Taskmaster {{are manipulated into a team by Val}}. Introduces Bob (Sentry). Post-credits scene: {{the team is shown as the New Avengers.}}",
+    "links": [
+      {
+        "to": "ff",
+        "rel": "sets",
+        "text": "The Fantastic Four’s ship appears in the post-credits scene."
+      }
+    ]
+  },
+  {
+    "id": "ironheart",
+    "phase": 5,
+    "title": "Ironheart",
+    "kind": "series",
+    "date": "Jun 24 – Jul 1, 2025",
+    "episodes": "Two 3-episode drops",
+    "note": "Riri Williams returns to Chicago and clashes with Parker Robbins (the Hood) over technology and magic."
+  },
+  {
+    "id": "ff",
+    "phase": 6,
+    "title": "The Fantastic Four: First Steps",
+    "kind": "film",
+    "date": "Jul 25, 2025",
+    "shortTitle": "Fantastic Four",
+    "note": "Marvel’s First Family on Earth-828 face Galactus. Post-credits scene: {{Doom appears.}}",
+    "links": [
+      {
+        "to": "doom",
+        "rel": "sets",
+        "text": "Doom’s post-credits appearance leads to Doomsday."
+      }
+    ]
+  },
+  {
+    "id": "eow",
+    "phase": 6,
+    "title": "Eyes of Wakanda",
+    "kind": "series",
+    "date": "Aug 1, 2025",
+    "episodes": "4 eps, all at once",
+    "note": "Animated miniseries on Wakanda’s hidden history. Marvel moved it earlier from Aug 27."
+  },
+  {
+    "id": "zombies",
+    "phase": 6,
+    "title": "Marvel Zombies",
+    "kind": "series",
+    "date": "Sep 24, 2025",
+    "episodes": "4 eps, all at once",
+    "note": "Adult animated spinoff of the What If… zombie episode."
+  },
+  {
+    "id": "wm",
+    "phase": 6,
+    "title": "Wonder Man",
+    "kind": "series",
+    "date": "Jan 27, 2026",
+    "episodes": "8 eps, all at once",
+    "note": "Simon Williams (Yahya Abdul-Mateen II) and Trevor Slattery in Hollywood, where the Doorman Clause bars superpowered actors. A Marvel Spotlight series. {{Damage Control and Agent Cleary appear in the background.}}"
+  },
+  {
+    "id": "dd2",
+    "phase": 6,
+    "title": "Daredevil: Born Again",
+    "season": "Season 2",
+    "kind": "series",
+    "date": "Mar 24 – May 5, 2026",
+    "shortTitle": "Born Again S2",
+    "note": "Matt builds an army against Fisk, with Krysten Ritter’s Jessica Jones joining. The Punisher sits this season out.",
+    "links": [
+      {
+        "to": "bnd",
+        "rel": "sets",
+        "text": "Marvel says the season ties directly into Brand New Day."
+      },
+      {
+        "to": "punisher",
+        "rel": "ties",
+        "text": "The special covers where Frank is."
+      }
+    ]
+  },
+  {
+    "id": "punisher",
+    "phase": 6,
+    "title": "The Punisher: One Last Kill",
+    "kind": "special",
+    "date": "May 12, 2026",
+    "shortTitle": "One Last Kill",
+    "note": "Jon Bernthal’s one-hour Special Presentation, released one week after the Born Again season 2 finale.",
+    "links": [
+      {
+        "to": "bnd",
+        "rel": "sets",
+        "text": "Frank also appears in Brand New Day."
+      }
+    ]
+  },
+  {
+    "id": "bnd",
+    "phase": 6,
+    "title": "Spider-Man: Brand New Day",
+    "kind": "film",
+    "date": "Jul 31, 2026",
+    "shortTitle": "Brand New Day",
+    "note": "Peter Parker in a world that doesn’t remember him. {{The Punisher and Hulk appear}}, and the film is set in the New York of Born Again."
+  },
+  {
+    "id": "vq",
+    "phase": 6,
+    "title": "VisionQuest",
+    "kind": "series",
+    "date": "Oct 13 – Nov 10, 2026",
+    "episodes": "8 eps, pairs then weekly",
+    "shortTitle": "VisionQuest",
+    "note": "Paul Bettany returns as White Vision, closing out the WandaVision and Agatha All Along trilogy. Terry Matalas is the showrunner. {{Vision traps Ultron in a sitcom of his own, and Billy and Tommy bring Vision back.}} Post-credits scenes: {{Ultron, now in human form, holds on to Jocasta; then Doom digs Wanda out of the rubble at Wundagore and she opens her eyes.}}",
+    "links": [
+      {
+        "to": "doom",
+        "rel": "sets",
+        "text": "Doom reviving Wanda leads into Doomsday."
+      },
+      {
+        "to": "momm",
+        "rel": "ties",
+        "text": "The scene returns to Wundagore right after Wanda’s fall."
+      }
+    ]
+  },
+  {
+    "id": "doom",
+    "phase": 9,
+    "title": "Avengers: Doomsday",
+    "kind": "film",
+    "date": "Dec 18, 2026",
+    "shortTitle": "Doomsday",
+    "after": true,
+    "note": "Opens about five weeks after VisionQuest’s finale and sits outside the chart.",
+    "leadIns": [
+      {
+        "from": "ff",
+        "text": "its post-credits scene sets up Doom’s role."
+      },
+      {
+        "from": "vq",
+        "text": "its final post-credits scene has Doom reviving Wanda."
+      }
+    ]
+  }
+]
