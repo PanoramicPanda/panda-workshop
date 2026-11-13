@@ -2,7 +2,11 @@ import { KIND_LABELS, connections, displayName } from './catalog.js';
 import { visibleNote } from './text.js';
 
 export const DEFAULT_STATE = {
+  view: 'timeline', // timeline | graph
+  layout: 'time', // graph layout: time (x follows release order) | free
+  sel: null, // selected title in the graph
   kind: 'all', // all | film | series | special (special also covers shorts)
+  phases: [], // phase ids to show; empty means all
   q: '',
   hideSpoilers: true,
   showLinks: true,
@@ -52,6 +56,7 @@ export function isVisible(title, state, catalog) {
   const list = currentList(catalog, state);
   const listed = inList(title, list);
   if (!kindMatches(title, state.kind)) return false;
+  if (state.phases.length && !state.phases.includes(title.phase)) return false;
   if (state.listOnly && !listed) return false;
   // Adjacent titles appear when the switch is on, or when they're on the list being filtered to.
   if (title.adjacent && !state.showAdjacent && !(state.listOnly && listed)) return false;

@@ -2,36 +2,43 @@
   {
     "id": 0,
     "name": "Before the MCU",
+    "short": "Before the MCU",
     "years": "2000–2007"
   },
   {
     "id": 1,
     "name": "Phase One",
+    "short": "Phase 1",
     "years": "2008–2012"
   },
   {
     "id": 2,
     "name": "Phase Two",
+    "short": "Phase 2",
     "years": "2013–2015"
   },
   {
     "id": 3,
     "name": "Phase Three",
+    "short": "Phase 3",
     "years": "2016–2019"
   },
   {
     "id": 4,
     "name": "Phase Four",
+    "short": "Phase 4",
     "years": "2021–2022"
   },
   {
     "id": 5,
     "name": "Phase Five",
+    "short": "Phase 5",
     "years": "2023–mid 2025"
   },
   {
     "id": 6,
     "name": "Phase Six",
+    "short": "Phase 6",
     "years": "mid 2025–now"
   }
 ]

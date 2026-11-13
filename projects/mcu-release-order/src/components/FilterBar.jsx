@@ -1,3 +1,5 @@
+import PhasePicker from './PhasePicker.jsx';
+
 const KINDS = [
   ['all', 'All'],
   ['film', 'Films'],
@@ -13,7 +15,7 @@ function Toggle({ on, onClick, children, title, disabled }) {
   );
 }
 
-export default function FilterBar({ state, set, shown, list, watchlists }) {
+export default function FilterBar({ state, set, shown, list, watchlists, phases }) {
   const flip = (key) => () => set({ [key]: !state[key] });
   return (
     <div className="bar" role="group" aria-label="Filters">
@@ -60,6 +62,7 @@ export default function FilterBar({ state, set, shown, list, watchlists }) {
         List only
       </Toggle>
       <span className="count">{shown} shown</span>
+      <PhasePicker phases={phases} selected={state.phases} onChange={(ids) => set({ phases: ids })} />
     </div>
   );
 }

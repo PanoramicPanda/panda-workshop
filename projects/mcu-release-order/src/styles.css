@@ -118,3 +118,7 @@ footer p{margin:0 0 10px}
 .legend .destdot{background:transparent;border:2px double var(--dw);width:12px;height:12px}
 .app.noglow .row.dest .card{outline:none}
 .app.noglow .chip.destchip{display:none}
+
+/* Phase picker: its own row inside the sticky bar */
+.phasepick{flex:1 0 100%;display:flex;flex-wrap:wrap;gap:6px}
+.phasepick button.f{font-size:.8rem;padding:4px 10px}

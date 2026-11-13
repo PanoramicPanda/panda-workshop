@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import titles from './data/titles.json';
 import phases from './data/phases.json';
 import watchlists from './data/watchlists.json';
 import { buildCatalog, stats as computeStats } from './lib/catalog.js';
-import { DEFAULT_STATE, currentList, isVisible } from './lib/filter.js';
+import { currentList, isVisible } from './lib/filter.js';
+import { decodeState, encodeState } from './lib/urlState.js';
 import Header from './components/Header.jsx';
 import FilterBar from './components/FilterBar.jsx';
 import Timeline from './components/Timeline.jsx';
@@ -14,22 +15,39 @@ const catalog = buildCatalog({ titles, phases, watchlists });
 const headerStats = computeStats(catalog.titles);
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/** Loosen filters just enough that `id` becomes visible (kind/search/phases first, then List only). */
+function revealTitle(s, id) {
+  const t = catalog.byId[id];
+  if (!t || t.after || isVisible(t, s, catalog)) return s;
+  const loosened = { ...s, kind: 'all', q: '', phases: [] };
+  return isVisible(t, loosened, catalog) ? loosened : { ...loosened, listOnly: false };
+}
+
 export default function App() {
-  const [state, setState] = useState(DEFAULT_STATE);
+  const [state, setState] = useState(() => decodeState(window.location.hash, catalog));
   const set = useCallback((patch) => setState((s) => ({ ...s, ...patch })), []);
   const [jump, setJump] = useState(null); // { id, n } — n makes repeat jumps to the same title re-fire
 
   const list = currentList(catalog, state);
   const visible = useMemo(() => catalog.titles.filter((t) => isVisible(t, state, catalog)), [state]);
 
-  // Jump to a linked title. If current filters hide it, loosen them first.
+  // Keep the URL hash in sync so any view can be bookmarked or shared.
+  useEffect(() => {
+    const hash = encodeState(state);
+    const url = window.location.pathname + window.location.search + (hash ? `#${hash}` : '');
+    if (url !== window.location.pathname + window.location.search + window.location.hash) {
+      window.history.replaceState(null, '', url);
+    }
+  }, [state]);
+  useEffect(() => {
+    const onHash = () => setState(decodeState(window.location.hash, catalog));
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  // Jump to a title in the timeline, loosening filters if they hide it.
   const go = useCallback((id) => {
-    setState((s) => {
-      const t = catalog.byId[id];
-      if (!t || t.after || isVisible(t, s, catalog)) return s;
-      const loosened = { ...s, kind: 'all', q: '' };
-      return isVisible(t, loosened, catalog) ? loosened : { ...loosened, listOnly: false };
-    });
+    setState((s) => ({ ...revealTitle(s, id), view: 'timeline' }));
     setJump((j) => ({ id, n: (j?.n ?? 0) + 1 }));
   }, []);
 
@@ -50,7 +68,7 @@ export default function App() {
     <div className={appClass}>
       <div className="wrap">
         <Header stats={headerStats} list={list} showDest={!!list && !catalog.byId[list.target]?.after} />
-        <FilterBar state={state} set={set} shown={visible.length} list={list} watchlists={catalog.watchlists} />
+        <FilterBar state={state} set={set} shown={visible.length} list={list} watchlists={catalog.watchlists} phases={catalog.phases} />
         <Timeline phases={catalog.phases} visible={visible} {...cardProps} />
         <AfterSection titles={catalog.after} catalog={catalog} hideSpoilers={state.hideSpoilers} />
         <Footer />
