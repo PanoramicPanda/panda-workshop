@@ -1,6 +1,7 @@
 {
   "name": "Hunter Pet Training Guide",
   "description": "A WoW Forever hunter pet guide for every family: which pets to tame and where, for each ability rank, with leveling plans, attack speeds, and Wowhead links.",
+  "thumbnail": "thumbnail.svg",
   "category": "Gaming",
   "tags": ["WoW", "Hunter", "Pets", "Guide", "WoW Forever"],
   "featured": false,

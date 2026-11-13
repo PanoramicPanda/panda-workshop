@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <g id="paw">
+      <ellipse cx="14.5" cy="30" rx="5.5" ry="7.5" transform="rotate(-22 14.5 30)"/>
+      <ellipse cx="25" cy="17.5" rx="6" ry="8" transform="rotate(-8 25 17.5)"/>
+      <ellipse cx="39" cy="17.5" rx="6" ry="8" transform="rotate(8 39 17.5)"/>
+      <ellipse cx="49.5" cy="30" rx="5.5" ry="7.5" transform="rotate(22 49.5 30)"/>
+      <path d="M32 32c7.5 0 16 8.5 16 15.5 0 5.5-4 8-8.5 8-3.5 0-4.5-1.8-7.5-1.8s-4 1.8-7.5 1.8c-4.5 0-8.5-2.5-8.5-8C16 40.5 24.5 32 32 32z"/>
+    </g>
+  </defs>
+  <rect width="1600" height="900" fill="#F6F4EF"/>
+
+  <!-- trail of paw prints wandering across the background -->
+  <g fill="#B4531A" opacity=".09">
+    <use href="#paw" transform="translate(60 760) rotate(-35 32 32) scale(1.6)"/>
+    <use href="#paw" transform="translate(230 820) rotate(-25 32 32) scale(1.6)"/>
+    <use href="#paw" transform="translate(410 740) rotate(-15 32 32) scale(1.6)"/>
+    <use href="#paw" transform="translate(590 800) rotate(-5 32 32) scale(1.6)"/>
+    <use href="#paw" transform="translate(760 700) rotate(5 32 32) scale(1.6)"/>
+  </g>
+
+  <!-- title -->
+  <use href="#paw" fill="#B4531A" transform="translate(100 150) scale(2)"/>
+  <g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+    <text x="96" y="420" font-size="150" font-weight="800" fill="#1F2328" letter-spacing="-4">Hunter Pet</text>
+    <text x="100" y="530" font-size="96" font-weight="500" fill="#65707B" letter-spacing="-2">Training Guide</text>
+  </g>
+  <rect x="104" y="580" width="250" height="8" rx="4" fill="#B4531A"/>
+
+  <!-- training-stop card: checklist of ranks with zone-colored pets -->
+  <g transform="translate(1000 110)">
+    <rect width="500" height="680" rx="20" fill="#FFFFFF" stroke="#E2DDD2" stroke-width="3"/>
+    <rect width="14" height="680" rx="6" fill="#B4531A"/>
+    <rect x="50" y="50" width="250" height="26" rx="13" fill="#1F2328" opacity=".85"/>
+    <rect x="316" y="54" width="110" height="18" rx="9" fill="#65707B" opacity=".4"/>
+
+    <!-- row 1 (done) -->
+    <g transform="translate(50 130)">
+      <rect width="30" height="30" rx="7" fill="#B4531A"/>
+      <path d="M8 15l5 5 9-10" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="52" y="1" width="130" height="28" rx="14" fill="#F7E6D9" opacity=".7"/>
+      <rect x="196" y="6" width="190" height="18" rx="9" fill="#1A5FB4" opacity=".45"/>
+      <rect x="52" y="48" width="230" height="14" rx="7" fill="#65707B" opacity=".25"/>
+    </g>
+    <!-- row 2 -->
+    <g transform="translate(50 260)">
+      <rect width="30" height="30" rx="7" fill="#FFFFFF" stroke="#C9C2B4" stroke-width="3"/>
+      <rect x="52" y="1" width="150" height="28" rx="14" fill="#F7E6D9"/>
+      <rect x="68" y="11" width="118" height="8" rx="4" fill="#B4531A"/>
+      <rect x="216" y="6" width="170" height="18" rx="9" fill="#B3261E"/>
+      <rect x="52" y="48" width="280" height="14" rx="7" fill="#65707B" opacity=".45"/>
+    </g>
+    <!-- row 3 -->
+    <g transform="translate(50 390)">
+      <rect width="30" height="30" rx="7" fill="#FFFFFF" stroke="#C9C2B4" stroke-width="3"/>
+      <rect x="52" y="1" width="120" height="28" rx="14" fill="#F7E6D9"/>
+      <rect x="68" y="11" width="88" height="8" rx="4" fill="#B4531A"/>
+      <rect x="186" y="6" width="210" height="18" rx="9" fill="#7B3FB0"/>
+      <rect x="52" y="48" width="200" height="14" rx="7" fill="#65707B" opacity=".45"/>
+    </g>
+    <!-- row 4 -->
+    <g transform="translate(50 520)">
+      <rect width="30" height="30" rx="7" fill="#FFFFFF" stroke="#C9C2B4" stroke-width="3"/>
+      <rect x="52" y="1" width="140" height="28" rx="14" fill="#F7E6D9"/>
+      <rect x="68" y="11" width="108" height="8" rx="4" fill="#B4531A"/>
+      <rect x="206" y="6" width="160" height="18" rx="9" fill="#1A5FB4"/>
+      <rect x="52" y="48" width="250" height="14" rx="7" fill="#65707B" opacity=".45"/>
+    </g>
+  </g>
+</svg>
