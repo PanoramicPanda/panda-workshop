@@ -154,7 +154,7 @@ footer p{margin:0 0 10px}
     <h2>What’s in, what’s out</h2>
     <p>Dates are US premiere dates. Included: Marvel Studios films (including the Sony co-productions with Spider-Man), Marvel Studios and Marvel Television series on Disney+, the Special Presentations, the I Am Groot shorts, the Marvel One-Shots and the Team Thor shorts (listed where they sit in the story, with their later home-video release noted). MCU Adjacent, off by default: the Fox X-Men films leading up to Logan, Deadpool 1 and 2, the Raimi and Webb Spider-Man films, the Venom films, the Netflix Marvel series (split into season buckets only around The Defenders, where the seasons actually interleave), Inhumans, Cloak &amp; Dagger, Agents of S.H.I.E.L.D., Agent Carter and Your Friendly Neighborhood Spider-Man. Not included: X-Men ’97, Dark Phoenix, The New Mutants, the Fox Fantastic Four films, Sony’s other Spider-Man Universe films, the other Marvel TV series (Runaways, Helstrom), Spider-Noir, and theatrical re-releases.</p>
     <p>The green-glow titles are Disney+’s official “Countdown to Avengers: Doomsday” list, published in August 2026: 15 picks, with both seasons of Loki counted as one. X-Men and X2 are on it but are MCU Adjacent, so they appear when that switch is on, or when you use the Doomsday filter.</p>
-    <p>Connections list what each title sets up or pays off. They are limited to links that are confirmed in the stories themselves or stated by Marvel, and the pairs are written once and shown from both sides. VisionQuest’s remaining episode dates come from a reported Disney+ schedule, so check Disney+ if one slips.</p>
+    <p>Connections list what each title sets up or pays off. They are limited to links that are confirmed in the stories themselves or stated by Marvel, and the pairs are written once and shown from both sides.</p>
   </footer>
 </div>
 
@@ -267,7 +267,7 @@ const D = [
 {p:6,id:"dd2",t:"Daredevil: Born Again",s:"Season 2",k:"series",d:"Mar 24 – May 5, 2026",n:"Matt builds an army against Fisk, with Krysten Ritter’s Jessica Jones joining. The Punisher sits this season out.",short:"Born Again S2",l:[["bnd","sets","Marvel says the season ties directly into Brand New Day."],["punisher","ties","The special covers where Frank is."]]},
 {p:6,id:"punisher",t:"The Punisher: One Last Kill",k:"special",d:"May 12, 2026",n:"Jon Bernthal’s one-hour Special Presentation, released one week after the Born Again season 2 finale.",short:"One Last Kill",l:[["bnd","sets","Frank also appears in Brand New Day."]]},
 {p:6,id:"bnd",t:"Spider-Man: Brand New Day",k:"film",d:"Jul 31, 2026",n:"Peter Parker in a world that doesn’t remember him. {{The Punisher and Hulk appear}}, and the film is set in the New York of Born Again.",short:"Brand New Day"},
-{p:6,id:"vq",t:"VisionQuest",k:"series",d:"Oct 14 – Nov 11, 2026",eps:"8 eps, released in pairs",live:1,n:"Paul Bettany returns as White Vision, closing out the WandaVision and Agatha All Along storyline. Terry Matalas is the showrunner. Episodes 1–6 are out, with episode 7 on Nov 4 and the finale on Nov 11, per the reported schedule.",short:"VisionQuest"},
+{p:6,id:"vq",t:"VisionQuest",k:"series",d:"Oct 13 – Nov 10, 2026",eps:"8 eps, pairs then weekly",n:"Paul Bettany returns as White Vision, closing out the WandaVision and Agatha All Along trilogy. Terry Matalas is the showrunner. {{Vision traps Ultron in a sitcom of his own, and Billy and Tommy bring Vision back.}} Post-credits scenes: {{Ultron, now in human form, holds on to Jocasta; then Doom digs Wanda out of the rubble at Wundagore and she opens her eyes.}}",short:"VisionQuest",l:[["doom","sets","Doom reviving Wanda leads into Doomsday."],["momm","ties","The scene returns to Wundagore right after Wanda’s fall."]]},
 // ---------- ADDED: MARVEL ONE-SHOTS (main chart) ----------
 {p:1,id:"cons",t:"Marvel One-Shot: The Consultant",k:"short",d:"Set after Iron Man 2",sk:20100507.1,pause:"Released later, on Sep 13, 2011, on the Thor home video.",n:"A two-hander with Agent Coulson and Jasper Sitwell, set around the events of The Incredible Hulk.",short:"The Consultant",l:[["hulk","ties","It runs alongside the Tony Stark scene that closes The Incredible Hulk."]]},
 {p:1,id:"funny",t:"Marvel One-Shot: A Funny Thing Happened on the Way to Thor’s Hammer",k:"short",d:"Set before Thor",sk:20100507.2,pause:"Released later, on Oct 25, 2011, on the Captain America: The First Avenger home video.",n:"Agent Coulson stops at a convenience store on his way to New Mexico and ends up in a robbery.",short:"A Funny Thing…",l:[["thor","ties","Coulson’s drive is toward the New Mexico site from Thor."]]},
@@ -316,7 +316,7 @@ const D = [
 {p:3,id:"if-b",w:"if",t:"Marvel’s Iron Fist",s:"Season 2",k:"series",d:"Sep 7, 2018",adj:1,n:"Danny Rand takes on new threats in New York.",short:"Iron Fist S2"},
 {p:3,id:"ddn-b",w:"ddn",t:"Marvel’s Daredevil",s:"Season 3",k:"series",d:"Oct 19, 2018",adj:1,n:"Matt Murdock recovers while Fisk schemes.",short:"Daredevil S3 (Netflix)",l:[["dd1","ties","Born Again continues Matt’s story from the Netflix series."],["nwh","ties","Charlie Cox’s Matt Murdock appears in No Way Home."]]},
 // ---------- AFTER (outside the chart) ----------
-{p:9,id:"doom",t:"Avengers: Doomsday",k:"film",d:"Dec 18, 2026",n:"Opens after VisionQuest’s run and sits outside the chart.",short:"Doomsday",after:1}
+{p:9,id:"doom",t:"Avengers: Doomsday",k:"film",d:"Dec 18, 2026",n:"Opens about five weeks after VisionQuest’s finale and sits outside the chart.",short:"Doomsday",after:1}
 ];
 
 const MON={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
@@ -400,10 +400,12 @@ Object.keys(PHASES).forEach(p=>{
 // after section
 (function(){
   const a = byId["doom"];
-  document.getElementById("after").innerHTML = `<h2>Next, outside this chart</h2><p><b>${esc(a.t)}</b> arrives ${esc(a.d)}, after VisionQuest begins.</p>`;
+  document.getElementById("after").innerHTML = `<h2>Next, outside this chart</h2><p><b>${esc(a.t)}</b> arrives ${esc(a.d)}, about five weeks after VisionQuest’s finale.</p>`;
   const ap = document.querySelector("#after p");
   ap.appendChild(document.createTextNode(" The Fantastic Four: First Steps leads into it: "));
   const sp = el("span","why sp"); sp.dataset.txt = "its post-credits scene sets up Doom’s role."; setWhy(sp); ap.appendChild(sp);
+  ap.appendChild(document.createTextNode(" So does VisionQuest: "));
+  const sp2 = el("span","why sp"); sp2.dataset.txt = "its final post-credits scene has Doom reviving Wanda."; setWhy(sp2); ap.appendChild(sp2);
 })();
 
 // ---- filters
