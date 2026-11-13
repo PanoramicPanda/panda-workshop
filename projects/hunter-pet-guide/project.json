@@ -5,5 +5,10 @@
   "category": "Gaming",
   "tags": ["WoW", "Hunter", "Pets", "Guide", "WoW Forever"],
   "featured": false,
-  "hidden": false
+  "hidden": false,
+  "build": {
+    "enabled": true,
+    "command": "npm run build",
+    "output": "dist"
+  }
 }
