@@ -1,4 +1,4 @@
-export default function Header({ stats, list }) {
+export default function Header({ stats, list, showDest }) {
   return (
     <header className="top">
       <h1>The MCU in release order</h1>
@@ -25,8 +25,14 @@ export default function Header({ stats, list }) {
           <span className="dwleg">
             <i style={{ background: 'var(--dw)' }} />
             {list.source === 'official'
-              ? `Green glow: on Disney+’s official ${list.label.replace('Avengers: ', '')} watchlist`
+              ? `Green glow: on Disney+’s official ${list.label} watchlist`
               : `Green glow: essential before ${list.label}`}
+          </span>
+        )}
+        {list && showDest && (
+          <span className="dwleg">
+            <i className="destdot" />
+            Ringed: {list.label} itself
           </span>
         )}
       </div>

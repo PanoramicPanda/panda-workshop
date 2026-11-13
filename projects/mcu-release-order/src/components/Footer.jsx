@@ -14,9 +14,11 @@ export default function Footer() {
         theatrical re-releases.
       </p>
       <p>
-        The green-glow titles are Disney+’s official “Countdown to Avengers: Doomsday” list, published in August 2026: 15
-        picks, with both seasons of Loki counted as one. X-Men and X2 are on it but are MCU Adjacent, so they appear when
-        that switch is on, or when you use the Doomsday filter.
+        The green glow marks what to watch before the film picked under “Watching toward”. The default is Disney+’s
+        official “Countdown to Avengers: Doomsday” list, published in August 2026: 15 picks, with both seasons of Loki
+        counted as one. The other lists cover the big crossover films and are this chart’s own picks, not official ones.
+        Lists can include MCU Adjacent titles (X-Men and X2 for Doomsday, the earlier Spider-Men for No Way Home); those
+        appear when that switch is on, or when you use List only.
       </p>
       <p>
         Connections list what each title sets up or pays off. They are limited to links that are confirmed in the stories

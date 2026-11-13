@@ -13,9 +13,8 @@ function Toggle({ on, onClick, children, title, disabled }) {
   );
 }
 
-export default function FilterBar({ state, set, shown, list }) {
+export default function FilterBar({ state, set, shown, list, watchlists }) {
   const flip = (key) => () => set({ [key]: !state[key] });
-  const short = list ? list.label.replace('Avengers: ', '') : '';
   return (
     <div className="bar" role="group" aria-label="Filters">
       {KINDS.map(([k, label]) => (
@@ -43,11 +42,22 @@ export default function FilterBar({ state, set, shown, list }) {
       >
         {state.showAdjacent ? 'MCU Adjacent on' : 'MCU Adjacent off'}
       </Toggle>
-      <Toggle on={state.glow} onClick={flip('glow')} title={`Highlight the titles on the ${list?.label} list`}>
-        {short} glow {state.glow ? 'on' : 'off'}
+      <span className="watch">
+        <label htmlFor="watchlist">Watching toward</label>
+        <select id="watchlist" value={state.list} onChange={(e) => set({ list: e.target.value })}>
+          {watchlists.map((w) => (
+            <option key={w.id} value={w.id}>
+              {w.label}
+              {w.source === 'official' ? ' (Disney+ list)' : ''}
+            </option>
+          ))}
+        </select>
+      </span>
+      <Toggle on={state.glow} onClick={flip('glow')} title={`Highlight the titles to watch before ${list?.label}`}>
+        Glow {state.glow ? 'on' : 'off'}
       </Toggle>
-      <Toggle on={state.listOnly} onClick={flip('listOnly')} title={`Show only the titles on the ${list?.label} list`}>
-        {short} list only
+      <Toggle on={state.listOnly} onClick={flip('listOnly')} title={`Show only the titles to watch before ${list?.label}`}>
+        List only
       </Toggle>
       <span className="count">{shown} shown</span>
     </div>

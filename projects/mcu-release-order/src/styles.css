@@ -107,3 +107,14 @@ footer p{margin:0 0 10px}
   .card h3{font-size:1.45rem}
 }
 @media (prefers-reduced-motion:reduce){.row.flash .card{animation:none;outline:2px solid var(--c)}}
+
+/* Watchlist picker and destination marker */
+.bar .watch{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--muted)}
+.bar select{font:inherit;font-size:.88rem;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);max-width:min(100%,280px)}
+.bar select:focus-visible{outline:2px solid var(--film);outline-offset:2px}
+.bar button.f:disabled{opacity:.45;cursor:not-allowed}
+.row.dest .card{outline:3px double var(--dw);outline-offset:3px}
+.chip.destchip{border-color:var(--dw);color:var(--dw);font-weight:600}
+.legend .destdot{background:transparent;border:2px double var(--dw);width:12px;height:12px}
+.app.noglow .row.dest .card{outline:none}
+.app.noglow .chip.destchip{display:none}

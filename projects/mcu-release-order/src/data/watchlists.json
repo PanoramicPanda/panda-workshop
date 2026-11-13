@@ -7,5 +7,104 @@
     "source": "official",
     "sourceNote": "Disney+’s official “Countdown to Avengers: Doomsday” list, published in August 2026: 15 picks, with both seasons of Loki counted as one.",
     "members": ["fx1", "fx2", "cap1", "av1", "iw", "eg", "loki1", "shangchi", "nwh", "momm", "bpwf", "loki2", "dp", "cabnd", "tb", "ff"]
+  },
+  {
+    "id": "avengers",
+    "target": "av1",
+    "label": "The Avengers",
+    "chip": "Avengers essential",
+    "source": "curated",
+    "sourceNote": "The four Phase One films that introduce the team.",
+    "members": ["im1", "hulk", "im2", "thor", "cap1"]
+  },
+  {
+    "id": "ultron",
+    "target": "aou",
+    "label": "Avengers: Age of Ultron",
+    "chip": "Age of Ultron essential",
+    "source": "curated",
+    "sourceNote": "The first team-up plus the Phase Two solo films it picks up from.",
+    "members": ["av1", "im3", "tdw", "cap2"]
+  },
+  {
+    "id": "civilwar",
+    "target": "cw",
+    "label": "Captain America: Civil War",
+    "chip": "Civil War essential",
+    "source": "curated",
+    "sourceNote": "Steve and Bucky’s story, the two Avengers films behind the Sokovia Accords, and Ant-Man.",
+    "members": ["cap1", "av1", "cap2", "aou", "ant"]
+  },
+  {
+    "id": "infinitywar",
+    "target": "iw",
+    "label": "Avengers: Infinity War",
+    "chip": "Infinity War essential",
+    "source": "curated",
+    "sourceNote": "The films that set up the Stones, the split team and everyone Thanos meets.",
+    "members": ["av1", "gotg", "aou", "cw", "ds", "gotg2", "sm1", "thorrag", "bp"]
+  },
+  {
+    "id": "endgame",
+    "target": "eg",
+    "label": "Avengers: Endgame",
+    "chip": "Endgame essential",
+    "source": "curated",
+    "sourceNote": "Infinity War, the films Endgame revisits, and the two films that introduce its new arrivals.",
+    "members": ["av1", "gotg", "cw", "thorrag", "iw", "amatw", "cm"]
+  },
+  {
+    "id": "nowayhome",
+    "target": "nwh",
+    "label": "Spider-Man: No Way Home",
+    "chip": "No Way Home essential",
+    "source": "curated",
+    "sourceNote": "Tom Holland’s Peter so far, Doctor Strange, and the earlier Spider-Man films whose characters return.",
+    "members": ["sp1", "sp2", "sp3", "asm1", "asm2", "cw", "sm1", "ds", "eg", "ffh", "vn2"]
+  },
+  {
+    "id": "multiverse",
+    "target": "momm",
+    "label": "Doctor Strange in the Multiverse of Madness",
+    "chip": "Multiverse of Madness essential",
+    "source": "curated",
+    "sourceNote": "Strange’s story, Wanda’s turn in WandaVision, and the multiverse setup.",
+    "members": ["ds", "wv", "loki1", "wif1", "nwh"]
+  },
+  {
+    "id": "marvels",
+    "target": "marvels",
+    "label": "The Marvels",
+    "chip": "The Marvels essential",
+    "source": "curated",
+    "sourceNote": "Where Carol, Monica and Kamala each come from, plus Fury’s return to space.",
+    "members": ["cm", "wv", "ms", "si"]
+  },
+  {
+    "id": "deadpoolwolverine",
+    "target": "dp",
+    "label": "Deadpool & Wolverine",
+    "chip": "Deadpool & Wolverine essential",
+    "source": "curated",
+    "sourceNote": "The Fox Deadpool and Wolverine films it builds on, and the TVA from Loki.",
+    "members": ["fx1", "fx4", "dpool1", "fx9", "dpool2", "loki1", "loki2"]
+  },
+  {
+    "id": "thunderbolts",
+    "target": "tb",
+    "label": "Thunderbolts*",
+    "chip": "Thunderbolts* essential",
+    "source": "curated",
+    "sourceNote": "Where each member of the team, and Val, was introduced.",
+    "members": ["amatw", "fatws", "bw", "hawk", "bpwf"]
+  },
+  {
+    "id": "brandnewday",
+    "target": "bnd",
+    "label": "Spider-Man: Brand New Day",
+    "chip": "Brand New Day essential",
+    "source": "curated",
+    "sourceNote": "Peter’s story through No Way Home, and the street-level New York of Born Again and the Punisher.",
+    "members": ["sm1", "ffh", "nwh", "pn", "dd1", "dd2", "punisher"]
   }
 ]

@@ -49,8 +49,8 @@ export default function App() {
   return (
     <div className={appClass}>
       <div className="wrap">
-        <Header stats={headerStats} list={list} />
-        <FilterBar state={state} set={set} shown={visible.length} list={list} />
+        <Header stats={headerStats} list={list} showDest={!!list && !catalog.byId[list.target]?.after} />
+        <FilterBar state={state} set={set} shown={visible.length} list={list} watchlists={catalog.watchlists} />
         <Timeline phases={catalog.phases} visible={visible} {...cardProps} />
         <AfterSection titles={catalog.after} catalog={catalog} hideSpoilers={state.hideSpoilers} />
         <Footer />
