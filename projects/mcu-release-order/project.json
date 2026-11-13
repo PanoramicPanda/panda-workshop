@@ -5,5 +5,10 @@
   "category": "Entertainment",
   "tags": ["MCU", "Marvel", "Timeline", "Release Order", "Doomsday"],
   "featured": false,
-  "hidden": false
+  "hidden": false,
+  "build": {
+    "enabled": true,
+    "command": "npm run build",
+    "output": "dist"
+  }
 }
