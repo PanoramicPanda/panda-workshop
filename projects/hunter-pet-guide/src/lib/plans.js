@@ -1,9 +1,9 @@
 import { actives, alsoList, learnable, lowLevel, rankOf } from './catalog.js';
-import { inContinent, isReachable, otherRegion, tameable } from './region.js';
+import { inContinent, otherRegion, tameable } from './region.js';
 
-// Plan A groups ranks into trips by these level thresholds.
-const THRESHOLDS = [16, 24, 32, 40, 48, 56];
-export const bucket = (level) => THRESHOLDS.filter((t) => level >= t).length;
+// The plan groups ranks into 10-level legs: 10–19, 20–29, 30–39, 40–49 and 50–60 (60 joins the last leg).
+export const bucket = (level) => Math.min(Math.floor(level / 10), 5) - 1;
+const legRange = (b) => [(b + 1) * 10, b === 4 ? 60 : (b + 1) * 10 + 9];
 
 /** The level at which a rank can be picked up from this pet: max(10, rank's pet level, pet's level). */
 const petGate = (c, id, info) => Math.max(10, info.petLevel, lowLevel(c.petById[id]));
@@ -27,7 +27,7 @@ function limitToLevel(c, item, settings) {
   };
 }
 
-function sortOwnA(c, ids, s, r, fam) {
+function sortOwn(c, ids, s, r, fam) {
   const info = rankOf(c, s, r);
   return ids.slice().sort((a, b) => {
     const ba = bucket(petGate(c, a, info));
@@ -41,11 +41,11 @@ function sortOwnA(c, ids, s, r, fam) {
 }
 
 /**
- * Plan A: learn each skill as soon as its source and the pet level line up.
- * Only the highest rank of each skill per trip is kept (skipping ranks is free).
+ * The training plan: each skill rank goes in the 10-level leg where its source and the pet level
+ * first line up. Only the highest rank of each skill per leg is kept (skipping ranks is free).
  * Stops: { title, items: [{ ability, rank, info, level, own, alt }] }.
  */
-export function buildPlanA(c, settings) {
+export function buildPlan(c, settings) {
   const { fam, fac } = settings;
   const opp = otherRegion(fac);
   const rows = [];
@@ -64,7 +64,7 @@ export function buildPlanA(c, settings) {
         if (!pool.length) continue;
         level = Math.max(level, Math.min(...pool.map((id) => low(c, id))));
       }
-      rows.push({ ability: a.id, rank: info.rank, info, level, own: sortOwnA(c, own, a.id, info.rank, fam), alt });
+      rows.push({ ability: a.id, rank: info.rank, info, level, own: sortOwn(c, own, a.id, info.rank, fam), alt });
     }
   }
   const best = {};
@@ -77,57 +77,16 @@ export function buildPlanA(c, settings) {
   return Object.keys(byBucket)
     .map(Number)
     .sort((a, b) => a - b)
-    .map((b, i) => {
+    .map((b) => {
       const items = byBucket[b].sort(
         (x, y) => x.level - y.level || c.abilityById[x.ability].name.localeCompare(c.abilityById[y.ability].name),
       );
-      const lo = items[0].level;
-      const hi = items[items.length - 1].level;
+      const [lo, hi] = legRange(b);
       return {
-        title: `Trip ${i + 1} · Level ${lo === hi ? lo : `${lo}–${hi}`}`,
+        title: `Levels ${lo}–${hi}`,
         items: items.map((x) => limitToLevel(c, x, settings)),
       };
     });
-}
-
-/** Plan B: one trip every 10 levels, teaching the highest rank the pet's level allows. */
-export function buildPlanB(c, settings) {
-  const { fam, fac } = settings;
-  const opp = otherRegion(fac);
-  const acts = actives(c, fam);
-  const prev = {};
-  const stops = [];
-  for (let V = 10; V <= 60; V += 10) {
-    const items = [];
-    for (const a of acts) {
-      const candidates = a.ranks.filter((info) => info.rank > (prev[a.id] || 0) && info.petLevel <= V).reverse();
-      for (const info of candidates) {
-        if (info.source === 'none') continue;
-        if (info.source === 'trainer') {
-          items.push({ ability: a.id, rank: info.rank, info, level: V, own: [], alt: [] });
-          prev[a.id] = info.rank;
-          break;
-        }
-        const any = info.pets.filter((id) => isReachable(c.petById[id], settings) && low(c, id) <= V);
-        if (!any.length) continue;
-        const own = any
-          .filter((id) => inContinent(c.petById[id], settings))
-          .sort((x, y) => {
-            const cx = alsoList(c, x, [a.id, info.rank], fam, V).length;
-            const cy = alsoList(c, y, [a.id, info.rank], fam, V).length;
-            return cy - cx || low(c, y) - low(c, x);
-          });
-        const alt = info.pets.filter((id) => c.petById[id].region === opp).sort((x, y) => low(c, x) - low(c, y));
-        items.push({ ability: a.id, rank: info.rank, info, level: V, own, alt });
-        prev[a.id] = info.rank;
-        break;
-      }
-    }
-    if (items.length) {
-      stops.push({ title: `Visit ${stops.length + 1} · Level ${V}`, items: items.map((x) => limitToLevel(c, x, settings)) });
-    }
-  }
-  return stops;
 }
 
 /** Up to four zones from a stop's top pets, for the stop heading. */

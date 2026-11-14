@@ -1,7 +1,6 @@
 export const TABS = [
   { id: 'rules', label: 'Overview' },
-  { id: 'planA', label: 'Plan A: every trip' },
-  { id: 'planB', label: 'Plan B: every 10 levels' },
+  { id: 'plan', label: 'Training plan' },
   { id: 'speed', label: 'Attack speed' },
   { id: 'ranks', label: 'All ranks' },
   { id: 'fams', label: 'All families' },

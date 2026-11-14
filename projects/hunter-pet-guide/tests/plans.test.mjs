@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { actives, alsoList, petRowText } from '../src/lib/catalog.js';
-import { buildPlanA, buildPlanB, multiSkillPets, speedGroups, tpTotals, zonesOf } from '../src/lib/plans.js';
+import { buildPlan, multiSkillPets, speedGroups, tpTotals, zonesOf } from '../src/lib/plans.js';
 import { catalog as c, summarize } from './helpers.mjs';
 
 const CAT_EK = { fam: 'cat', fac: 'E', zep: true };
@@ -13,43 +13,38 @@ test('family skills: tamed ones sorted by name, passives kept apart', () => {
   assert.ok(!actives(c, 'cat').some((a) => a.passive));
 });
 
-test('Plan A for Cats in Eastern Kingdoms', () => {
-  const stops = summarize(buildPlanA(c, CAT_EK));
-  assert.equal(stops.length, 7);
-  assert.deepEqual(stops[0], ['Trip 1 · Level 10', ['bite2:254589:5', 'claw2:254588:6', 'cower1:1199:9', 'growl2:-:0']]);
-  assert.deepEqual(stops[3], ['Trip 4 · Level 32–39', ['bite5:2727:7', 'dash1:2727:4', 'prowl1:2731:0', 'cower4:2731:1', 'claw5:7022:3']]);
-  assert.deepEqual(stops[6], ['Trip 7 · Level 56–60', ['bite8:9696:0', 'cower6:8602:1', 'claw8:-:2', 'growl7:-:0']]);
+const LEGS = ['Levels 10–19', 'Levels 20–29', 'Levels 30–39', 'Levels 40–49', 'Levels 50–60'];
+
+test('the plan for Cats in Eastern Kingdoms has one leg per 10 levels', () => {
+  const stops = summarize(buildPlan(c, CAT_EK));
+  assert.deepEqual(stops.map((s) => s[0]), LEGS);
+  assert.deepEqual(stops[0][1], ['cower1:1199:9', 'growl2:-:0', 'bite3:1923:7', 'claw3:1189:6']);
+  assert.deepEqual(stops[2][1], ['growl4:-:0', 'bite5:2727:7', 'dash1:2727:4', 'prowl1:2731:0', 'cower4:2731:1', 'claw5:7022:3']);
+  assert.deepEqual(stops[4][1], ['dash3:2681:3', 'prowl3:2522:1', 'bite8:9696:0', 'cower6:8602:1', 'claw8:-:2', 'growl7:-:0']);
 });
 
-test('Plan A falls back to the other continent when a rank has no source here', () => {
-  const claw4 = buildPlanA(c, CAT_EK).flatMap((s) => s.items).find((i) => i.ability === 'claw' && i.rank === 4);
+test('each leg holds ranks first learnable in it, highest rank per skill only', () => {
+  const stops = buildPlan(c, SPIDER_KAL);
+  assert.deepEqual(stops.map((s) => s.title), LEGS);
+  stops.forEach((stop, i) => {
+    const lo = (i + 1) * 10;
+    const skills = stop.items.map((x) => x.ability);
+    assert.equal(new Set(skills).size, skills.length);
+    // The last leg also takes anything at 60 or above.
+    for (const x of stop.items) assert.ok(x.level >= lo && (i === 4 || x.level < lo + 10));
+    for (const id of stop.items.flatMap((x) => x.own)) assert.notEqual(c.petById[id].region, 'Z');
+  });
+});
+
+test('the plan falls back to the other continent when a rank has no source here', () => {
+  const claw4 = buildPlan(c, CAT_EK).flatMap((s) => s.items).find((i) => i.ability === 'claw' && i.rank === 4);
   assert.deepEqual(claw4.own, []);
   assert.equal(claw4.alt.length, 4);
   assert.ok(claw4.alt.every((id) => c.petById[id].region === 'K'));
 });
 
-test('Plan B for Spiders in Kalimdor without Zephras Isle', () => {
-  const stops = summarize(buildPlanB(c, SPIDER_KAL));
-  assert.deepEqual(stops.map((s) => s[0]), [10, 20, 30, 40, 50, 60].map((v, i) => `Visit ${i + 1} · Level ${v}`));
-  assert.deepEqual(stops[1][1], ['bite3:3653:10', 'cower2:2237:1', 'growl3:-:0', 'web1:3819:10']);
-  assert.deepEqual(stops[4][1], ['bite7:-:8', 'cower5:-:3', 'dash3:-:8', 'growl6:-:0']);
-});
-
-test('Plan B only offers pets tameable by each visit and hides Zephras Isle when off', () => {
-  for (const stop of buildPlanB(c, SPIDER_KAL)) {
-    const level = Number(stop.title.split('Level ')[1]);
-    for (const item of stop.items) {
-      assert.ok(item.info.petLevel <= level);
-      for (const id of item.own) {
-        assert.ok(parseInt(c.petById[id].level, 10) <= level);
-        assert.equal(c.petById[id].region, 'K');
-      }
-    }
-  }
-});
-
 test('stop headings list up to four zones without dungeon/raid tags', () => {
-  const [first] = buildPlanA(c, CAT_EK);
+  const [first] = buildPlan(c, CAT_EK);
   const zones = zonesOf(c, first.items).split(' · ');
   assert.ok(zones.length > 0 && zones.length <= 4);
   assert.ok(zones.every((z) => !/\((Dungeon|Raid)\)/.test(z)));
@@ -93,8 +88,8 @@ test('training point totals use the highest obtainable rank', () => {
 
 test('a hunter level hides higher pets from plans without changing the trips', () => {
   const capped = { ...CAT_EK, maxLvl: 20 };
-  const full = buildPlanA(c, CAT_EK);
-  const limited = buildPlanA(c, capped);
+  const full = buildPlan(c, CAT_EK);
+  const limited = buildPlan(c, capped);
   assert.deepEqual(limited.map((s) => s.title), full.map((s) => s.title));
   for (const x of limited.flatMap((s) => s.items)) {
     assert.ok([...x.own, ...x.alt].every((id) => parseInt(c.petById[id].level, 10) <= 20));
@@ -105,7 +100,7 @@ test('a hunter level hides higher pets from plans without changing the trips', (
   assert.ok(bite8.nextLevel > 20);
   // No level set: nothing hidden.
   assert.ok(full.flatMap((s) => s.items).every((x) => x.hidden === 0 && x.nextLevel === null));
-  for (const stop of buildPlanB(c, { ...SPIDER_KAL, maxLvl: 25 })) {
+  for (const stop of buildPlan(c, { ...SPIDER_KAL, maxLvl: 25 })) {
     for (const x of stop.items) assert.ok([...x.own, ...x.alt].every((id) => parseInt(c.petById[id].level, 10) <= 25));
   }
 });

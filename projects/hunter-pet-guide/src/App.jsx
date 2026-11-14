@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { catalog as c } from './catalog.js';
-import { buildPlanA, buildPlanB } from './lib/plans.js';
+import { buildPlan } from './lib/plans.js';
 import { useStored } from './lib/storage.js';
 import Header from './components/Header.jsx';
 import Controls from './components/Controls.jsx';
@@ -20,11 +20,14 @@ const parseFac = (v) => (v === 'E' || v === 'K' ? v : 'E');
 const parseZep = (v) => v !== '0';
 const saveZep = (v) => (v ? '1' : '0');
 const parseLvl = (v) => parseInt(v, 10) || 0;
-// The URL hash (e.g. #planB) wins over the last tab viewed.
+// The old Plan A / Plan B tabs were merged into one plan; old links and saved tabs land on it.
+const OLD_TABS = { planA: 'plan', planB: 'plan' };
+const tabId = (v) => OLD_TABS[v] ?? v;
+// The URL hash (e.g. #ranks) wins over the last tab viewed.
 const parseTab = (v) => {
-  const hash = window.location.hash.slice(1);
+  const hash = tabId(window.location.hash.slice(1));
   if (TAB_IDS.has(hash)) return hash;
-  return TAB_IDS.has(v) ? v : 'rules';
+  return TAB_IDS.has(tabId(v)) ? tabId(v) : 'rules';
 };
 
 export default function App() {
@@ -53,26 +56,15 @@ export default function App() {
   const planKey = `${fam}-${fac}-${zep}-${maxLvl}`;
   let panel;
   switch (tab) {
-    case 'planA':
+    case 'plan':
       panel = (
         <PlanPanel
           key={planKey}
+          // Ticks are still saved under the old Plan A key, so they carry over.
           plan="planA"
-          title="Plan A: every trip"
-          sub="Learn each skill as soon as its source and the pet level line up. Only the highest rank in each trip is shown, since skipping ranks is free."
-          stops={buildPlanA(c, settings)}
-          settings={settings}
-        />
-      );
-      break;
-    case 'planB':
-      panel = (
-        <PlanPanel
-          key={planKey}
-          plan="planB"
-          title="Plan B: one trip every 10 levels"
-          sub="Teach the highest rank the pet's level allows at each visit, using pets you can tame by then."
-          stops={buildPlanB(c, settings)}
+          title="Training plan"
+          sub="One leg per 10 levels. Each skill shows in the leg where you can first learn it, at the highest rank that leg reaches, since skipping ranks is free."
+          stops={buildPlan(c, settings)}
           settings={settings}
         />
       );
