@@ -33,6 +33,10 @@ export default function PlanItem({ item, settings, checked, onCheck }) {
               </span>
             ) : shown.length ? (
               <PetList ids={shown} cur={cur} fam={fam} />
+            ) : item.nextLevel && !alt.length ? (
+              <span className="p">
+                <small>Tameable from level {item.nextLevel}.</small>
+              </span>
             ) : (
               <span className="p">
                 <small>

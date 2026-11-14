@@ -1,7 +1,7 @@
 import { catalog as c } from '../catalog.js';
 import { REGION_NAMES } from '../lib/region.js';
 
-export default function Controls({ settings, setFam, setFac, setZep }) {
+export default function Controls({ settings, setFam, setFac, setZep, lvl, setLvl, hideHigh, setHideHigh }) {
   const { fam, fac, zep } = settings;
   return (
     <>
@@ -29,6 +29,23 @@ export default function Controls({ settings, setFam, setFac, setZep }) {
         <label>
           <input type="checkbox" checked={zep} onChange={(e) => setZep(e.target.checked)} /> Zephras Isle available{' '}
           <small>(Sky Elf start)</small>
+        </label>
+      </div>
+      <div className="ctl">
+        <label>
+          <b>Hunter level:</b>{' '}
+          <input
+            type="number"
+            min="1"
+            max="60"
+            value={lvl || ''}
+            placeholder="any"
+            onChange={(e) => setLvl(parseInt(e.target.value, 10) || 0)}
+          />
+        </label>
+        <label>
+          <input type="checkbox" checked={hideHigh} onChange={(e) => setHideHigh(e.target.checked)} /> Hide pets above my
+          level <small>(ones you can't tame yet)</small>
         </label>
       </div>
       <div className="legend small">

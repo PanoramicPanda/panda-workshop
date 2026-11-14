@@ -99,7 +99,10 @@ export default function OverviewPanel({ settings }) {
         out: each step has a "{other}" divider you can open. If a rank has no source on your continent, the step says so
         and opens the divider for you.
       </div>
-      <p className="small">Tick boxes are saved in this browser, per family and continent. Data source: wow-petopia.com/forever.</p>
+      <p className="small">
+        Tick boxes are saved in this browser, per family and continent; ticked skills hide until you tick "Show checked".
+        Enter your hunter level at the top to hide pets you can't tame yet. Data source: wow-petopia.com/forever.
+      </p>
     </>
   );
 }

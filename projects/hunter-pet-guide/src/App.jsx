@@ -32,10 +32,13 @@ export default function App() {
   const [fac, setFac] = useStored('hpg-fac', parseFac);
   const [zep, setZep] = useStored('hpg-zep', parseZep, saveZep);
   const [lvl, setLvl] = useStored('hpg-lvl', parseLvl);
+  const [hideHigh, setHideHigh] = useStored('hpg-hidehigh', parseZep, saveZep);
   const [tab, setTab] = useStored('hpg-tab', parseTab);
   const [query, setQuery] = useState('');
 
-  const settings = useMemo(() => ({ fam, fac, zep }), [fam, fac, zep]);
+  // 0 means no level limit: either no level entered or the toggle is off.
+  const maxLvl = hideHigh && lvl ? lvl : 0;
+  const settings = useMemo(() => ({ fam, fac, zep, maxLvl }), [fam, fac, zep, maxLvl]);
   const family = c.familyById[fam];
 
   useEffect(() => {
@@ -47,7 +50,7 @@ export default function App() {
     setTab('rules');
   };
 
-  const planKey = `${fam}-${fac}-${zep}`;
+  const planKey = `${fam}-${fac}-${zep}-${maxLvl}`;
   let panel;
   switch (tab) {
     case 'planA':
@@ -75,7 +78,7 @@ export default function App() {
       );
       break;
     case 'speed':
-      panel = <SpeedPanel settings={settings} lvl={lvl} setLvl={setLvl} />;
+      panel = <SpeedPanel settings={settings} />;
       break;
     case 'ranks':
       panel = <RanksPanel settings={settings} query={query} setQuery={setQuery} />;
@@ -93,7 +96,16 @@ export default function App() {
   return (
     <div className="wrap">
       <Header fam={fam} />
-      <Controls settings={settings} setFam={setFam} setFac={setFac} setZep={setZep} />
+      <Controls
+        settings={settings}
+        setFam={setFam}
+        setFac={setFac}
+        setZep={setZep}
+        lvl={lvl}
+        setLvl={setLvl}
+        hideHigh={hideHigh}
+        setHideHigh={setHideHigh}
+      />
       <Tabs tab={tab} setTab={setTab} />
       <section className="panel on" id={tab}>
         {panel}

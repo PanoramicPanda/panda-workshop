@@ -1,12 +1,15 @@
 import { catalog as c } from '../catalog.js';
-import { actives, passives, petRowText } from '../lib/catalog.js';
-import { REGION_NAMES, otherRegion } from '../lib/region.js';
+import { actives, lowLevel, passives, petRowText } from '../lib/catalog.js';
+import { REGION_NAMES, otherRegion, tameable } from '../lib/region.js';
 import { PetList } from './PetLink.jsx';
 
 function RankCard({ ability, info, settings, q }) {
   const { fam, fac, zep } = settings;
   const cur = [ability.id, info.rank];
-  const pets = info.pets.map((id) => c.petById[id]);
+  const known = info.pets.map((id) => c.petById[id]);
+  const pets = known.filter((p) => tameable(p, settings));
+  const tooHigh = known.length - pets.length;
+  const nextLevel = tooHigh ? Math.min(...known.filter((p) => !tameable(p, settings)).map(lowLevel)) : null;
   const groups = {
     zep: pets.filter((p) => p.region === 'Z' && zep).map((p) => p.id),
     main: pets.filter((p) => p.region === fac).map((p) => p.id),
@@ -28,6 +31,9 @@ function RankCard({ ability, info, settings, q }) {
       </h4>
       {info.source === 'trainer' && <p className="small">Learned from the pet trainer.</p>}
       {info.source === 'none' && <p className="small">No known training source (Petopia).</p>}
+      {info.source === 'pet' && !pets.length && tooHigh > 0 && (
+        <p className="small">No pets at your level yet (from level {nextLevel}).</p>
+      )}
       {groups.zep.length > 0 && (
         <>
           <div className="grp">Zephras Isle</div>

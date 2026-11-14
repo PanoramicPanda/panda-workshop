@@ -1,5 +1,5 @@
 import { actives, alsoList, learnable, lowLevel, rankOf } from './catalog.js';
-import { inContinent, isReachable, otherRegion } from './region.js';
+import { inContinent, isReachable, otherRegion, tameable } from './region.js';
 
 // Plan A groups ranks into trips by these level thresholds.
 const THRESHOLDS = [16, 24, 32, 40, 48, 56];
@@ -9,6 +9,23 @@ export const bucket = (level) => THRESHOLDS.filter((t) => level >= t).length;
 const petGate = (c, id, info) => Math.max(10, info.petLevel, lowLevel(c.petById[id]));
 
 const low = (c, id) => lowLevel(c.petById[id]);
+
+/**
+ * Drops pets above the hunter's level from a plan item's lists. The plan's shape
+ * (which trip a rank falls in) is worked out first, so it doesn't change.
+ * Adds `hidden` (how many were dropped) and `nextLevel` (lowest level among them).
+ */
+function limitToLevel(c, item, settings) {
+  const ok = (id) => tameable(c.petById[id], settings);
+  const dropped = [...item.own, ...item.alt].filter((id) => !ok(id));
+  return {
+    ...item,
+    own: item.own.filter(ok),
+    alt: item.alt.filter(ok),
+    hidden: dropped.length,
+    nextLevel: dropped.length ? Math.min(...dropped.map((id) => low(c, id))) : null,
+  };
+}
 
 function sortOwnA(c, ids, s, r, fam) {
   const info = rankOf(c, s, r);
@@ -66,7 +83,10 @@ export function buildPlanA(c, settings) {
       );
       const lo = items[0].level;
       const hi = items[items.length - 1].level;
-      return { title: `Trip ${i + 1} · Level ${lo === hi ? lo : `${lo}–${hi}`}`, items };
+      return {
+        title: `Trip ${i + 1} · Level ${lo === hi ? lo : `${lo}–${hi}`}`,
+        items: items.map((x) => limitToLevel(c, x, settings)),
+      };
     });
 }
 
@@ -103,7 +123,9 @@ export function buildPlanB(c, settings) {
         break;
       }
     }
-    if (items.length) stops.push({ title: `Visit ${stops.length + 1} · Level ${V}`, items });
+    if (items.length) {
+      stops.push({ title: `Visit ${stops.length + 1} · Level ${V}`, items: items.map((x) => limitToLevel(c, x, settings)) });
+    }
   }
   return stops;
 }
@@ -125,7 +147,7 @@ export function multiSkillPets(c, settings) {
   const best = [];
   for (const p of c.pets) {
     const teaches = c.alsoIndex[p.id];
-    if (!teaches || !inContinent(p, settings)) continue;
+    if (!teaches || !inContinent(p, settings) || !tameable(p, settings)) continue;
     const skills = new Set(
       teaches.filter(([s]) => !c.abilityById[s].passive && learnable(c, s, settings.fam)).map(([s]) => s),
     );
@@ -134,15 +156,15 @@ export function multiSkillPets(c, settings) {
   return best.sort((a, b) => b.count - a.count || low(c, a.id) - low(c, b.id));
 }
 
-/** The family's pets grouped by attack speed (fastest first), split by continent. */
-export function speedGroups(c, settings, maxLevel) {
+/** The family's pets grouped by attack speed (fastest first), split by continent, up to `settings.maxLvl`. */
+export function speedGroups(c, settings) {
   const { fam, fac } = settings;
   const opp = otherRegion(fac);
   const speeds = [...new Set(c.pets.map((p) => p.speed))].sort((a, b) => parseFloat(a) - parseFloat(b));
   return speeds
     .map((speed) => {
       const ids = c.pets
-        .filter((p) => p.speed === speed && p.family === fam && (!maxLevel || lowLevel(p) <= maxLevel))
+        .filter((p) => p.speed === speed && p.family === fam && tameable(p, settings))
         .sort((a, b) => lowLevel(a) - lowLevel(b) || a.name.localeCompare(b.name))
         .map((p) => p.id);
       return {

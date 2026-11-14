@@ -72,7 +72,7 @@ test('"also" notes skip the current rank and skills the family cannot learn', ()
 });
 
 test('attack speed groups are fastest first, level-filtered and ordered by level then name', () => {
-  const groups = speedGroups(c, CAT_EK, 30);
+  const groups = speedGroups(c, { ...CAT_EK, maxLvl: 30 });
   assert.deepEqual(groups.map((g) => g.speed), [...groups.map((g) => g.speed)].sort((a, b) => a - b));
   for (const g of groups) {
     const pets = g.ids.map((id) => c.petById[id]);
