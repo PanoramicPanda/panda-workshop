@@ -90,3 +90,29 @@ test('training point totals use the highest obtainable rank', () => {
   assert.equal(tpTotals(c, 'cat').total, 118);
   assert.equal(tpTotals(c, 'spider').total, 68);
 });
+
+test('a hunter level hides higher pets from plans without changing the trips', () => {
+  const capped = { ...CAT_EK, maxLvl: 20 };
+  const full = buildPlanA(c, CAT_EK);
+  const limited = buildPlanA(c, capped);
+  assert.deepEqual(limited.map((s) => s.title), full.map((s) => s.title));
+  for (const x of limited.flatMap((s) => s.items)) {
+    assert.ok([...x.own, ...x.alt].every((id) => parseInt(c.petById[id].level, 10) <= 20));
+    if (x.hidden) assert.ok(x.nextLevel > 20);
+  }
+  const bite8 = limited.flatMap((s) => s.items).find((i) => i.ability === 'bite' && i.rank === 8);
+  assert.deepEqual(bite8.own, []);
+  assert.ok(bite8.nextLevel > 20);
+  // No level set: nothing hidden.
+  assert.ok(full.flatMap((s) => s.items).every((x) => x.hidden === 0 && x.nextLevel === null));
+  for (const stop of buildPlanB(c, { ...SPIDER_KAL, maxLvl: 25 })) {
+    for (const x of stop.items) assert.ok([...x.own, ...x.alt].every((id) => parseInt(c.petById[id].level, 10) <= 25));
+  }
+});
+
+test('multi-skill pets respect the hunter level', () => {
+  const all = multiSkillPets(c, CAT_EK);
+  const capped = multiSkillPets(c, { ...CAT_EK, maxLvl: 20 });
+  assert.ok(capped.length < all.length);
+  assert.ok(capped.every((b) => parseInt(c.petById[b.id].level, 10) <= 20));
+});
