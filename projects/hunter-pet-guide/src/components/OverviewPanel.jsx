@@ -64,7 +64,11 @@ export default function OverviewPanel({ settings }) {
             ))}
           </ul>
         ) : (
-          <p className="small">None on this continent.</p>
+          <p className="small">
+            {settings.maxLvl && multiSkillPets(c, { ...settings, maxLvl: 0 }).length
+              ? `None at level ${settings.maxLvl} or below yet.`
+              : 'None on this continent.'}
+          </p>
         )}
       </div>
 
