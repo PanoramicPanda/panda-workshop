@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { catalog as c } from '../catalog.js';
 import { passives } from '../lib/catalog.js';
 import { zonesOf } from '../lib/plans.js';
-import { readStored, tickKey, writeStored } from '../lib/storage.js';
+import { readStored, tickKey, useStored, writeStored } from '../lib/storage.js';
 import PlanItem from './PlanItem.jsx';
+
+const parseShowDone = (v) => v === '1';
+const saveShowDone = (v) => (v ? '1' : '0');
 
 /**
  * A plan (A or B) as a list of stops, each with tickable ranks.
@@ -14,6 +17,13 @@ export default function PlanPanel({ plan, title, sub, stops, settings }) {
   const keyOf = (x) => tickKey(plan, fam, fac, x.ability, x.rank);
   const keys = stops.flatMap((s) => s.items.map(keyOf));
   const [ticks, setTicks] = useState(() => Object.fromEntries(keys.map((k) => [k, readStored(k) === '1'])));
+  const [showDone, setShowDone] = useStored('hpg-showdone', parseShowDone, saveShowDone);
+  const doneCount = keys.filter((k) => ticks[k]).length;
+
+  // Ticked ranks drop out of the list, and a stop with nothing left drops out entirely.
+  const visible = stops
+    .map((stop) => ({ ...stop, items: showDone ? stop.items : stop.items.filter((x) => !ticks[keyOf(x)]) }))
+    .filter((stop) => stop.items.length);
 
   const setTick = (k, on) => {
     writeStored(k, on ? '1' : '0');
@@ -31,12 +41,19 @@ export default function PlanPanel({ plan, title, sub, stops, settings }) {
       </h2>
       <div className="row">
         <span className="small">{sub}</span>
+        <label className="small">
+          <input type="checkbox" checked={showDone} onChange={(e) => setShowDone(e.target.checked)} /> Show checked (
+          {doneCount})
+        </label>
         <button type="button" className="reset" onClick={clear}>
           Clear ticks
         </button>
       </div>
       {!stops.length && <div className="note">No obtainable ranks found for this family with these settings.</div>}
-      {stops.map((stop) => (
+      {stops.length > 0 && !visible.length && (
+        <div className="note">All skills ticked. Tick "Show checked" to see them again.</div>
+      )}
+      {visible.map((stop) => (
         <div className="card stop" key={stop.title}>
           <h3>
             {stop.title} <span>{zonesOf(c, stop.items)}</span>
