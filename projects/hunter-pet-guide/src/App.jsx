@@ -36,6 +36,7 @@ export default function App() {
   const [zep, setZep] = useStored('hpg-zep', parseZep, saveZep);
   const [lvl, setLvl] = useStored('hpg-lvl', parseLvl);
   const [hideHigh, setHideHigh] = useStored('hpg-hidehigh', parseZep, saveZep);
+  const [allRanks, setAllRanks] = useStored('hpg-allranks', (v) => v === '1', saveZep);
   const [tab, setTab] = useStored('hpg-tab', parseTab);
   const [query, setQuery] = useState('');
 
@@ -53,7 +54,7 @@ export default function App() {
     setTab('rules');
   };
 
-  const planKey = `${fam}-${fac}-${zep}-${maxLvl}`;
+  const planKey = `${fam}-${fac}-${zep}-${maxLvl}-${allRanks}`;
   let panel;
   switch (tab) {
     case 'plan':
@@ -63,9 +64,15 @@ export default function App() {
           // Ticks are still saved under the old Plan A key, so they carry over.
           plan="planA"
           title="Training plan"
-          sub="One leg per 10 levels. Each skill shows in the leg where you can first learn it, at the highest rank that leg reaches, since skipping ranks is free."
-          stops={buildPlan(c, settings)}
+          sub={
+            allRanks
+              ? 'One leg per 10 levels. Every rank is listed in order, so you can learn each skill one rank at a time.'
+              : 'One leg per 10 levels. Each skill shows in the leg where you can first learn it, at the highest rank that leg reaches, since skipping ranks is free.'
+          }
+          stops={buildPlan(c, settings, { allRanks })}
           settings={settings}
+          allRanks={allRanks}
+          setAllRanks={setAllRanks}
         />
       );
       break;

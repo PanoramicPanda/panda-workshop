@@ -12,7 +12,7 @@ const saveShowDone = (v) => (v ? '1' : '0');
  * A plan (A or B) as a list of stops, each with tickable ranks.
  * Remounted (via `key`) when the family, continent or Zephras setting changes.
  */
-export default function PlanPanel({ plan, title, sub, stops, settings }) {
+export default function PlanPanel({ plan, title, sub, stops, settings, allRanks, setAllRanks }) {
   const { fam, fac } = settings;
   const keyOf = (x) => tickKey(plan, fam, fac, x.ability, x.rank);
   const keys = stops.flatMap((s) => s.items.map(keyOf));
@@ -41,6 +41,9 @@ export default function PlanPanel({ plan, title, sub, stops, settings }) {
       </h2>
       <div className="row">
         <span className="small">{sub}</span>
+        <label className="small">
+          <input type="checkbox" checked={allRanks} onChange={(e) => setAllRanks(e.target.checked)} /> Show every rank
+        </label>
         <label className="small">
           <input type="checkbox" checked={showDone} onChange={(e) => setShowDone(e.target.checked)} /> Show checked (
           {doneCount})
