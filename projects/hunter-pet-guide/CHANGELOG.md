@@ -1,3 +1,10 @@
+## 2.4.1 — 2026-11-15
+
+- The title always reads **Hunter Pet Training Guide**. The line under it names the family you're viewing and its skills.
+- The version number moved from the corner to beside the title.
+- The Theme button is now a **sun / moon** picker that shows which theme is on.
+- Dark is now the default theme. A theme you've already picked is kept.
+
 ## 2.4.0 — 2026-11-15
 
 - **All families** moved from the tab row into a **Browse all…** button next to the Pet family picker. It opens every family in a popup; pick one to switch to it.
