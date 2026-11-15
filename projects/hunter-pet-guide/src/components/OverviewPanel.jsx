@@ -2,13 +2,13 @@ import { Fragment } from 'react';
 import { catalog as c } from '../catalog.js';
 import { actives, passives } from '../lib/catalog.js';
 import { multiSkillPets } from '../lib/plans.js';
-import { REGION_NAMES, otherRegion } from '../lib/region.js';
+import { REGION_NAMES, otherRegion, placeName } from '../lib/region.js';
 import PetLink from './PetLink.jsx';
 
 export default function OverviewPanel({ settings }) {
   const { fam, fac, zep } = settings;
   const family = c.familyById[fam];
-  const mine = REGION_NAMES[fac];
+  const mine = placeName(fac);
   const other = REGION_NAMES[otherRegion(fac)];
   const best = multiSkillPets(c, settings).slice(0, 12);
 
@@ -67,7 +67,9 @@ export default function OverviewPanel({ settings }) {
           <p className="small">
             {settings.maxLvl && multiSkillPets(c, { ...settings, maxLvl: 0 }).length
               ? `None at level ${settings.maxLvl} or below yet.`
-              : 'None on this continent.'}
+              : fac === 'G'
+                ? 'None found.'
+                : 'None on this continent.'}
           </p>
         )}
       </div>
@@ -99,9 +101,15 @@ export default function OverviewPanel({ settings }) {
         </ul>
       </div>
       <div className="note">
-        Viewing <b>{mine}</b> with Zephras Isle pets {zep ? 'included' : 'hidden'}. Pets in <b>{other}</b> are not left
-        out: each step has a "{other}" divider you can open. If a rank has no source on your continent, the step says so
-        and opens the divider for you.
+        Viewing <b>{mine}</b> with Zephras Isle pets {zep ? 'included' : 'hidden'}.{' '}
+        {fac === 'G' ? (
+          <>Pick one continent at the top to see only the pets you can reach without travelling.</>
+        ) : (
+          <>
+            Pets in <b>{other}</b> are not left out: each step has a "{other}" divider you can open. If a rank has no
+            source on your continent, the step says so and opens the divider for you.
+          </>
+        )}
       </div>
       <p className="small">
         Tick boxes are saved in this browser, per family and continent; ticked skills hide until you tick "Show checked".

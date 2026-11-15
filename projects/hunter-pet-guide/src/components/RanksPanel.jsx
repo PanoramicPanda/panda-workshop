@@ -1,6 +1,6 @@
 import { catalog as c } from '../catalog.js';
 import { actives, lowLevel, passives, petRowText } from '../lib/catalog.js';
-import { REGION_NAMES, otherRegion, tameable } from '../lib/region.js';
+import { REGION_NAMES, otherRegion, placeName, tameable } from '../lib/region.js';
 import { PetList } from './PetLink.jsx';
 
 function RankCard({ ability, info, settings, q }) {
@@ -12,7 +12,7 @@ function RankCard({ ability, info, settings, q }) {
   const nextLevel = tooHigh ? Math.min(...known.filter((p) => !tameable(p, settings)).map(lowLevel)) : null;
   const groups = {
     zep: pets.filter((p) => p.region === 'Z' && zep).map((p) => p.id),
-    main: pets.filter((p) => p.region === fac).map((p) => p.id),
+    main: pets.filter((p) => p.region !== 'Z' && (fac === 'G' || p.region === fac)).map((p) => p.id),
     other: pets.filter((p) => p.region === otherRegion(fac)).map((p) => p.id),
   };
   const all = [...groups.zep, ...groups.main, ...groups.other];
@@ -42,7 +42,7 @@ function RankCard({ ability, info, settings, q }) {
       )}
       {groups.main.length > 0 && (
         <>
-          <div className="grp">{REGION_NAMES[fac]}</div>
+          <div className="grp">{placeName(fac)}</div>
           <PetList ids={shown.main} cur={cur} fam={fam} />
         </>
       )}

@@ -1,5 +1,5 @@
 import { catalog as c } from '../catalog.js';
-import { REGION_NAMES, otherRegion } from '../lib/region.js';
+import { REGION_NAMES, otherRegion, placeName } from '../lib/region.js';
 import { PetList } from './PetLink.jsx';
 
 const SHOWN = 5;
@@ -9,7 +9,7 @@ export default function PlanItem({ item, settings, checked, onCheck }) {
   const { fam, fac } = settings;
   const { info, own, alt } = item;
   const cur = [item.ability, item.rank];
-  const mine = REGION_NAMES[fac];
+  const mine = placeName(fac);
   const other = REGION_NAMES[otherRegion(fac)];
   const trainer = info.source === 'trainer';
   const shown = own.slice(0, SHOWN);

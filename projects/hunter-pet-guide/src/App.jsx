@@ -16,7 +16,7 @@ const TAB_IDS = new Set(TABS.map((t) => t.id));
 
 // Same localStorage keys and formats as the original page, so saved settings carry over.
 const parseFam = (v) => (c.familyById[v] ? v : 'cat');
-const parseFac = (v) => (v === 'E' || v === 'K' ? v : 'E');
+const parseFac = (v) => (v === 'E' || v === 'K' || v === 'G' ? v : 'G');
 const parseZep = (v) => v !== '0';
 const saveZep = (v) => (v ? '1' : '0');
 const parseLvl = (v) => parseInt(v, 10) || 0;

@@ -60,6 +60,21 @@ test('the plan falls back to the other continent when a rank has no source here'
   assert.ok(claw4.alt.every((id) => c.petById[id].region === 'K'));
 });
 
+test('Global pulls pets from both continents with nothing left over', () => {
+  const global = { fam: 'cat', fac: 'G', zep: true };
+  const items = buildPlan(c, global).flatMap((s) => s.items);
+  assert.ok(items.every((x) => x.alt.length === 0));
+  const regions = new Set(items.flatMap((x) => x.own).map((id) => c.petById[id].region));
+  assert.ok(regions.has('E') && regions.has('K'));
+  // Cower 2 is tameable at 16 in Kalimdor, so Global gets it in the first leg.
+  const [first] = buildPlan(c, global);
+  assert.ok(first.items.some((x) => x.ability === 'cower' && x.rank === 2));
+  // Zephras Isle still follows its own switch.
+  const noZep = buildPlan(c, { ...global, zep: false }).flatMap((s) => s.items);
+  assert.ok(noZep.flatMap((x) => x.own).every((id) => c.petById[id].region !== 'Z'));
+  assert.ok(multiSkillPets(c, global).length >= multiSkillPets(c, CAT_EK).length);
+});
+
 test('stop headings list up to four zones without dungeon/raid tags', () => {
   const [first] = buildPlan(c, CAT_EK);
   const zones = zonesOf(c, first.items).split(' · ');

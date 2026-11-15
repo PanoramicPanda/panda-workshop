@@ -1,5 +1,5 @@
 import { catalog as c } from '../catalog.js';
-import { REGION_NAMES } from '../lib/region.js';
+import { SIDES } from '../lib/region.js';
 
 export default function Controls({ settings, setFam, setFac, setZep, lvl, setLvl, hideHigh, setHideHigh }) {
   const { fam, fac, zep } = settings;
@@ -20,9 +20,9 @@ export default function Controls({ settings, setFam, setFac, setZep, lvl, setLvl
           <b>Continent:</b>
         </span>
         <span className="seg">
-          {['E', 'K'].map((r) => (
+          {SIDES.map(([r, name]) => (
             <button key={r} type="button" aria-pressed={fac === r} onClick={() => setFac(r)}>
-              {REGION_NAMES[r]}
+              {name}
             </button>
           ))}
         </span>

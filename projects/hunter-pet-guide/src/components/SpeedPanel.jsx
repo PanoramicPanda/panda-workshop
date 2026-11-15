@@ -1,6 +1,6 @@
 import { catalog as c } from '../catalog.js';
 import { speedGroups } from '../lib/plans.js';
-import { REGION_NAMES, otherRegion } from '../lib/region.js';
+import { REGION_NAMES, otherRegion, placeName } from '../lib/region.js';
 import { PetList } from './PetLink.jsx';
 
 export default function SpeedPanel({ settings }) {
@@ -33,7 +33,7 @@ export default function SpeedPanel({ settings }) {
             {g.own.length > 0 && (
               <>
                 <div className="grp">
-                  {REGION_NAMES[fac]}
+                  {placeName(fac)}
                   {zep ? ' and Zephras Isle' : ''}
                 </div>
                 <PetList ids={g.own} fam={fam} />
