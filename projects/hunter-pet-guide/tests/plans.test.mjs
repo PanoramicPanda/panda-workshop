@@ -36,6 +36,23 @@ test('each leg holds ranks first learnable in it, highest rank per skill only', 
   });
 });
 
+test('"every rank" keeps the ranks a leg would skip, in order', () => {
+  const stops = buildPlan(c, CAT_EK, { allRanks: true });
+  assert.deepEqual(stops.map((s) => s.title), LEGS);
+  const cower = stops.flatMap((s) => s.items).filter((x) => x.ability === 'cower');
+  // Cower 2 and 3 share the 20–29 leg in Eastern Kingdoms; the default plan drops Cower 2.
+  assert.deepEqual(cower.map((x) => x.rank), [1, 2, 3, 4, 5, 6]);
+  assert.ok(!buildPlan(c, CAT_EK).flatMap((s) => s.items).some((x) => x.ability === 'cower' && x.rank === 2));
+  for (const s of [CAT_EK, SPIDER_KAL]) {
+    const items = buildPlan(c, s, { allRanks: true }).flatMap((st) => st.items);
+    // Within a skill, ranks never go down as the plan goes on.
+    for (const id of new Set(items.map((x) => x.ability))) {
+      const ranks = items.filter((x) => x.ability === id).map((x) => x.rank);
+      assert.deepEqual(ranks, [...ranks].sort((a, b) => a - b), id);
+    }
+  }
+});
+
 test('the plan falls back to the other continent when a rank has no source here', () => {
   const claw4 = buildPlan(c, CAT_EK).flatMap((s) => s.items).find((i) => i.ability === 'claw' && i.rank === 4);
   assert.deepEqual(claw4.own, []);

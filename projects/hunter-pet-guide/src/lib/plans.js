@@ -43,9 +43,11 @@ function sortOwn(c, ids, s, r, fam) {
 /**
  * The training plan: each skill rank goes in the 10-level leg where its source and the pet level
  * first line up. Only the highest rank of each skill per leg is kept (skipping ranks is free).
+ * With `allRanks`, every rank is kept so skills can be learned in order, except a rank that only
+ * comes after a higher one (it would be a step down).
  * Stops: { title, items: [{ ability, rank, info, level, own, alt }] }.
  */
-export function buildPlan(c, settings) {
+export function buildPlan(c, settings, { allRanks = false } = {}) {
   const { fam, fac } = settings;
   const opp = otherRegion(fac);
   const rows = [];
@@ -67,19 +69,28 @@ export function buildPlan(c, settings) {
       rows.push({ ability: a.id, rank: info.rank, info, level, own: sortOwn(c, own, a.id, info.rank, fam), alt });
     }
   }
-  const best = {};
-  for (const x of rows) {
-    const k = `${bucket(x.level)}|${x.ability}`;
-    if (!best[k] || x.rank > best[k].rank) best[k] = x;
+  let kept;
+  if (allRanks) {
+    kept = rows.filter((x) => !rows.some((y) => y.ability === x.ability && y.rank > x.rank && y.level < x.level));
+  } else {
+    const best = {};
+    for (const x of rows) {
+      const k = `${bucket(x.level)}|${x.ability}`;
+      if (!best[k] || x.rank > best[k].rank) best[k] = x;
+    }
+    kept = Object.values(best);
   }
   const byBucket = {};
-  for (const x of Object.values(best)) (byBucket[bucket(x.level)] ??= []).push(x);
+  for (const x of kept) (byBucket[bucket(x.level)] ??= []).push(x);
   return Object.keys(byBucket)
     .map(Number)
     .sort((a, b) => a - b)
     .map((b) => {
       const items = byBucket[b].sort(
-        (x, y) => x.level - y.level || c.abilityById[x.ability].name.localeCompare(c.abilityById[y.ability].name),
+        (x, y) =>
+          x.level - y.level ||
+          c.abilityById[x.ability].name.localeCompare(c.abilityById[y.ability].name) ||
+          x.rank - y.rank,
       );
       const [lo, hi] = legRange(b);
       return {
