@@ -61,3 +61,26 @@ export function petRowText(c, petId, cur, fam, wording = 'also') {
   const also = alsoText(c, petId, cur, fam);
   return `${p.name} ${c.familyById[p.family].singular} ${p.level} · ${p.zone}${also ? ` · ${wording} ${also}` : ''}`;
 }
+
+/**
+ * Abilities only one family can learn, by family id: [{ name, ability, obtainable }].
+ * `ability` is the ability id, or null for skills Petopia lists without rank data (a family's `extra`).
+ * `obtainable` is false when no rank has a known source.
+ */
+export function uniqueAbilities(c) {
+  const out = Object.fromEntries(c.families.map((f) => [f.id, []]));
+  for (const a of c.abilities) {
+    if (a.allFamilies || a.families.length !== 1) continue;
+    out[a.families[0]]?.push({ name: a.name, ability: a.id, obtainable: a.ranks.some((r) => r.source !== 'none') });
+  }
+  const known = new Set(c.abilities.map((a) => a.name));
+  const extraCount = {};
+  for (const f of c.families) for (const name of f.extra) extraCount[name] = (extraCount[name] ?? 0) + 1;
+  for (const f of c.families) {
+    for (const name of f.extra) {
+      if (!known.has(name) && extraCount[name] === 1) out[f.id].push({ name, ability: null, obtainable: false });
+    }
+  }
+  for (const list of Object.values(out)) list.sort((x, y) => x.name.localeCompare(y.name));
+  return out;
+}

@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validate } from '../scripts/validate-data.mjs';
-import { rawData } from './helpers.mjs';
+import { uniqueAbilities } from '../src/lib/catalog.js';
+import { catalog as c, rawData } from './helpers.mjs';
 
 test('shipped data passes validation', () => {
   assert.deepEqual(validate(rawData()), []);
@@ -25,4 +26,16 @@ test('validation catches a pet listed for a skill its family cannot learn', () =
   const prowlPet = data.abilities.find((a) => a.id === 'prowl').ranks[0].pets[0];
   data.pets.find((p) => p.id === prowlPet).family = 'bat';
   assert.match(validate(data).join('\n'), /"prowl" rank 1: pet \d+ .* is a bat, which can't learn Prowl/);
+});
+
+test('unique abilities: one family each, including Lightning Breath for Wind Serpents', () => {
+  const u = uniqueAbilities(c);
+  assert.deepEqual(u.windserpent.map((x) => x.name), ['Lightning Breath']);
+  assert.deepEqual(u.cat.map((x) => x.name), ['Prowl']);
+  assert.equal(u.corehound.find((x) => x.name === 'Lava Breath').obtainable, false);
+  assert.deepEqual(u.birdofprey, [{ name: 'Mine!', ability: null, obtainable: false }]);
+  // Shared skills (Dive, Bite) and all-family skills (Cower, Growl) never show up.
+  const all = Object.values(u).flat().map((x) => x.name);
+  for (const name of ['Dive', 'Bite', 'Cower', 'Growl']) assert.ok(!all.includes(name), name);
+  assert.equal(new Set(all).size, all.length);
 });

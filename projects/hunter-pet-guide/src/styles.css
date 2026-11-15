@@ -90,3 +90,5 @@ th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute
 .changelog-body{padding:4px 16px 16px}
 .changelog-body h3{margin:16px 0 4px}
 .changelog-body ul{margin:0;padding-left:20px}
+.uniq{color:var(--accent);font-weight:600}
+.linkish{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;text-decoration:underline}
