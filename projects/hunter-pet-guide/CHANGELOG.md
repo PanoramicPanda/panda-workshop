@@ -1,3 +1,7 @@
+## 2.4.5 — 2026-11-15
+
+- **Attack Speed** now lists every pet of the family, whatever your hunter level. "Hide pets above my level" no longer applies there.
+
 ## 2.4.4 — 2026-11-15
 
 - The training plan now includes every pet-trainer skill: resistances, Great Stamina and Natural Armor, alongside Growl.
