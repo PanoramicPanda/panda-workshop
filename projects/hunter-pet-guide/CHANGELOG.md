@@ -1,3 +1,8 @@
+## 2.4.3 — 2026-11-15
+
+- Ticks on the training plan are now shared by every family and continent, since you learn a skill once for all your pets. Ticking Bite 3 for Cats in Global also ticks it for Bats in Kalimdor.
+- Ticks you'd already saved carry over.
+
 ## 2.4.2 — 2026-11-15
 
 - Overview is now two tabs: **Training Overview**, how pet training works for every family, and **Family Overview**, the family you're viewing.
