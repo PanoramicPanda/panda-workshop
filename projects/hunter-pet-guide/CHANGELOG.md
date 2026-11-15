@@ -2,6 +2,8 @@
 
 - The training plan now includes every pet-trainer skill: resistances, Great Stamina and Natural Armor, alongside Growl.
 - In each leg, trainer skills come after the tamed ones, since they're all one trip to the pet trainer.
+- **All Ranks** hides ranks you've ticked on the Training Plan, with its own "Show checked" box to bring them back.
+- Skills are now grouped by how the hunter learns them: **Learned by taming** and **Learned from the pet trainer** (Growl, resistances, Great Stamina, Natural Armor), on Family Overview and All Ranks.
 
 ## 2.4.3 — 2026-11-15
 
