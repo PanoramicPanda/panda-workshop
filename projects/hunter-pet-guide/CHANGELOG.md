@@ -1,7 +1,8 @@
 ## 2.4.0 — 2026-11-15
 
-- **All families** now highlights unique abilities: skills only one family can learn, like Lightning Breath for Wind Serpents.
-- New **Unique abilities** table on the same tab, listing each one and its family.
+- **All families** moved from the tab row into a **Browse all…** button next to the Pet family picker. It opens every family in a popup; pick one to switch to it.
+- Unique abilities, skills only one family can learn (like Lightning Breath for Wind Serpents), are starred in the family list.
+- Overview shows what's unique to the family you're viewing.
 
 ## 2.3.0 — 2026-11-15
 
