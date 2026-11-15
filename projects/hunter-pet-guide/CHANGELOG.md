@@ -1,3 +1,8 @@
+## 2.4.0 — 2026-11-15
+
+- **All families** now highlights unique abilities: skills only one family can learn, like Lightning Breath for Wind Serpents.
+- New **Unique abilities** table on the same tab, listing each one and its family.
+
 ## 2.3.0 — 2026-11-15
 
 - New **Global** continent option, now the default. It lists pets from both Eastern Kingdoms and Kalimdor together.
