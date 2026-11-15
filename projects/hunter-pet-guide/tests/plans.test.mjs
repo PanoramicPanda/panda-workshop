@@ -126,12 +126,12 @@ test('"also" notes skip the current rank and skills the family cannot learn', ()
   assert.ok(alsoList(c, 2727, null, 'bat').every(([s]) => s !== 'dash'));
 });
 
-test('attack speed groups are fastest first, level-filtered and ordered by level then name', () => {
-  const groups = speedGroups(c, { ...CAT_EK, maxLvl: 30 });
+test('attack speed groups are fastest first and ordered by level then name', () => {
+  const groups = speedGroups(c, CAT_EK);
   assert.deepEqual(groups.map((g) => g.speed), [...groups.map((g) => g.speed)].sort((a, b) => a - b));
   for (const g of groups) {
     const pets = g.ids.map((id) => c.petById[id]);
-    assert.ok(pets.every((p) => p.family === 'cat' && parseInt(p.level, 10) <= 30));
+    assert.ok(pets.every((p) => p.family === 'cat'));
     for (let i = 1; i < pets.length; i++) {
       const [a, b] = [pets[i - 1], pets[i]];
       const la = parseInt(a.level, 10);
@@ -163,6 +163,11 @@ test('a hunter level hides higher pets from plans without changing the trips', (
   for (const stop of buildPlan(c, { ...SPIDER_KAL, maxLvl: 25 })) {
     for (const x of stop.items) assert.ok([...x.own, ...x.alt].every((id) => parseInt(c.petById[id].level, 10) <= 25));
   }
+});
+
+test('attack speed ignores the hunter level', () => {
+  assert.deepEqual(speedGroups(c, { ...CAT_EK, maxLvl: 20 }), speedGroups(c, CAT_EK));
+  assert.ok(speedGroups(c, { ...CAT_EK, maxLvl: 20 }).some((g) => g.ids.some((id) => parseInt(c.petById[id].level, 10) > 20)));
 });
 
 test('multi-skill pets respect the hunter level', () => {

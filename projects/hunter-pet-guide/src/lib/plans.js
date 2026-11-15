@@ -129,7 +129,7 @@ export function multiSkillPets(c, settings) {
   return best.sort((a, b) => b.count - a.count || low(c, a.id) - low(c, b.id));
 }
 
-/** The family's pets grouped by attack speed (fastest first), split by continent, up to `settings.maxLvl`. */
+/** The family's pets grouped by attack speed (fastest first), split by continent. Ignores the hunter level. */
 export function speedGroups(c, settings) {
   const { fam, fac } = settings;
   const opp = otherRegion(fac);
@@ -137,7 +137,7 @@ export function speedGroups(c, settings) {
   return speeds
     .map((speed) => {
       const ids = c.pets
-        .filter((p) => p.speed === speed && p.family === fam && tameable(p, settings))
+        .filter((p) => p.speed === speed && p.family === fam)
         .sort((a, b) => lowLevel(a) - lowLevel(b) || a.name.localeCompare(b.name))
         .map((p) => p.id);
       return {
