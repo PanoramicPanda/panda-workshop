@@ -31,6 +31,15 @@ export const actives = (c, fam) =>
 /** Pet-trainer passives a family can learn. */
 export const passives = (c, fam) => c.abilities.filter((a) => a.passive && learnable(c, a.id, fam));
 
+/** Whether the hunter learns this skill from the pet trainer (rather than by taming a beast that knows it). */
+export const fromTrainer = (a) => a.ranks.some((r) => r.source === 'trainer');
+
+/** Skills the hunter learns by taming a beast that knows them, by name. */
+export const tamedSkills = (c, fam) => actives(c, fam).filter((a) => !fromTrainer(a));
+
+/** Skills the hunter learns from the pet trainer: Growl, then the passives. */
+export const trainerSkills = (c, fam) => [...actives(c, fam).filter(fromTrainer), ...passives(c, fam)];
+
 export const rankOf = (c, abilityId, rank) => c.abilityById[abilityId].byRank[rank];
 
 /** The lowest level a pet spawns at ("40-41" → 40). */

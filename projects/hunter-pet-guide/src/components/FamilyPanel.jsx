@@ -1,12 +1,27 @@
 import { Fragment } from 'react';
 import { catalog as c } from '../catalog.js';
-import { actives, passives, uniqueAbilities } from '../lib/catalog.js';
+import { tamedSkills, trainerSkills, uniqueAbilities } from '../lib/catalog.js';
 import { multiSkillPets } from '../lib/plans.js';
 import { REGION_NAMES, otherRegion, placeName } from '../lib/region.js';
 import PetLink from './PetLink.jsx';
 import { Unique } from './FamiliesDialog.jsx';
 
 /** The chosen family: diet, skills, what's unique to it and its best multi-skill pets. */
+/** "Bite (8 ranks), Claw (8 ranks)". */
+const SkillList = ({ skills }) =>
+  skills.map((a, i) => {
+    const top = a.ranks.at(-1).rank;
+    return (
+      <Fragment key={a.id}>
+        {i > 0 && ', '}
+        {a.name}{' '}
+        <small>
+          ({top} rank{top > 1 ? 's' : ''})
+        </small>
+      </Fragment>
+    );
+  });
+
 export default function FamilyPanel({ settings }) {
   const { fam, fac, zep } = settings;
   const family = c.familyById[fam];
@@ -23,24 +38,15 @@ export default function FamilyPanel({ settings }) {
           <b>Diet:</b> {family.diet || 'unknown'}
         </p>
         <p>
-          <b>Trainable abilities:</b>{' '}
-          {actives(c, fam).map((a, i) => {
-            const top = a.ranks.at(-1).rank;
-            return (
-              <Fragment key={a.id}>
-                {i > 0 && ', '}
-                {a.name}{' '}
-                <small>
-                  ({top} rank{top > 1 ? 's' : ''})
-                </small>
-              </Fragment>
-            );
-          })}
+          <b>Learned by taming:</b> <SkillList skills={tamedSkills(c, fam)} />
           {family.extra.length > 0 && (
             <>
               , {family.extra.join(', ')} <small>(listed on Petopia's family page, no rank data)</small>
             </>
           )}
+        </p>
+        <p>
+          <b>Learned from the pet trainer:</b> <SkillList skills={trainerSkills(c, fam)} />
         </p>
         <p>
           <b>Unique to {family.name}:</b>{' '}
@@ -54,9 +60,6 @@ export default function FamilyPanel({ settings }) {
           ) : (
             <small>nothing; every skill is shared with another family</small>
           )}
-        </p>
-        <p>
-          <b>Passive (trainer) skills:</b> {passives(c, fam).map((a) => a.name).join(', ')}
         </p>
         {family.notes && (
           <p className="small">

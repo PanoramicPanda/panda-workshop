@@ -1,12 +1,20 @@
 // Expected values were checked against the original single-file page's output.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { actives, alsoList, passives, petRowText } from '../src/lib/catalog.js';
+import { actives, alsoList, passives, petRowText, tamedSkills, trainerSkills } from '../src/lib/catalog.js';
 import { buildPlan, multiSkillPets, speedGroups, tpTotals, zonesOf } from '../src/lib/plans.js';
 import { catalog as c, summarize } from './helpers.mjs';
 
 const CAT_EK = { fam: 'cat', fac: 'E', zep: true };
 const SPIDER_KAL = { fam: 'spider', fac: 'K', zep: false };
+
+test('skills split by how the hunter learns them: taming, or the pet trainer', () => {
+  assert.deepEqual(tamedSkills(c, 'cat').map((a) => a.id), ['bite', 'claw', 'cower', 'dash', 'prowl']);
+  const trainer = trainerSkills(c, 'cat').map((a) => a.id);
+  assert.equal(trainer[0], 'growl');
+  assert.deepEqual(trainer.slice(1), passives(c, 'cat').map((a) => a.id));
+  assert.ok(trainer.includes('greatstamina') && trainer.includes('fireresistance'));
+});
 
 test('family skills: tamed ones sorted by name, passives kept apart', () => {
   assert.deepEqual(actives(c, 'cat').map((a) => a.id), ['bite', 'claw', 'cower', 'dash', 'growl', 'prowl']);
