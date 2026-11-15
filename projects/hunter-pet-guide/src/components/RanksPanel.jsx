@@ -1,7 +1,13 @@
 import { catalog as c } from '../catalog.js';
-import { actives, lowLevel, passives, petRowText } from '../lib/catalog.js';
+import { lowLevel, petRowText, tamedSkills, trainerSkills } from '../lib/catalog.js';
 import { REGION_NAMES, otherRegion, placeName, tameable } from '../lib/region.js';
+import { readTick, useStored } from '../lib/storage.js';
 import { PetList } from './PetLink.jsx';
+
+const parseShowDone = (v) => v === '1';
+const saveShowDone = (v) => (v ? '1' : '0');
+// Ticks are saved under the training plan's key (see PlanPanel).
+const ticked = (a, rank) => readTick('planA', a.id, rank);
 
 function RankCard({ ability, info, settings, q }) {
   const { fam, fac, zep } = settings;
@@ -61,37 +67,55 @@ function RankCard({ ability, info, settings, q }) {
 export default function RanksPanel({ settings, query, setQuery }) {
   const { fam } = settings;
   const q = query.toLowerCase();
+  // Shares "Show checked" with the training plan: ticked ranks hide here too.
+  const [showDone, setShowDone] = useStored('hpg-showdone', parseShowDone, saveShowDone);
+  const tamed = tamedSkills(c, fam);
+  const trainer = trainerSkills(c, fam);
+  const doneCount = [...tamed, ...trainer].flatMap((a) => a.ranks.filter((r) => ticked(a, r.rank))).length;
+  const shownRanks = (a) => a.ranks.filter((r) => showDone || !ticked(a, r.rank));
+  const trainerRows = trainer.flatMap((a) => shownRanks(a).map((r) => ({ a, r })));
+
   return (
     <>
       <h2>All Ranks — {c.familyById[fam].name}</h2>
       <div className="row">
         <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Filter by pet, family or zone…" />
+        <label className="small">
+          <input type="checkbox" checked={showDone} onChange={(e) => setShowDone(e.target.checked)} /> Show checked (
+          {doneCount})
+        </label>
       </div>
-      {actives(c, fam).map((a) => (
-        <div key={a.id}>
-          <h2>{a.name}</h2>
-          <p className="small">{a.description}</p>
-          {a.ranks.map((info) => (
-            <RankCard key={info.rank} ability={a} info={info} settings={settings} q={q} />
-          ))}
-        </div>
-      ))}
-      <h2>Pet trainer passives</h2>
+      <p className="small">Ranks ticked on the Training Plan are hidden until you tick "Show checked".</p>
+      <h2>Learned by taming</h2>
+      {tamed.map((a) => {
+        const ranks = shownRanks(a);
+        if (!ranks.length) return null;
+        return (
+          <div key={a.id} className="rk-skill">
+            <h3>{a.name}</h3>
+            <p className="small">{a.description}</p>
+            {ranks.map((info) => (
+              <RankCard key={info.rank} ability={a} info={info} settings={settings} q={q} />
+            ))}
+          </div>
+        );
+      })}
+      <h2>Learned from the pet trainer</h2>
       <div className="card">
-        <div style={{ overflowX: 'auto' }}>
-          <table>
-            <thead>
-              <tr>
-                <th>Skill</th>
-                <th>Rank</th>
-                <th>Pet lvl</th>
-                <th>TP</th>
-                <th>Effect</th>
-              </tr>
-            </thead>
-            <tbody>
-              {passives(c, fam).flatMap((a) =>
-                a.ranks.map((r) => (
+        {trainerRows.length ? (
+          <div style={{ overflowX: 'auto' }}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Skill</th>
+                  <th>Rank</th>
+                  <th>Pet lvl</th>
+                  <th>TP</th>
+                  <th>Effect</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trainerRows.map(({ a, r }) => (
                   <tr key={`${a.id}-${r.rank}`}>
                     <td>{a.name}</td>
                     <td>{r.rank}</td>
@@ -99,11 +123,13 @@ export default function RanksPanel({ settings, query, setQuery }) {
                     <td>{r.tp}</td>
                     <td>{r.effect}</td>
                   </tr>
-                )),
-              )}
-            </tbody>
-          </table>
-        </div>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="small">All ticked.</p>
+        )}
       </div>
     </>
   );

@@ -68,6 +68,7 @@ details.alt .p{font-size:14px}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:8px 0}
 .small{font-size:13px;color:var(--muted)}
 .reset{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:4px 10px;cursor:pointer}
+.rk-skill h3{margin:18px 0 2px;font-size:17px}
 .rk-card h4{margin:0 0 6px;font-size:15px}
 .rk-card h4 small{font-weight:400}
 details.divd{margin-top:10px;border-top:2px dashed var(--line);padding-top:6px}
