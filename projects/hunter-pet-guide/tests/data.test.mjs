@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validate } from '../scripts/validate-data.mjs';
-import { uniqueAbilities } from '../src/lib/catalog.js';
+import { fastestSpeeds, uniqueAbilities } from '../src/lib/catalog.js';
 import { catalog as c, rawData } from './helpers.mjs';
 
 test('shipped data passes validation', () => {
@@ -38,4 +38,16 @@ test('unique abilities: one family each, including Lightning Breath for Wind Ser
   const all = Object.values(u).flat().map((x) => x.name);
   for (const name of ['Dive', 'Bite', 'Cower', 'Growl']) assert.ok(!all.includes(name), name);
   assert.equal(new Set(all).size, all.length);
+});
+
+test('fastest attack speed per family is the lowest speed among its pets', () => {
+  const fast = fastestSpeeds(c);
+  assert.equal(fast.cat, '1.0');
+  assert.equal(fast.wolf, '1.2');
+  assert.equal(fast.boar, '2.0');
+  for (const [fam, speed] of Object.entries(fast)) {
+    const pets = c.pets.filter((p) => p.family === fam);
+    assert.ok(pets.some((p) => p.speed === speed));
+    assert.ok(pets.every((p) => parseFloat(p.speed) >= parseFloat(speed)), fam);
+  }
 });

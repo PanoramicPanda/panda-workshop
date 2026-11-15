@@ -84,3 +84,12 @@ export function uniqueAbilities(c) {
   for (const list of Object.values(out)) list.sort((x, y) => x.name.localeCompare(y.name));
   return out;
 }
+
+/** The fastest attack speed among each family's tameable pets, as shown ("1.0"); families with no pets are left out. */
+export function fastestSpeeds(c) {
+  const out = {};
+  for (const p of c.pets) {
+    if (!(p.family in out) || parseFloat(p.speed) < parseFloat(out[p.family])) out[p.family] = p.speed;
+  }
+  return out;
+}

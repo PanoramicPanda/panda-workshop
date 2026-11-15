@@ -82,6 +82,8 @@ th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute
 .fcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;color:var(--ink)}
 .fcard[aria-current="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
 .fcard b{display:block;font-size:16px}
+.fcard small{display:block}
+.fcard b.spd-inline{display:inline;font-size:inherit}
 .spd{display:inline-block;min-width:44px;font-weight:700}
 @media (max-width:600px){ h1{font-size:22px} details.alt{margin-left:0} }
 .title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}

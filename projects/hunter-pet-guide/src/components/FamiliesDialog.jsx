@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { catalog as c } from '../catalog.js';
-import { actives, uniqueAbilities } from '../lib/catalog.js';
+import { actives, fastestSpeeds, uniqueAbilities } from '../lib/catalog.js';
 
 const unique = uniqueAbilities(c);
+const fastest = fastestSpeeds(c);
 
 /** A unique skill: starred as well as coloured, so it doesn't rely on colour alone. */
 export const Unique = ({ children }) => <span className="uniq">★ {children}</span>;
@@ -48,7 +49,11 @@ export default function FamiliesDialog({ open, fam, onPick, onClose }) {
               >
                 <b>{f.name}</b>
                 <small>Diet: {f.diet || '?'}</small>
-                <br />
+                {fastest[f.id] && (
+                  <small>
+                    Fastest attack speed: <b className="spd-inline">{fastest[f.id]}</b>
+                  </small>
+                )}
                 {skills.map((name, i) => (
                   <span key={name}>
                     {i > 0 && ', '}
