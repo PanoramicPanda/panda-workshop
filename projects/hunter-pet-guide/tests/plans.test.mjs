@@ -1,7 +1,7 @@
 // Expected values were checked against the original single-file page's output.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { actives, alsoList, petRowText } from '../src/lib/catalog.js';
+import { actives, alsoList, passives, petRowText } from '../src/lib/catalog.js';
 import { buildPlan, multiSkillPets, speedGroups, tpTotals, zonesOf } from '../src/lib/plans.js';
 import { catalog as c, summarize } from './helpers.mjs';
 
@@ -18,9 +18,29 @@ const LEGS = ['Levels 10–19', 'Levels 20–29', 'Levels 30–39', 'Levels 40�
 test('the plan for Cats in Eastern Kingdoms has one leg per 10 levels', () => {
   const stops = summarize(buildPlan(c, CAT_EK));
   assert.deepEqual(stops.map((s) => s[0]), LEGS);
-  assert.deepEqual(stops[0][1], ['cower1:1199:9', 'growl2:-:0', 'bite3:1923:7', 'claw3:1189:6']);
-  assert.deepEqual(stops[2][1], ['growl4:-:0', 'bite5:2727:7', 'dash1:2727:4', 'prowl1:2731:0', 'cower4:2731:1', 'claw5:7022:3']);
-  assert.deepEqual(stops[4][1], ['dash3:2681:3', 'prowl3:2522:1', 'bite8:9696:0', 'cower6:8602:1', 'claw8:-:2', 'growl7:-:0']);
+  // Trainer skills summarise as "name:-:0" (no pets on either continent).
+  const tamed = (stop) => stop[1].filter((s) => !s.endsWith(':-:0'));
+  assert.deepEqual(tamed(stops[0]), ['cower1:1199:9', 'bite3:1923:7', 'claw3:1189:6']);
+  assert.deepEqual(tamed(stops[2]), ['bite5:2727:7', 'dash1:2727:4', 'prowl1:2731:0', 'cower4:2731:1', 'claw5:7022:3']);
+  assert.deepEqual(tamed(stops[4]), ['dash3:2681:3', 'prowl3:2522:1', 'bite8:9696:0', 'cower6:8602:1', 'claw8:-:2']);
+  // Pet-trainer skills come after the tamed ones in each leg.
+  assert.deepEqual(stops[0][1].slice(3), ['growl2:-:0', 'greatstamina3:-:0', 'naturalarmor3:-:0']);
+});
+
+test('the plan includes every pet-trainer skill the family can learn, after the tamed skills', () => {
+  for (const s of [CAT_EK, SPIDER_KAL]) {
+    const stops = buildPlan(c, s);
+    const skills = new Set(stops.flatMap((st) => st.items.map((x) => x.ability)));
+    for (const a of passives(c, s.fam)) assert.ok(skills.has(a.id), a.id);
+    assert.ok(skills.has('growl'));
+    for (const st of stops) {
+      const firstTrainer = st.items.findIndex((x) => x.info.source === 'trainer');
+      if (firstTrainer >= 0) assert.ok(st.items.slice(firstTrainer).every((x) => x.info.source === 'trainer'), st.title);
+    }
+  }
+  // Every rank, in order, when "Show every rank" is on: all ten Great Stamina ranks.
+  const gs = buildPlan(c, CAT_EK, { allRanks: true }).flatMap((st) => st.items).filter((x) => x.ability === 'greatstamina');
+  assert.deepEqual(gs.map((x) => x.rank), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });
 
 test('each leg holds ranks first learnable in it, highest rank per skill only', () => {

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { catalog as c } from '../catalog.js';
-import { passives } from '../lib/catalog.js';
 import { zonesOf } from '../lib/plans.js';
 import { readTick, tickKey, useStored, writeTick } from '../lib/storage.js';
 import PlanItem from './PlanItem.jsx';
@@ -72,9 +71,6 @@ export default function PlanPanel({ plan, title, sub, stops, settings, allRanks,
           </ul>
         </div>
       ))}
-      <p className="small">
-        Also from the pet trainer (see All Ranks): {passives(c, fam).map((a) => a.name).join(', ')}.
-      </p>
     </>
   );
 }

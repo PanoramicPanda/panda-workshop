@@ -1,4 +1,4 @@
-import { actives, alsoList, learnable, lowLevel, rankOf } from './catalog.js';
+import { actives, alsoList, learnable, lowLevel, passives, rankOf } from './catalog.js';
 import { inContinent, otherRegion, tameable } from './region.js';
 
 // The plan groups ranks into 10-level legs: 10–19, 20–29, 30–39, 40–49 and 50–60 (60 joins the last leg).
@@ -45,13 +45,15 @@ function sortOwn(c, ids, s, r, fam) {
  * first line up. Only the highest rank of each skill per leg is kept (skipping ranks is free).
  * With `allRanks`, every rank is kept so skills can be learned in order, except a rank that only
  * comes after a higher one (it would be a step down).
+ * Pet-trainer skills (Growl, resistances, Great Stamina, Natural Armor) are included too, listed
+ * after the tamed skills in each leg since they're one trip to town.
  * Stops: { title, items: [{ ability, rank, info, level, own, alt }] }.
  */
 export function buildPlan(c, settings, { allRanks = false } = {}) {
   const { fam, fac } = settings;
   const opp = otherRegion(fac);
   const rows = [];
-  for (const a of actives(c, fam)) {
+  for (const a of [...actives(c, fam), ...passives(c, fam)]) {
     for (const info of a.ranks) {
       if (info.source === 'none') continue;
       let own = [];
@@ -88,6 +90,7 @@ export function buildPlan(c, settings, { allRanks = false } = {}) {
     .map((b) => {
       const items = byBucket[b].sort(
         (x, y) =>
+          (x.info.source === 'trainer') - (y.info.source === 'trainer') ||
           x.level - y.level ||
           c.abilityById[x.ability].name.localeCompare(c.abilityById[y.ability].name) ||
           x.rank - y.rank,
