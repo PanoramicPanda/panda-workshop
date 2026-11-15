@@ -11,6 +11,7 @@ import SpeedPanel from './components/SpeedPanel.jsx';
 import RanksPanel from './components/RanksPanel.jsx';
 import FamiliesPanel from './components/FamiliesPanel.jsx';
 import QuirksPanel from './components/QuirksPanel.jsx';
+import Changelog from './components/Changelog.jsx';
 
 const TAB_IDS = new Set(TABS.map((t) => t.id));
 
@@ -109,6 +110,7 @@ export default function App() {
       <section className="panel on" id={tab}>
         {panel}
       </section>
+      <Changelog />
     </div>
   );
 }
