@@ -1,9 +1,10 @@
 ## 2.4.2 — 2026-11-15
 
-- Overview is now two tabs: **Training overview**, how pet training works for every family, and **Family overview**, the family you're viewing.
-- Training overview walks through learning a skill from a wild pet, step by step: stable, tame, fight until learned, abandon, then teach it with Beast Training.
+- Overview is now two tabs: **Training Overview**, how pet training works for every family, and **Family Overview**, the family you're viewing.
+- Training Overview walks through learning a skill from a wild pet, step by step: stable, tame, fight until learned, abandon, then teach it with Beast Training.
 - It also notes that a pet can know up to four active skills at once.
 - **Browse all…** shows each family's fastest attack speed.
+- Tab names and the Pet Family and Hunter Level labels are now in Title Case.
 
 ## 2.4.1 — 2026-11-15
 
