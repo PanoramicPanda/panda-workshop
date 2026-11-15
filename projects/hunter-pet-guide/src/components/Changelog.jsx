@@ -8,7 +8,7 @@ const blocks = parseChangelog(md);
 const Text = ({ parts }) =>
   parts.map((p, i) => (typeof p === 'string' ? p : <b key={i}>{p.bold}</b>));
 
-/** The version number in the corner; clicking it opens CHANGELOG.md in a dialog. */
+/** The version number beside the title; clicking it opens CHANGELOG.md in a dialog. */
 export default function Changelog() {
   const ref = useRef(null);
   const close = () => ref.current?.close();

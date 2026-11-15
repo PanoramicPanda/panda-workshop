@@ -1,5 +1,6 @@
 import { catalog as c } from '../catalog.js';
 import { actives } from '../lib/catalog.js';
+import Changelog from './Changelog.jsx';
 import ThemeToggle from './ThemeToggle.jsx';
 
 export default function Header({ fam }) {
@@ -8,8 +9,13 @@ export default function Header({ fam }) {
   return (
     <header>
       <div>
-        <h1>🐾 {family.name} Training Guide</h1>
-        <p className="sub">Hunter pets · {skills} · pet links open Wowhead Forever in a new tab</p>
+        <div className="title-row">
+          <h1>🐾 Hunter Pet Training Guide</h1>
+          <Changelog />
+        </div>
+        <p className="sub">
+          {family.name} · {skills} · pet links open Wowhead Forever in a new tab
+        </p>
       </div>
       <ThemeToggle />
     </header>

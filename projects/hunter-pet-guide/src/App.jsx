@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { catalog as c } from './catalog.js';
 import { buildPlan } from './lib/plans.js';
 import { useStored } from './lib/storage.js';
@@ -11,7 +11,6 @@ import SpeedPanel from './components/SpeedPanel.jsx';
 import RanksPanel from './components/RanksPanel.jsx';
 import FamiliesDialog from './components/FamiliesDialog.jsx';
 import QuirksPanel from './components/QuirksPanel.jsx';
-import Changelog from './components/Changelog.jsx';
 
 const TAB_IDS = new Set(TABS.map((t) => t.id));
 
@@ -46,11 +45,6 @@ export default function App() {
   // 0 means no level limit: either no level entered or the toggle is off.
   const maxLvl = hideHigh && lvl ? lvl : 0;
   const settings = useMemo(() => ({ fam, fac, zep, maxLvl }), [fam, fac, zep, maxLvl]);
-  const family = c.familyById[fam];
-
-  useEffect(() => {
-    document.title = `${family.name} Pet Training Guide`;
-  }, [family]);
 
   const closeBrowse = () => {
     setBrowsing(false);
@@ -116,7 +110,6 @@ export default function App() {
       <section className="panel on" id={tab}>
         {panel}
       </section>
-      <Changelog />
     </div>
   );
 }
