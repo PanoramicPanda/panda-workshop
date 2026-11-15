@@ -5,7 +5,8 @@ import { useStored } from './lib/storage.js';
 import Header from './components/Header.jsx';
 import Controls from './components/Controls.jsx';
 import Tabs, { TABS } from './components/Tabs.jsx';
-import OverviewPanel from './components/OverviewPanel.jsx';
+import FamilyPanel from './components/FamilyPanel.jsx';
+import TrainingPanel from './components/TrainingPanel.jsx';
 import PlanPanel from './components/PlanPanel.jsx';
 import SpeedPanel from './components/SpeedPanel.jsx';
 import RanksPanel from './components/RanksPanel.jsx';
@@ -21,7 +22,7 @@ const parseZep = (v) => v !== '0';
 const saveZep = (v) => (v ? '1' : '0');
 const parseLvl = (v) => parseInt(v, 10) || 0;
 // The old Plan A / Plan B tabs were merged into one plan; old links and saved tabs land on it.
-// All families became the "Browse all" dialog: old links land on Overview with it open.
+// All families became the "Browse all" dialog: old links land on Training overview with it open.
 const OLD_TABS = { planA: 'plan', planB: 'plan', fams: 'rules' };
 const tabId = (v) => OLD_TABS[v] ?? v;
 // The URL hash (e.g. #ranks) wins over the last tab viewed.
@@ -87,8 +88,11 @@ export default function App() {
     case 'more':
       panel = <QuirksPanel fam={fam} />;
       break;
+    case 'family':
+      panel = <FamilyPanel settings={settings} />;
+      break;
     default:
-      panel = <OverviewPanel settings={settings} />;
+      panel = <TrainingPanel />;
   }
 
   return (
