@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { catalog as c } from '../catalog.js';
 import { passives } from '../lib/catalog.js';
 import { zonesOf } from '../lib/plans.js';
-import { readStored, tickKey, useStored, writeStored } from '../lib/storage.js';
+import { readTick, tickKey, useStored, writeTick } from '../lib/storage.js';
 import PlanItem from './PlanItem.jsx';
 
 const parseShowDone = (v) => v === '1';
@@ -13,10 +13,13 @@ const saveShowDone = (v) => (v ? '1' : '0');
  * Remounted (via `key`) when the family, continent or Zephras setting changes.
  */
 export default function PlanPanel({ plan, title, sub, stops, settings, allRanks, setAllRanks }) {
-  const { fam, fac } = settings;
-  const keyOf = (x) => tickKey(plan, fam, fac, x.ability, x.rank);
-  const keys = stops.flatMap((s) => s.items.map(keyOf));
-  const [ticks, setTicks] = useState(() => Object.fromEntries(keys.map((k) => [k, readStored(k) === '1'])));
+  const { fam } = settings;
+  const keyOf = (x) => tickKey(plan, x.ability, x.rank);
+  const items = stops.flatMap((s) => s.items);
+  const keys = items.map(keyOf);
+  const [ticks, setTicks] = useState(() =>
+    Object.fromEntries(items.map((x) => [keyOf(x), readTick(plan, x.ability, x.rank)])),
+  );
   const [showDone, setShowDone] = useStored('hpg-showdone', parseShowDone, saveShowDone);
   const doneCount = keys.filter((k) => ticks[k]).length;
 
@@ -25,12 +28,12 @@ export default function PlanPanel({ plan, title, sub, stops, settings, allRanks,
     .map((stop) => ({ ...stop, items: showDone ? stop.items : stop.items.filter((x) => !ticks[keyOf(x)]) }))
     .filter((stop) => stop.items.length);
 
-  const setTick = (k, on) => {
-    writeStored(k, on ? '1' : '0');
-    setTicks((t) => ({ ...t, [k]: on }));
+  const setTick = (x, on) => {
+    writeTick(plan, x.ability, x.rank, on);
+    setTicks((t) => ({ ...t, [keyOf(x)]: on }));
   };
   const clear = () => {
-    keys.forEach((k) => writeStored(k, '0'));
+    items.forEach((x) => writeTick(plan, x.ability, x.rank, false));
     setTicks(Object.fromEntries(keys.map((k) => [k, false])));
   };
 
@@ -64,7 +67,7 @@ export default function PlanPanel({ plan, title, sub, stops, settings, allRanks,
           <ul className="plain">
             {stop.items.map((x) => {
               const k = keyOf(x);
-              return <PlanItem key={k} item={x} settings={settings} checked={!!ticks[k]} onCheck={(on) => setTick(k, on)} />;
+              return <PlanItem key={k} item={x} settings={settings} checked={!!ticks[k]} onCheck={(on) => setTick(x, on)} />;
             })}
           </ul>
         </div>

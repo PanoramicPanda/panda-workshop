@@ -57,7 +57,7 @@ export default function TrainingPanel() {
         </ul>
       </div>
       <p className="small">
-        Tick boxes are saved in this browser, per family and continent; ticked skills hide until you tick "Show checked".
+        Tick boxes are saved in this browser, and shared by every family and continent, since you learn a skill once for all your pets; ticked skills hide until you tick "Show checked".
         Enter your hunter level at the top to hide pets you can't tame yet. Data source: wow-petopia.com/forever.
       </p>
     </>
