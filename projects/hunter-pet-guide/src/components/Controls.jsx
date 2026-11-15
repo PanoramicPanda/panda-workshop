@@ -1,21 +1,26 @@
 import { catalog as c } from '../catalog.js';
 import { SIDES } from '../lib/region.js';
 
-export default function Controls({ settings, setFam, setFac, setZep, lvl, setLvl, hideHigh, setHideHigh }) {
+export default function Controls({ settings, setFam, setFac, setZep, lvl, setLvl, hideHigh, setHideHigh, onBrowse }) {
   const { fam, fac, zep } = settings;
   return (
     <>
       <div className="ctl">
-        <label>
-          <b>Pet family:</b>{' '}
-          <select value={fam} onChange={(e) => setFam(e.target.value)}>
-            {c.families.map((f) => (
-              <option key={f.id} value={f.id}>
-                {f.name}
-              </option>
-            ))}
-          </select>
-        </label>
+        <span className="fam-pick">
+          <label>
+            <b>Pet family:</b>{' '}
+            <select value={fam} onChange={(e) => setFam(e.target.value)}>
+              {c.families.map((f) => (
+                <option key={f.id} value={f.id}>
+                  {f.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button type="button" className="btn" onClick={onBrowse}>
+            Browse all…
+          </button>
+        </span>
         <span>
           <b>Continent:</b>
         </span>

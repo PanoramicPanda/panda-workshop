@@ -18,14 +18,14 @@ export default function Changelog() {
         v{version}
       </button>
       {/* Clicking the backdrop (the dialog itself, outside its box) closes it. */}
-      <dialog ref={ref} className="changelog" onClick={(e) => e.target === ref.current && close()}>
-        <div className="changelog-head">
+      <dialog ref={ref} className="modal" onClick={(e) => e.target === ref.current && close()}>
+        <div className="modal-head">
           <h2>Changelog</h2>
           <button type="button" className="btn" onClick={close}>
             Close
           </button>
         </div>
-        <div className="changelog-body">
+        <div className="modal-body">
           {blocks.map((b, i) => {
             if (b.type === 'h') return <h3 key={i}><Text parts={b.text} /></h3>;
             if (b.type === 'ul')

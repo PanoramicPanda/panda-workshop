@@ -1,9 +1,10 @@
 import { Fragment } from 'react';
 import { catalog as c } from '../catalog.js';
-import { actives, passives } from '../lib/catalog.js';
+import { actives, passives, uniqueAbilities } from '../lib/catalog.js';
 import { multiSkillPets } from '../lib/plans.js';
 import { REGION_NAMES, otherRegion, placeName } from '../lib/region.js';
 import PetLink from './PetLink.jsx';
+import { Unique } from './FamiliesDialog.jsx';
 
 export default function OverviewPanel({ settings }) {
   const { fam, fac, zep } = settings;
@@ -11,6 +12,7 @@ export default function OverviewPanel({ settings }) {
   const mine = placeName(fac);
   const other = REGION_NAMES[otherRegion(fac)];
   const best = multiSkillPets(c, settings).slice(0, 12);
+  const unique = uniqueAbilities(c)[fam];
 
   return (
     <>
@@ -37,6 +39,19 @@ export default function OverviewPanel({ settings }) {
             <>
               , {family.extra.join(', ')} <small>(listed on Petopia's family page, no rank data)</small>
             </>
+          )}
+        </p>
+        <p>
+          <b>Unique to {family.name}:</b>{' '}
+          {unique.length ? (
+            unique.map((u, i) => (
+              <Fragment key={u.name}>
+                {i > 0 && ', '}
+                <Unique>{u.name}</Unique>
+              </Fragment>
+            ))
+          ) : (
+            <small>nothing; every skill is shared with another family</small>
           )}
         </p>
         <p>

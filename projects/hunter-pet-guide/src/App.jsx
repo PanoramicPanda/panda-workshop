@@ -9,7 +9,7 @@ import OverviewPanel from './components/OverviewPanel.jsx';
 import PlanPanel from './components/PlanPanel.jsx';
 import SpeedPanel from './components/SpeedPanel.jsx';
 import RanksPanel from './components/RanksPanel.jsx';
-import FamiliesPanel from './components/FamiliesPanel.jsx';
+import FamiliesDialog from './components/FamiliesDialog.jsx';
 import QuirksPanel from './components/QuirksPanel.jsx';
 import Changelog from './components/Changelog.jsx';
 
@@ -22,7 +22,8 @@ const parseZep = (v) => v !== '0';
 const saveZep = (v) => (v ? '1' : '0');
 const parseLvl = (v) => parseInt(v, 10) || 0;
 // The old Plan A / Plan B tabs were merged into one plan; old links and saved tabs land on it.
-const OLD_TABS = { planA: 'plan', planB: 'plan' };
+// All families became the "Browse all" dialog: old links land on Overview with it open.
+const OLD_TABS = { planA: 'plan', planB: 'plan', fams: 'rules' };
 const tabId = (v) => OLD_TABS[v] ?? v;
 // The URL hash (e.g. #ranks) wins over the last tab viewed.
 const parseTab = (v) => {
@@ -40,6 +41,7 @@ export default function App() {
   const [allRanks, setAllRanks] = useStored('hpg-allranks', (v) => v === '1', saveZep);
   const [tab, setTab] = useStored('hpg-tab', parseTab);
   const [query, setQuery] = useState('');
+  const [browsing, setBrowsing] = useState(() => window.location.hash === '#fams');
 
   // 0 means no level limit: either no level entered or the toggle is off.
   const maxLvl = hideHigh && lvl ? lvl : 0;
@@ -50,9 +52,14 @@ export default function App() {
     document.title = `${family.name} Pet Training Guide`;
   }, [family]);
 
+  const closeBrowse = () => {
+    setBrowsing(false);
+    // Drop an old #fams link's hash so a reload doesn't reopen the dialog.
+    if (window.location.hash === '#fams') window.history.replaceState(null, '', window.location.pathname);
+  };
   const pickFamily = (id) => {
     setFam(id);
-    setTab('rules');
+    closeBrowse();
   };
 
   const planKey = `${fam}-${fac}-${zep}-${maxLvl}-${allRanks}`;
@@ -83,9 +90,6 @@ export default function App() {
     case 'ranks':
       panel = <RanksPanel settings={settings} query={query} setQuery={setQuery} />;
       break;
-    case 'fams':
-      panel = <FamiliesPanel fam={fam} onPick={pickFamily} />;
-      break;
     case 'more':
       panel = <QuirksPanel fam={fam} />;
       break;
@@ -105,7 +109,9 @@ export default function App() {
         setLvl={setLvl}
         hideHigh={hideHigh}
         setHideHigh={setHideHigh}
+        onBrowse={() => setBrowsing(true)}
       />
+      <FamiliesDialog open={browsing} fam={fam} onPick={pickFamily} onClose={closeBrowse} />
       <Tabs tab={tab} setTab={setTab} />
       <section className="panel on" id={tab}>
         {panel}
