@@ -21,7 +21,7 @@ export default function QuirksPanel({ fam }) {
         </p>
         <p className="small">
           Upgrading a rank refunds the lower rank, so only the final ranks count. I did not check how many TP a pet has at
-          each level. Passive skills (see All ranks) cost extra TP.
+          each level. Passive skills (see All Ranks) cost extra TP.
         </p>
       </div>
 

@@ -63,7 +63,7 @@ export default function RanksPanel({ settings, query, setQuery }) {
   const q = query.toLowerCase();
   return (
     <>
-      <h2>All ranks — {c.familyById[fam].name}</h2>
+      <h2>All Ranks — {c.familyById[fam].name}</h2>
       <div className="row">
         <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Filter by pet, family or zone…" />
       </div>

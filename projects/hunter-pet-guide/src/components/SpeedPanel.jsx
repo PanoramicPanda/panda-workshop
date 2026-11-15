@@ -16,7 +16,7 @@ export default function SpeedPanel({ settings }) {
         Attack speed does not change a pet's DPS: faster pets hit more often for proportionally less. It mostly matters in
         PvP and for interrupts. A pet keeps the speed of the creature you tame.
       </div>
-      {maxLvl > 0 && <p className="small">Showing pets up to level {maxLvl} (set by Hunter level above).</p>}
+      {maxLvl > 0 && <p className="small">Showing pets up to level {maxLvl} (set by Hunter Level above).</p>}
       {groups.map((g) => (
         <div className="card rk-card" key={g.speed}>
           {/* The default 2.0 group is the big one, so it starts closed. */}

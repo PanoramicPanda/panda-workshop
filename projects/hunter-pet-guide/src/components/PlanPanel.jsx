@@ -70,7 +70,7 @@ export default function PlanPanel({ plan, title, sub, stops, settings, allRanks,
         </div>
       ))}
       <p className="small">
-        Also from the pet trainer (see All ranks): {passives(c, fam).map((a) => a.name).join(', ')}.
+        Also from the pet trainer (see All Ranks): {passives(c, fam).map((a) => a.name).join(', ')}.
       </p>
     </>
   );

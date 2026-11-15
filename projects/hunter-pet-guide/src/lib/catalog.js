@@ -55,7 +55,7 @@ export const alsoText = (c, petId, cur, fam) =>
     .map(([s, r]) => `${c.abilityById[s].name} ${r}`)
     .join(', ');
 
-/** The text a pet row shows, used by the All ranks filter. */
+/** The text a pet row shows, used by the All Ranks filter. */
 export function petRowText(c, petId, cur, fam, wording = 'also') {
   const p = c.petById[petId];
   const also = alsoText(c, petId, cur, fam);

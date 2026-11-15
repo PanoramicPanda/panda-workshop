@@ -25,7 +25,7 @@ export default function FamiliesDialog({ open, fam, onPick, onClose }) {
     // onClose covers Escape; clicking the backdrop (the dialog itself, outside its box) also closes.
     <dialog ref={ref} className="modal wide" onClose={onClose} onClick={(e) => e.target === ref.current && onClose()}>
       <div className="modal-head">
-        <h2>All families</h2>
+        <h2>All Families</h2>
         <button type="button" className="btn" onClick={onClose}>
           Close
         </button>

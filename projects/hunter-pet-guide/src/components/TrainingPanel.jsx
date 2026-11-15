@@ -10,7 +10,7 @@ export default function TrainingPanel() {
             <b>Stable your main pet</b> at a stable master. You can only have one pet out, and you'll want it back.
           </li>
           <li>
-            <b>Tame a beast that knows the rank</b> you want. The plan and All ranks list which ones do; at level 24+,
+            <b>Tame a beast that knows the rank</b> you want. The Training Plan and All Ranks tabs list which ones do; at level 24+,
             Beast Lore on a beast shows what it knows.
           </li>
           <li>

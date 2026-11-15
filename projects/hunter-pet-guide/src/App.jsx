@@ -22,7 +22,7 @@ const parseZep = (v) => v !== '0';
 const saveZep = (v) => (v ? '1' : '0');
 const parseLvl = (v) => parseInt(v, 10) || 0;
 // The old Plan A / Plan B tabs were merged into one plan; old links and saved tabs land on it.
-// All families became the "Browse all" dialog: old links land on Training overview with it open.
+// All families became the "Browse all" dialog: old links land on Training Overview with it open.
 const OLD_TABS = { planA: 'plan', planB: 'plan', fams: 'rules' };
 const tabId = (v) => OLD_TABS[v] ?? v;
 // The URL hash (e.g. #ranks) wins over the last tab viewed.
@@ -66,7 +66,7 @@ export default function App() {
           key={planKey}
           // Ticks are still saved under the old Plan A key, so they carry over.
           plan="planA"
-          title="Training plan"
+          title="Training Plan"
           sub={
             allRanks
               ? 'One leg per 10 levels. Every rank is listed in order, so you can learn each skill one rank at a time.'

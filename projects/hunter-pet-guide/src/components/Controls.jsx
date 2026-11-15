@@ -8,7 +8,7 @@ export default function Controls({ settings, setFam, setFac, setZep, lvl, setLvl
       <div className="ctl">
         <span className="fam-pick">
           <label>
-            <b>Pet family:</b>{' '}
+            <b>Pet Family:</b>{' '}
             <select value={fam} onChange={(e) => setFam(e.target.value)}>
               {c.families.map((f) => (
                 <option key={f.id} value={f.id}>
@@ -38,7 +38,7 @@ export default function Controls({ settings, setFam, setFac, setZep, lvl, setLvl
       </div>
       <div className="ctl">
         <label>
-          <b>Hunter level:</b>{' '}
+          <b>Hunter Level:</b>{' '}
           <input
             type="number"
             min="1"
