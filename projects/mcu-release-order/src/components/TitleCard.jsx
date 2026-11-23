@@ -27,7 +27,7 @@ export default function TitleCard({ title, state, catalog, list, onGo, headingLe
       {title.encore && (
         <div className="encore">
           <p className="enchead">
-            <span className="chip encchip">Encore Edition</span> {title.encore.date}. {title.encore.note}
+            <span className="chip encchip">Encore Edition</span> {title.encore.note}
           </p>
           <ul>
             {title.encore.scenes.map((s, i) => (
