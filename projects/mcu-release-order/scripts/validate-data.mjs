@@ -14,7 +14,7 @@ export function validate({ titles, phases, watchlists }) {
   const KINDS = ['film', 'series', 'special', 'short'];
   const RELS = ['sets', 'ties'];
   const TITLE_KEYS = new Set(['id', 'phase', 'work', 'title', 'season', 'kind', 'date', 'sortKey', 'releaseNote', 'episodes',
-    'shortTitle', 'adjacent', 'split', 'live', 'soon', 'after', 'note', 'links', 'leadIns', 'series']);
+    'shortTitle', 'adjacent', 'split', 'live', 'soon', 'after', 'note', 'links', 'leadIns', 'series', 'encore']);
   const phaseIds = new Set(phases.map((p) => p.id));
   const ids = new Set();
   const seriesCount = {};
@@ -31,6 +31,14 @@ export function validate({ titles, phases, watchlists }) {
     if (!t.after && !phaseIds.has(t.phase)) problems.push(`${where}: phase ${t.phase} is not in phases.json.`);
     if (typeof t.date !== 'string' || Number.isNaN(startKey(t))) problems.push(`${where}: date "${t.date}" can't be parsed (use "Mon D, YYYY" or add a numeric "sortKey").`);
     if ((t.note.match(/\{\{/g) || []).length !== (t.note.match(/\}\}/g) || []).length) problems.push(`${where}: unbalanced {{spoiler}} markers in note.`);
+    if (t.encore != null) {
+      const e = t.encore;
+      if (typeof e.date !== 'string' || Number.isNaN(Date.parse(e.date))) problems.push(`${where}: encore date "${e.date}" can't be parsed.`);
+      if (!Array.isArray(e.scenes) || !e.scenes.length) problems.push(`${where}: encore needs at least one scene.`);
+      for (const [i, s] of (e.scenes ?? []).entries()) {
+        if (!s.place || !s.text) problems.push(`${where}: encore scene ${i + 1} needs "place" and "text".`);
+      }
+    }
     if (t.series != null) {
       const list = [].concat(t.series);
       if (!list.length || !list.every((s) => typeof s === 'string' && /^[a-z0-9-]+$/.test(s))) {

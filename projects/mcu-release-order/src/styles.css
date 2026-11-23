@@ -83,6 +83,12 @@ ul.links li.seq button.ref{border-bottom-style:dotted}
 .row.adj .card{border-style:dashed;border-left-style:solid}
 .row.adj .spine::after{background:var(--bg);border:3px solid var(--c)}
 .chip.adjchip{border-style:dashed}
+.encore{margin:10px 0 0;padding:10px 0 0;border-top:1px dashed var(--line)}
+.enchead{font-size:.86rem;color:var(--muted);margin:0 0 6px}
+.chip.encchip{display:inline-block;background:linear-gradient(90deg,#B8860B,#E0B84C);border-color:#B8860B;color:#1A1405;font-weight:700;letter-spacing:.02em;margin-right:4px}
+.encore ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+.encore li{font-size:.9rem;display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline}
+.encfmt{font-size:.74rem;color:var(--muted);border:1px dashed var(--line);border-radius:999px;padding:0 7px}
 .row.dw .card{box-shadow:0 0 0 1px var(--dw),0 0 16px -2px var(--dw)}
 .chip.dwchip{background:var(--dw);border-color:var(--dw);color:var(--dwink);font-weight:600}
 .app.noglow .row.dw .card{box-shadow:none}

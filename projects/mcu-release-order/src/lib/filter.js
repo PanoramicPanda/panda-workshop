@@ -46,6 +46,10 @@ export function searchText(title, state, catalog) {
     title.releaseNote,
     visibleNote(title.note, state.hideSpoilers),
   ];
+  if (title.encore) {
+    parts.push('Encore Edition', title.encore.date, title.encore.note);
+    for (const s of title.encore.scenes) parts.push(s.place, s.format, state.hideSpoilers ? 'redacted' : s.text);
+  }
   for (const c of visibleConnections(title, state, catalog)) {
     parts.push(c.label, displayName(catalog.byId[c.to]));
     if (c.text) parts.push(state.hideSpoilers ? 'redacted' : c.text);

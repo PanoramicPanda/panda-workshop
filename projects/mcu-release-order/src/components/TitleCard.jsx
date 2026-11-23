@@ -24,6 +24,22 @@ export default function TitleCard({ title, state, catalog, list, onGo, headingLe
       </div>
       {title.releaseNote && <p className="pause">{title.releaseNote}</p>}
       <Note text={title.note} hideSpoilers={state.hideSpoilers} />
+      {title.encore && (
+        <div className="encore">
+          <p className="enchead">
+            <span className="chip encchip">Encore Edition</span> {title.encore.date}. {title.encore.note}
+          </p>
+          <ul>
+            {title.encore.scenes.map((s, i) => (
+              <li key={i}>
+                <span className="rel">{s.place}</span>
+                {s.format && <span className="encfmt">{s.format}</span>}
+                <Redacted text={s.text} hidden={state.hideSpoilers} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       {conns.length > 0 && (
         <ul className="links">
           {conns.map((c) => (
