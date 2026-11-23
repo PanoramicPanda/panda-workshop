@@ -1080,6 +1080,29 @@
     "kind": "film",
     "date": "Apr 26, 2019",
     "note": "The Avengers try to undo the Snap. {{They use time travel, and Cap hands his shield to Sam.}}",
+    "encore": {
+      "date": "Sep 25, 2026",
+      "note": "The 2026 re-release adds four new scenes, all leading into Doomsday.",
+      "scenes": [
+        {
+          "place": "Extended ending",
+          "text": "A knock interrupts Steve’s dance with Peggy: it’s Loki, still in his TVA jacket, offering to help them both."
+        },
+        {
+          "place": "Mid-credits",
+          "text": "Doctor Doom teleports into Bruce Banner’s underground hideout and takes him away, saying he has come to collect him."
+        },
+        {
+          "place": "Mid-credits",
+          "format": "IMAX and Infinity Vision only",
+          "text": "At the TVA, Mobius, O.B. and Casey watch universes fire on each other as the incursion count climbs toward 3,000."
+        },
+        {
+          "place": "Post-credits",
+          "text": "The hammering that closed the original credits now plays over Victor von Doom forging his mask, echoing Tony building his first suit."
+        }
+      ]
+    },
     "links": [
       {
         "to": "fatws",
@@ -1778,6 +1801,10 @@
       {
         "from": "ff",
         "text": "its post-credits scene sets up Doom’s role."
+      },
+      {
+        "from": "eg",
+        "text": "its 2026 Encore Edition adds Loki finding Steve, Doom collecting Banner, a collapsing multiverse and Doom forging his mask."
       },
       {
         "from": "vq",

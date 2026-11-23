@@ -77,3 +77,11 @@ test('connections to adjacent titles hide while the switch is off', () => {
   assert.ok(!visibleConnections(nwh, state(), catalog).some((c) => c.to === 'sp1'));
   assert.ok(visibleConnections(nwh, state({ showAdjacent: true }), catalog).some((c) => c.to === 'sp1'));
 });
+
+test('Endgame’s Encore Edition scenes are searchable, but only once spoilers are revealed', () => {
+  const eg = catalog.byId.eg;
+  assert.equal(eg.encore.scenes.length, 4);
+  assert.ok(searchText(eg, state(), catalog).includes('encore edition'));
+  assert.ok(!searchText(eg, state(), catalog).includes('mobius'));
+  assert.ok(searchText(eg, state({ hideSpoilers: false }), catalog).includes('mobius'));
+});

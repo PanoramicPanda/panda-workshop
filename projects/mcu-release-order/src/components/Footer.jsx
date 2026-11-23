@@ -11,7 +11,8 @@ export default function Footer() {
         where the seasons actually interleave), Inhumans, Cloak &amp; Dagger, Agents of S.H.I.E.L.D., Agent Carter and Your
         Friendly Neighborhood Spider-Man. Not included: X-Men ’97, Dark Phoenix, The New Mutants, the Fox Fantastic Four
         films, Sony’s other Spider-Man Universe films, the other Marvel TV series (Runaways, Helstrom), Spider-Noir, and
-        theatrical re-releases.
+        theatrical re-releases (except Endgame’s 2026 Encore Edition, whose four new scenes are listed on Endgame’s
+        card because they lead into Doomsday).
       </p>
       <p>
         The green glow marks what to watch before the film picked under “Watching toward”. The default is Disney+’s
