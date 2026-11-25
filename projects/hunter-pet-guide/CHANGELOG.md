@@ -1,3 +1,14 @@
+## 2.4.6 — 2026-11-25
+
+- Pet data refreshed from Petopia Forever: 42 new pets, mostly in **Riverglades** (Eastern Kingdoms), **Mount Hyjal** and **Moonglade** (Kalimdor).
+- New skills: **Mine!** for Birds of Prey (ranks 1 and 3 can be tamed) and **Sonic Blast** for Bats (ranks 1–4).
+- These ranks can now be learned by taming: Charge 4, Demoralizing Screech 2–4, Dismember 3–4, Dust Cloud 3–5, Pinch 3–5, Savage Rend 3 and 5, Swipe 3–5, Tendon Rip 3, and Web 3–4.
+- Many more ranks gain new pets to tame, such as Ta'shkal (Cower 6, Prowl 3), Vale Screamer (Dive 3, Lightning Breath 6) and Ghostfang Alpha (Bite 8, Furious Howl 4).
+- Demoralizing Screech now lasts 30 sec instead of 4, and some bats and owls teach it.
+- Drywallow Snapper now teaches Bite 5 instead of Claw 5.
+- Core Hounds and Lava Breath are gone. Petopia no longer lists the family, and none were tameable.
+- Removed Olm the Wise and Broodmother Valraxx. Greater Lava Spider is now Searing Lava Spider.
+
 ## 2.4.5 — 2026-11-15
 
 - **Attack Speed** now lists every pet of the family, whatever your hunter level. "Hide pets above my level" no longer applies there.
