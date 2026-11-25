@@ -36,11 +36,14 @@ export default function QuirksPanel({ fam }) {
             Spider Dash 3 lists <b>Broodwidow</b> at level 16 (Ruins of Lordaeron). Don't rely on it.
           </li>
           <li>
-            Several abilities (Web, Pinch, Swipe, Dismember, Tendon Rip, Savage Rend, Dust Cloud, Demoralizing Screech, Lava
-            Breath, Charge 2+, Lightning Breath 2+, Thunderstomp 2+) have ranks Petopia marks "no known training source".
-            Plans skip those ranks.
+            Some ranks are marked "no known training source" by Petopia: Dismember 5, Lightning Breath 1, Mine! 2, 4 and 5,
+            Savage Rend 4, Sonic Blast 5, Tendon Rip 4 and 5, Thunderstomp 4, and Web 5. Plans skip those ranks.
           </li>
-          <li>Core Hounds are a family in Forever but Petopia found no tameable ones.</li>
+          <li>
+            Some bats and owls teach Demoralizing Screech, a Carrion Bird skill. Tame one to learn it, then teach it to a
+            Carrion Bird.
+          </li>
+          <li>Core Hounds are left out: Petopia no longer has a page for them and found no tameable ones.</li>
           <li>
             Petopia lists the zone for each pet, not the continent. The Eastern Kingdoms / Kalimdor sorting is mine, by zone
             (below). Check it if a zone surprises you.
