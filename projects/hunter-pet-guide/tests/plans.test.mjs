@@ -29,8 +29,8 @@ test('the plan for Cats in Eastern Kingdoms has one leg per 10 levels', () => {
   // Trainer skills summarise as "name:-:0" (no pets on either continent).
   const tamed = (stop) => stop[1].filter((s) => !s.endsWith(':-:0'));
   assert.deepEqual(tamed(stops[0]), ['cower1:1199:9', 'bite3:1923:7', 'claw3:1189:6']);
-  assert.deepEqual(tamed(stops[2]), ['bite5:2727:7', 'dash1:2727:4', 'prowl1:2731:0', 'cower4:2731:1', 'claw5:7022:3']);
-  assert.deepEqual(tamed(stops[4]), ['dash3:2681:3', 'prowl3:2522:1', 'bite8:9696:0', 'cower6:8602:1', 'claw8:-:2']);
+  assert.deepEqual(tamed(stops[2]), ['bite5:2727:8', 'dash1:2727:5', 'prowl1:2731:0', 'claw5:258818:2', 'cower4:2731:2']);
+  assert.deepEqual(tamed(stops[4]), ['dash3:2681:3', 'prowl3:2522:2', 'bite8:9696:3', 'claw8:-:3', 'cower6:8602:2']);
   // Pet-trainer skills come after the tamed ones in each leg.
   assert.deepEqual(stops[0][1].slice(3), ['growl2:-:0', 'greatstamina3:-:0', 'naturalarmor3:-:0']);
 });
@@ -117,7 +117,10 @@ test('multi-skill pets rank by number of skills, then level', () => {
     { id: 2734, count: 2 },
     { id: 1713, count: 2 },
   ]);
-  assert.deepEqual(multiSkillPets(c, SPIDER_KAL), [{ id: 5286, count: 2 }]);
+  assert.deepEqual(multiSkillPets(c, SPIDER_KAL), [
+    { id: 4725, count: 2 },
+    { id: 5286, count: 2 },
+  ]);
 });
 
 test('"also" notes skip the current rank and skills the family cannot learn', () => {

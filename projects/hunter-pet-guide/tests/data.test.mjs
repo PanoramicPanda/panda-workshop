@@ -32,8 +32,8 @@ test('unique abilities: one family each, including Lightning Breath for Wind Ser
   const u = uniqueAbilities(c);
   assert.deepEqual(u.windserpent.map((x) => x.name), ['Lightning Breath']);
   assert.deepEqual(u.cat.map((x) => x.name), ['Prowl']);
-  assert.equal(u.corehound.find((x) => x.name === 'Lava Breath').obtainable, false);
-  assert.deepEqual(u.birdofprey, [{ name: 'Mine!', ability: null, obtainable: false }]);
+  assert.deepEqual(u.bat, [{ name: 'Sonic Blast', ability: 'sonicblast', obtainable: true }]);
+  assert.deepEqual(u.birdofprey, [{ name: 'Mine!', ability: 'mine', obtainable: true }]);
   // Shared skills (Dive, Bite) and all-family skills (Cower, Growl) never show up.
   const all = Object.values(u).flat().map((x) => x.name);
   for (const name of ['Dive', 'Bite', 'Cower', 'Growl']) assert.ok(!all.includes(name), name);

@@ -21,9 +21,7 @@
     "singular": "Bird of Prey",
     "diet": "Meat",
     "notes": "",
-    "extra": [
-      "Mine!"
-    ]
+    "extra": []
   },
   {
     "id": "boar",
@@ -47,14 +45,6 @@
     "singular": "Cat",
     "diet": "Fish - Meat",
     "notes": "",
-    "extra": []
-  },
-  {
-    "id": "corehound",
-    "name": "Core Hounds",
-    "singular": "Core Hound",
-    "diet": "Meat",
-    "notes": "While Core Hounds are listed as a family in Forever, we didn't find any tameable examples during the Beta test. Hopefully they'll be identified as players reach higher levels!",
     "extra": []
   },
   {

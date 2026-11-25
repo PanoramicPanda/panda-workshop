@@ -15,8 +15,18 @@ const PET_KEYS = new Set(['id', 'name', 'family', 'level', 'zone', 'region', 'sp
 const SOURCES = ['pet', 'trainer', 'none'];
 const REGIONS = ['E', 'K', 'Z'];
 // Petopia lists these pets as teaching a skill their family can't learn. Kept as
-// published; anything new of this kind still fails the build.
-const KNOWN_FAMILY_MISMATCHES = new Set(['bite/4/4825', 'claw/5/4343', 'shellshield/1/4825']);
+// published, since the hunter learns the skill and teaches it to a family that can.
+// Anything new of this kind still fails the build.
+const KNOWN_FAMILY_MISMATCHES = new Set([
+  'bite/4/4825',
+  'shellshield/1/4825',
+  // Bats and owls teaching Carrion Birds' Demoralizing Screech.
+  'demoralizingscreech/2/4861',
+  'demoralizingscreech/3/7097',
+  'demoralizingscreech/3/8927',
+  'demoralizingscreech/4/8602',
+  'demoralizingscreech/4/7456',
+]);
 
 const unknownKeys = (obj, allowed, where, problems) => {
   for (const k of Object.keys(obj)) if (!allowed.has(k)) problems.push(`${where}: unknown field "${k}".`);
